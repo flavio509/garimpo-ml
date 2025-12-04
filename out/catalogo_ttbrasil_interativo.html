@@ -1,0 +1,2558 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Catálogo Interativo (linha a linha)</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<style>
+  body {
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .produto {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .produto img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+  }
+  textarea {
+    width: 100%;
+    height: 60px;
+    resize: vertical;
+  }
+  .acoes button {
+    margin-right: 5px;
+  }
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <h1>Catálogo Interativo (linha a linha)</h1>
+      <div>
+        <button class="btn btn-primary" onclick="adicionarProduto()">+ Adicionar</button>
+        <button class="btn btn-success" onclick="exportarJSON()">Exportar JSON corrigido</button>
+      </div>
+    </div>
+    <div id="lista-produtos">
+
+      <div class="produto" id="produto-0">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-0')"><br>
+          <img id="img-0" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2093">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Com Sede No Rio De Janeiro, Fornecemos Proc A Precos Competitivos Em Todo O Bracil Além Dicen</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="209.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-1">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-1')"><br>
+          <img id="img-1" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2091">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Com Sede No Rio De Janeiro, Fornecemos Proc A Precos Competitivos Em Todo O Bracil Além Dicen</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="3.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-2">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-2')"><br>
+          <img id="img-2" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2092">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Com Sede No Rio De Janeiro, Fornecemos Proc A Precos Competitivos Em Todo O Bracil Além Dicen</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="209.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-3">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-3')"><br>
+          <img id="img-3" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1656">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Com Sede No Rio De Janeiro, Fornecemos Proc A Precos Competitivos Em Todo O Bracil Além Dicen</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-4">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-4')"><br>
+          <img id="img-4" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4223">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Com Sede No Rio De Janeiro, Fornecemos Proc A Precos Competitivos Em Todo O Bracil Além Dicen</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-5">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-5')"><br>
+          <img id="img-5" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4234">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Gu Borrifador Diamante Sortido Gl Chl Material: Pet Capacid Embalas Cx Maste Hr Ncm:¢ Ipi:% Ean:: B=</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="423.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-6">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-6')"><br>
+          <img id="img-6" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3982">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja Mágica E Tira Pélos Ctqq Esponja Magica</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="398.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-7">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-7')"><br>
+          <img id="img-7" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4207">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja Mágica E Tira Pélos Ctqq Esponja Magica</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="420.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-8">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-8')"><br>
+          <img id="img-8" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4222">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja Mágica E Tira Pélos Ctqq Esponja Magica</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="360.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-9">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-9')"><br>
+          <img id="img-9" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4218">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja Mágica E Tira Pélos Ctqq Esponja Magica</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="42.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-10">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-10')"><br>
+          <img id="img-10" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4244">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja Mágica E Tira Pélos Ctqq Esponja Magica</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="19.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-11">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-11')"><br>
+          <img id="img-11" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4247">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja Mágica E Tira Pélos Ctqq Esponja Magica</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="360.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-12">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-12')"><br>
+          <img id="img-12" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4219">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja Mágica E Tira Pélos Ctqq Esponja Magica</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-13">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-13')"><br>
+          <img id="img-13" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1129">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="112.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-14">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-14')"><br>
+          <img id="img-14" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1131">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-15">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-15')"><br>
+          <img id="img-15" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4348">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="10.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-16">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-16')"><br>
+          <img id="img-16" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4349">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="10.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-17">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-17')"><br>
+          <img id="img-17" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2886">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="288.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-18">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-18')"><br>
+          <img id="img-18" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1674">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="6.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-19">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-19')"><br>
+          <img id="img-19" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2134">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="12.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-20">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-20')"><br>
+          <img id="img-20" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2887">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="167.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-21">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-21')"><br>
+          <img id="img-21" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4170">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="4.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-22">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-22')"><br>
+          <img id="img-22" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4169">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="72.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-23">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-23')"><br>
+          <img id="img-23" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4046">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="404.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-24">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-24')"><br>
+          <img id="img-24" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4050">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="6.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-25">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-25')"><br>
+          <img id="img-25" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4054">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="11.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-26">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-26')"><br>
+          <img id="img-26" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3989">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-27">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-27')"><br>
+          <img id="img-27" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4047">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-28">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-28')"><br>
+          <img id="img-28" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4055">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="4.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-29">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-29')"><br>
+          <img id="img-29" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4060">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="16.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-30">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-30')"><br>
+          <img id="img-30" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3990">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-31">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-31')"><br>
+          <img id="img-31" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4057">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="30.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-32">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-32')"><br>
+          <img id="img-32" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4049">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="6.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-33">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-33')"><br>
+          <img id="img-33" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4059">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="11.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-34">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-34')"><br>
+          <img id="img-34" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4051">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-35">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-35')"><br>
+          <img id="img-35" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4058">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Plastico E Aço Inox @Puxe O Also Para Cima: O Esfregão Está Pronto Para O Trabalho. @Puxe A Alga Para Baixo: Remova O Ex</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="405.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-36">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-36')"><br>
+          <img id="img-36" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4048">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Agem: Solapa Ster / Mitp.: /% ~ S/St Regular</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="404.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-37">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-37')"><br>
+          <img id="img-37" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4039">
+          <label>Título</label>
+          <textarea class="form-control mb-1">S/St / Prateleiras</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="403.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-38">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-38')"><br>
+          <img id="img-38" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4041">
+          <label>Título</label>
+          <textarea class="form-control mb-1">S/St / Prateleiras</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-39">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-39')"><br>
+          <img id="img-39" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4043">
+          <label>Título</label>
+          <textarea class="form-control mb-1">S/St / Prateleiras</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="4.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-40">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-40')"><br>
+          <img id="img-40" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3986">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Me Da Da Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="36.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-41">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-41')"><br>
+          <img id="img-41" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4040">
+          <label>Título</label>
+          <textarea class="form-control mb-1">S/St / Prateleiras</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="80.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-42">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-42')"><br>
+          <img id="img-42" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4044">
+          <label>Título</label>
+          <textarea class="form-control mb-1">S/St / Prateleiras</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="60.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-43">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-43')"><br>
+          <img id="img-43" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4045">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Me Da Da Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="30.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-44">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-44')"><br>
+          <img id="img-44" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4042">
+          <label>Título</label>
+          <textarea class="form-control mb-1">S/St / Prateleiras</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="6.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-45">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-45')"><br>
+          <img id="img-45" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4188">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sapateira Organizadora Core Prateleiras Serei Material: Tnte Tubo Medida Cores: Galvanizado Embala Er == Ipi:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="418.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-46">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-46')"><br>
+          <img id="img-46" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4172">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sapateira Organizadora Core Prateleiras Serei Material: Tnte Tubo Medida Cores: Galvanizado Embala Er == Ipi:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-47">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-47')"><br>
+          <img id="img-47" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4174">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sapateira Organizadora Core Prateleiras Serei Material: Tnte Tubo Medida Cores: Galvanizado Embala Er == Ipi:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="2.18">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-48">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-48')"><br>
+          <img id="img-48" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4173">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sapateira Organizadora Core Prateleiras Serei Material: Tnte Tubo Medida Cores: Galvanizado Embala Er == Ipi:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-49">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-49')"><br>
+          <img id="img-49" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4171">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="2.18">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-50">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-50')"><br>
+          <img id="img-50" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4209">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="420.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-51">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-51')"><br>
+          <img id="img-51" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4208">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-52">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-52')"><br>
+          <img id="img-52" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4211">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="420.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-53">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-53')"><br>
+          <img id="img-53" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4210">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-54">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-54')"><br>
+          <img id="img-54" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4212">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="40.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-55">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-55')"><br>
+          <img id="img-55" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4214">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ivlateriai. Tecido Mm, Embal: A Cx Mas ( } Ncm: € Ipi:% Ean:!</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="50.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-56">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-56')"><br>
+          <img id="img-56" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4538">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="50.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-57">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-57')"><br>
+          <img id="img-57" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4213">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ipi:% Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="842.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-58">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-58')"><br>
+          <img id="img-58" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4277">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Puxe As Peças Centrais Permitindo Que O Cesto Abra Completamente.</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="427.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-59">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-59')"><br>
+          <img id="img-59" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4278">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Puxe As Peças Centrais Permitindo Que O Cesto Abra Completamente.</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="7.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-60">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-60')"><br>
+          <img id="img-60" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4442">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Puxe As Peças Centrais Permitindo Que O Cesto Abra Completamente.</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="427.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-61">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-61')"><br>
+          <img id="img-61" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4443">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Puxe As Peças Centrais Permitindo Que O Cesto Abra Completamente.</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-62">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-62')"><br>
+          <img id="img-62" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4330">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="433.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-63">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-63')"><br>
+          <img id="img-63" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4331">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="0.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-64">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-64')"><br>
+          <img id="img-64" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4332">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="6.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-65">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-65')"><br>
+          <img id="img-65" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3815">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="381.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-66">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-66')"><br>
+          <img id="img-66" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3817">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="5.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-67">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-67')"><br>
+          <img id="img-67" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3820">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="3.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-68">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-68')"><br>
+          <img id="img-68" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4202">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="381.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-69">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-69')"><br>
+          <img id="img-69" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3819">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="7.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-70">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-70')"><br>
+          <img id="img-70" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3818">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Oupa Suja Hoxcm N: Cartão Mitp.: / S/St E Cesto Organ Dobrável Sc Material: Malh: Nylon + Arame</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="382.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-71">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-71')"><br>
+          <img id="img-71" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4175">
+          <label>Título</label>
+          <textarea class="form-control mb-1">: Solapa Mitp.:/ S/St</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="417.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-72">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-72')"><br>
+          <img id="img-72" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4181">
+          <label>Título</label>
+          <textarea class="form-control mb-1">: Solapa Mitp.:/ S/St</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="5.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-73">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-73')"><br>
+          <img id="img-73" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4180">
+          <label>Título</label>
+          <textarea class="form-control mb-1">: Solapa Mitp.:/ S/St</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="418.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-74">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-74')"><br>
+          <img id="img-74" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4179">
+          <label>Título</label>
+          <textarea class="form-control mb-1">: Solapa Mitp.:/ S/St</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-75">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-75')"><br>
+          <img id="img-75" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4178">
+          <label>Título</label>
+          <textarea class="form-control mb-1">: Solapa Mitp.:/ S/St</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="90.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-76">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-76')"><br>
+          <img id="img-76" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4177">
+          <label>Título</label>
+          <textarea class="form-control mb-1">: Solapa Mitp.:/ S/St</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="16.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-77">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-77')"><br>
+          <img id="img-77" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1069">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja De Banho É É Esponja De Banho Frutas Sortida Serio Material: Esp O Onja I Esponja De B  Material: Espon;</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="106.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-78">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-78')"><br>
+          <img id="img-78" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT107">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja De Banho É É Esponja De Banho Frutas Sortida Serio Material: Esp O Onja I Esponja De B  Material: Espon;</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-79">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-79')"><br>
+          <img id="img-79" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3971">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja De Banho É É Esponja De Banho Frutas Sortida Serio Material: Esp O Onja I Esponja De B  Material: Espon;</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="397.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-80">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-80')"><br>
+          <img id="img-80" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3970">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja De Banho É É Esponja De Banho Frutas Sortida Serio Material: Esp O Onja I Esponja De B  Material: Espon;</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-81">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-81')"><br>
+          <img id="img-81" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1070">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Esponja De Banho É É Esponja De Banho Frutas Sortida Serio Material: Esp O Onja I Esponja De B  Material: Espon;</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="0.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-82">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-82')"><br>
+          <img id="img-82" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4510">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="451.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-83">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-83')"><br>
+          <img id="img-83" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4511">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="3.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-84">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-84')"><br>
+          <img id="img-84" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4513">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="451.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-85">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-85')"><br>
+          <img id="img-85" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4514">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-86">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-86')"><br>
+          <img id="img-86" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4285">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="60.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-87">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-87')"><br>
+          <img id="img-87" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4322">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="12.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-88">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-88')"><br>
+          <img id="img-88" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4346">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="691.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-89">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-89')"><br>
+          <img id="img-89" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4321">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="200.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-90">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-90')"><br>
+          <img id="img-90" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4323">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-91">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-91')"><br>
+          <img id="img-91" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4360">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="6.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-92">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-92')"><br>
+          <img id="img-92" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4241">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="424.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-93">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-93')"><br>
+          <img id="img-93" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CTA299">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-94">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-94')"><br>
+          <img id="img-94" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4279">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="4.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-95">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-95')"><br>
+          <img id="img-95" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CTA292">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Sortida Ea Esponja D Lidas: Cm R Rs | Material: Es Alagem: Etiqueta Naster / Mitp.: / An: Co</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-96">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-96')"><br>
+          <img id="img-96" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4363">
+          <label>Título</label>
+          <textarea class="form-control mb-1">+Plástico Pp + Abs —F A Embal: Cx Ma: Ncm: | Ipi: Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="436.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-97">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-97')"><br>
+          <img id="img-97" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4362">
+          <label>Título</label>
+          <textarea class="form-control mb-1">+Plástico Pp + Abs —F A Embal: Cx Ma: Ncm: | Ipi: Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="436.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-98">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-98')"><br>
+          <img id="img-98" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT0407">
+          <label>Título</label>
+          <textarea class="form-control mb-1">+Plástico Pp + Abs —F A Embal: Cx Ma: Ncm: | Ipi: Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="40.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-99">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-99')"><br>
+          <img id="img-99" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT0409">
+          <label>Título</label>
+          <textarea class="form-control mb-1">+Plástico Pp + Abs —F A Embal: Cx Ma: Ncm: | Ipi: Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="7.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-100">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-100')"><br>
+          <img id="img-100" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3096">
+          <label>Título</label>
+          <textarea class="form-control mb-1">+Plástico Pp + Abs —F A Embal: Cx Ma: Ncm: | Ipi: Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.5">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-101">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-101')"><br>
+          <img id="img-101" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3092">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Hy As Pl. Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="309.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-102">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-102')"><br>
+          <img id="img-102" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4127">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Hy As Pl. Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="412.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-103">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-103')"><br>
+          <img id="img-103" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4126">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Hy As Pl. Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="412.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-104">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-104')"><br>
+          <img id="img-104" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4125">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Hy As Pl. Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="412.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-105">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-105')"><br>
+          <img id="img-105" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4403">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Hy As Pl. Ean:</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="440.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-106">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-106')"><br>
+          <img id="img-106" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4404">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ift. O, On A Ean: = Pontas Emborrachadas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="3.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-107">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-107')"><br>
+          <img id="img-107" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4795">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ift. O, On A Ean: = Pontas Emborrachadas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="24.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-108">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-108')"><br>
+          <img id="img-108" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4405">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ift. O, On A Ean: = Pontas Emborrachadas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="1.4">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-109">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-109')"><br>
+          <img id="img-109" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4398">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ift. O, On A Ean: = Pontas Emborrachadas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="439.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-110">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-110')"><br>
+          <img id="img-110" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4399">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ift. O, On A Ean: = Pontas Emborrachadas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-111">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-111')"><br>
+          <img id="img-111" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4402">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ift. O, On A Ean: = Pontas Emborrachadas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="70.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-112">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-112')"><br>
+          <img id="img-112" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4400">
+          <label>Título</label>
+          <textarea class="form-control mb-1">S/St + Pontas Emb\</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="440.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-113">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-113')"><br>
+          <img id="img-113" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1749">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ph. Roluio + / Mitp.:/ S/St Pontas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="174.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-114">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-114')"><br>
+          <img id="img-114" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2131">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ph. Roluio + / Mitp.:/ S/St Pontas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="9.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-115">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-115')"><br>
+          <img id="img-115" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1747">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ph. Roluio + / Mitp.:/ S/St Pontas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="36.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-116">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-116')"><br>
+          <img id="img-116" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2130">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ph. Roluio + / Mitp.:/ S/St Pontas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="67.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-117">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-117')"><br>
+          <img id="img-117" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1064">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="30.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-118">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-118')"><br>
+          <img id="img-118" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1746">
+          <label>Título</label>
+          <textarea class="form-control mb-1">Ph. Roluio + / Mitp.:/ S/St Pontas</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="6.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-119">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-119')"><br>
+          <img id="img-119" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4344">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="434.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-120">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-120')"><br>
+          <img id="img-120" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3026">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="4.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-121">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-121')"><br>
+          <img id="img-121" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1047">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="40.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-122">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-122')"><br>
+          <img id="img-122" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT3025">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="60.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-123">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-123')"><br>
+          <img id="img-123" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT4343">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="50.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-124">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-124')"><br>
+          <img id="img-124" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT1046">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="10.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-125">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-125')"><br>
+          <img id="img-125" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT0087">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="8.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-126">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-126')"><br>
+          <img id="img-126" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2116">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="7.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+      <div class="produto" id="produto-127">
+        <div>
+          <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-127')"><br>
+          <img id="img-127" src="" alt="">
+        </div>
+        <div style="flex:1">
+          <label>Código</label>
+          <input type="text" class="form-control mb-1" value="CT2082">
+          <label>Título</label>
+          <textarea class="form-control mb-1">A Ipi: Ona Ean: Ppa Sas Tanoto Mal Dara Rav Carne</textarea>
+          <label>Preço</label>
+          <input type="text" class="form-control mb-1" value="208.0">
+        </div>
+        <div class="acoes">
+          <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+          <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+<script>
+function carregarImagem(event, id) {
+  const img = document.getElementById(id);
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = e => img.src = e.target.result;
+    reader.readAsDataURL(file);
+  }
+}
+
+function removerProduto(botao) {
+  botao.closest('.produto').remove();
+}
+
+function adicionarProduto() {
+  const lista = document.getElementById('lista-produtos');
+  const id = Date.now();
+  const novo = document.createElement('div');
+  novo.classList.add('produto');
+  novo.innerHTML = `
+    <div>
+      <input type="file" accept="image/*" onchange="carregarImagem(event, 'img-${id}')"><br>
+      <img id="img-${id}" src="" alt="">
+    </div>
+    <div style="flex:1">
+      <label>Código</label>
+      <input type="text" class="form-control mb-1" value="">
+      <label>Título</label>
+      <textarea class="form-control mb-1"></textarea>
+      <label>Preço</label>
+      <input type="text" class="form-control mb-1" value="">
+    </div>
+    <div class="acoes">
+      <button class="btn btn-success" onclick="salvarProduto(this)">Salvar</button>
+      <button class="btn btn-danger" onclick="removerProduto(this)">Remover</button>
+    </div>`;
+  lista.appendChild(novo);
+}
+
+function salvarProduto(botao) {
+  const card = botao.closest('.produto');
+  card.style.backgroundColor = '#e7f9ed';
+  setTimeout(() => card.style.backgroundColor = 'white', 600);
+}
+
+function exportarJSON() {
+  const produtos = [];
+  document.querySelectorAll('.produto').forEach(card => {
+    const campos = card.querySelectorAll('input[type=text], textarea');
+    const img = card.querySelector('img').src;
+    produtos.push({
+      codigo: campos[0].value.trim(),
+      nome: campos[1].value.trim(),
+      preco: campos[2].value.trim(),
+      imagem: img || null
+    });
+  });
+  const blob = new Blob([JSON.stringify(produtos, null, 2)], {type: "application/json;charset=utf-8"});
+  saveAs(blob, "catalogo_ttbrasil_corrigido.json");
+  alert("✅ JSON exportado com sucesso!");
+}
+</script>
+</body>
+</html>

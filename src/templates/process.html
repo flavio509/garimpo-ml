@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Processamento – Garimpo ML</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fafafa; padding: 40px; }
+    .card { max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h2 { color: #333; text-align: center; }
+    .info { background: #eef; padding: 10px; border-left: 4px solid #007bff; margin-top: 20px; }
+    button { background: #007bff; color: white; padding: 12px 20px; border: none; border-radius: 6px; margin-top: 20px; cursor: pointer; width: 100%; font-size: 16px; }
+    button:hover { background: #0056b3; }
+    #msg { margin-top: 20px; padding: 10px; border-left: 4px solid #007bff; background: #eef; display:none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Processamento de Arquivo</h2>
+    <div class="info">
+      <p><strong>Fornecedor:</strong> {{ supplier }}</p>
+      <p><strong>Arquivo:</strong> {{ filename }}</p>
+      <p><strong>Caminho:</strong> {{ upload_path }}</p>
+      <p><strong>Job ID:</strong> {{ job_id }}</p>
+      <p><strong>Data do job:</strong> {{ date_tag }}</p>
+    </div>
+
+    <button id="startBtn">Iniciar processo de extração</button>
+    <div id="msg">⏳ Iniciando extração...</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("startBtn");
+    const msg = document.getElementById("msg");
+    const jobId = "{{ job_id }}";
+
+    btn.addEventListener("click", () => {
+      btn.disabled = true;
+      btn.innerText = "⏳ Processando...";
+      msg.style.display = "block";
+      msg.innerText = "⏳ Executando pipeline de extração...";
+
+      // Chama diretamente o pipeline 2810 via /process-run/<job_id>
+      window.location.href = `/meuapp/process-run/${jobId}`;
+    });
+  </script>
+</body>
+</html>

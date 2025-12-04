@@ -1,0 +1,3890 @@
+{
+  "schema": "GarimpoCatalog.v1",
+  "created_at": "2025-10-23T14:58:01Z",
+  "updated_at": "2025-10-23T23:41:17+00:00",
+  "produtos": [
+    {
+      "titulo": "",
+      "preco": "R$",
+      "descricao": "R$ 5,00",
+      "fornecedor": "ttbrasil",
+      "origin": "html",
+      "created_at": "2025-10-23T17:48:26.609388+00:00"
+    },
+    {
+      "titulo": "[",
+      "preco": "[R$",
+      "descricao": "[R$ 33,00 J",
+      "fornecedor": "ttbrasil",
+      "origin": "html",
+      "created_at": "2025-10-23T17:48:26.609880+00:00"
+    },
+    {
+      "titulo": "b",
+      "preco": "bR$5z40",
+      "descricao": "bR$5z40",
+      "fornecedor": "ttbrasil",
+      "origin": "html",
+      "created_at": "2025-10-23T17:48:26.610898+00:00"
+    },
+    {
+      "titulo": "L",
+      "preco": "LR$",
+      "descricao": "LR$ 13,60 ^",
+      "fornecedor": "ttbrasil",
+      "origin": "html",
+      "created_at": "2025-10-23T17:48:26.611058+00:00"
+    },
+    {
+      "titulo": "k",
+      "preco": "kR$",
+      "descricao": "kR$ 9,40",
+      "fornecedor": "ttbrasil",
+      "origin": "html",
+      "created_at": "2025-10-23T17:48:26.611396+00:00"
+    },
+    {
+      "titulo": ".",
+      "preco": ".R$51,80",
+      "descricao": ".R$51,80 .",
+      "fornecedor": "ttbrasil",
+      "origin": "html",
+      "created_at": "2025-10-23T17:48:26.612038+00:00"
+    },
+    {
+      "titulo": "^",
+      "preco": "R$",
+      "descricao": "^ R$ 18,004",
+      "fornecedor": "ttbrasil",
+      "origin": "html",
+      "created_at": "2025-10-23T17:48:26.612641+00:00"
+    },
+    {
+      "id": "gar_dfaf496c64d6166b7c05",
+      "titulo": "BORRIFADORES E PANOS MULTIUSO ® TTGRASIL CT2093 Borrifador Animal Print Sortido CT2091 Borrifador Sortido SEALY material Pet Capacidade 300ML SED Material Pet Capacidade 360ML Embalagem Solapa E",
+      "preco": "R$ 12,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_2ae84b8751f8af107b44",
+      "titulo": "PANO MULTIUSO ® TTGRASIL CT4234 Pano Multiuso Para Limpeza Rolo Com 50 Unidades Sortido Material TNT Medidas 20X30CM / 15M  Embalagem Cartdo ROLOcomM CMaster / Mitp. 150 / 30 15 METROS NCM 630",
+      "preco": "R$ 2,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_59bbdb7e2a5b8eaf3447",
+      "titulo": "ESPONJA  RODO  IMA y . CORDA DE SEGURANCGA 4 CT4341 Papa Bolinhas a Pilha RS iLO AU Material Pldstico ABS + Medidas 5,5X7,5X10CM PS E Aco Inoxidavel Embalagem Caixa  Cx Master / MItp. 120 / 2",
+      "preco": "R$ 20,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_bc7ad2bab4de96b13ed9",
+      "titulo": "MOP GIRATORIO % TT BRASIL CT42 18 Mop Giratdorio Com Refil E Balde",
+      "preco": "R$ 33,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_8a6746ba0db64c244a90",
+      "titulo": "MOP GIRATORIO % TT BRASIL CT42 18 Mop Giratdorio Com Refil E Balde RS 33,00 Material Microfibra, j Plastico e Aco Inox Medidas Mop 107CM Nao Solta Fiapos Balde 45,5X26CM  Refil 21X8CM  Cabo em",
+      "preco": "R$ 21,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_a37ceb37bc464718a399",
+      "titulo": "CORDAS PARA VARAL E VARAL % TTBRASIL CTl1 1 29 Corda Para Varal 10M Sortida CT1131 Corda Para Varal 20M Sortida",
+      "preco": "R$ 3,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_1ab4841c4c2c6e936d59",
+      "titulo": "CORDAS PARA VARAL E VARAL % TTBRASIL CTl1 1 29 Corda Para Varal 10M Sortida CT1131 Corda Para Varal 20M Sortida RS 3,00 Material Polietileno Medidas 10M",
+      "preco": "R$ 4,40",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_881ac5ed80e72322dd65",
+      "titulo": "CORDAS PARA VARAL E VARAL % TTBRASIL CTl1 1 29 Corda Para Varal 10M Sortida CT1131 Corda Para Varal 20M Sortida RS 3,00 Material Polietileno Medidas 10M RS 4,40 Material Polietileno Medidas 20M E",
+      "preco": "R$ 16,90",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_8809ea63c9303eea6095",
+      "titulo": "PREGADORES ® TTGRASIL CTJ2886 Kit 12 Pecas Pregadores Sortidos",
+      "preco": "R$ 7,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_5bbb46bda6e28ef4089b",
+      "titulo": "PREGADORES ® TTGRASIL CTJ2886 Kit 12 Pecas Pregadores Sortidos RS 7,80 Material Plastico atm cit   eg  Sit CT4170  Ata oe sie oo f Medidas CM Embalagem Solapa Cx Master / Mitp. 72 / 12 NC",
+      "preco": "R$ 3,70",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_af81aac660410087a125",
+      "titulo": "ORGANIZACAO CT4046 Porta Escova Pasta De Dente De Parede Branco Material Plastico Medidas 11,9X9,4X16,1CM Embalagem Solapa Cx Master / Mitp. 24 / 24 _ NCM 39249000 IPI6,5% S/ST EAN 79084255190",
+      "preco": "R$ 12,20",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_16761d6000f9be1d40a8",
+      "titulo": "UTENSILIOS DE PAREDE DE BANHEIRO ® TTBRASIL 12 CT4048 Porta Shampoo Vazado Branco Material Plastico Medidas 30,6X11,8X17,6CM Embalagem Caixa Cx Master / Mitp. 24 / 0 NCM 39249000 IPI6,5% S/ST E",
+      "preco": "R$ 6,20",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_b859f729e65dd140c312",
+      "titulo": "SAPATEIRAS ORGANIZADORAS CT4039 Sapateira Organizadora Cores Sortidas 4 Prateleiras",
+      "preco": "R$ 36,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_3d939fd358e46f4644ca",
+      "titulo": "SAPATEIRAS ORGANIZADORAS CT4039 Sapateira Organizadora Cores Sortidas 4 Prateleiras RS 36,80 Material TNT e Tubo CORES Galvanizado  PRATELEIRAS CT4041 Sapateira Organizadora Cores Sortidas 6 Pratel",
+      "preco": "R$ 45,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_30ebfd937a005fcc10a5",
+      "titulo": "ORGANIZADORES MULTIUSO ® TTGRASIL CT4188 Organizador Porta Objetos Sortido CT4174 Cesto Organizador Multiuso Sortido ERED Material Plastico Medidas 9,5X11CM iS ER IND Material Plastico Medidas 30",
+      "preco": "R$ 7,68",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_3007ef841118771c103c",
+      "titulo": "CESTOS ORGANIZADORES CT4209 Cesto Organizador Lavanderia Redondo Em Tecido Sortido",
+      "preco": "R$ 20,40",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_7428fe81ce57a247eda7",
+      "titulo": "CESTOS ORGANIZADORES CT4209 Cesto Organizador Lavanderia Redondo Em Tecido Sortido RS 20,40 Material Tecido Se a laundry re Medidas 40X50CM Embalagem Tag Cx Master / Mitp. 50 / 10 NCM 63079090 IP",
+      "preco": "R$ 18,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_8aac72a2816d1c57dbde",
+      "titulo": "CESTOS ORGANIZADORES % TT BRASIL 16 CT4277 esto Organizador Roupa Suja Dobravel Sortido",
+      "preco": "R$ 8,36",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_45abd4879916409ce388",
+      "titulo": "CESTOS ORGANIZADORES % TT BRASIL 16 CT4277 esto Organizador Roupa Suja Dobravel Sortido RS 8,36 Material Nylon e Metal Medidas 40X40X70CM rae Pr Embalagem Cartdao A z ei  Cx Master / MItp. 120 /",
+      "preco": "R$ 19,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_4919d4b6a7647a23a72c",
+      "titulo": "ORGANIZADORES DE ROUPA % TTBRASIL CT4330 Organizador Para Roupas 6 Divisorias CT4331 Organizador Para Roupas 11 Divisorias SEAT material nylon Medidas 32X31,5X12CM SSIEFELID Material Nylon Medidas",
+      "preco": null,
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_0e0127b99ddac0031b60",
+      "titulo": "CABIDES ® TTGRASIL CT3 815 Conjunto 3 Pecas Cabide Com Presilha CT4202 Cabide Organizador Para Armario Nove Furos Branco",
+      "preco": "R$ 7,98",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_3ddfc1bfe2ef6b3cbe68",
+      "titulo": "CABIDES ® TTGRASIL CT3 815 Conjunto 3 Pecas Cabide Com Presilha CT4202 Cabide Organizador Para Armario Nove Furos Branco RS 7,98 Material Metal Medidas 35X10CM",
+      "preco": "R$ 2,10",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_c7f96d2da52db8813f6d",
+      "titulo": "CABIDES ® TTGRASIL CT3 815 Conjunto 3 Pecas Cabide Com Presilha CT4202 Cabide Organizador Para Armario Nove Furos Branco RS 7,98 Material Metal Medidas 35X10CM RS 2,10 Material Plastico Medidas 3",
+      "preco": "R$ 8,50",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_b2751c687bb7ed1278ea",
+      "titulo": "BOLSAS PARA LAVAR ROUPAS ® TTGRASIL para aiferee vaquines Ge azo oo NYLON Nao Anti-no Ndo Ndo Solta pViaterial  Distorce Amassa Fidpos CT4175 Bolsa para Lavar Roupas",
+      "preco": "R$ 4,90",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_a6f5ab9edb206af177cb",
+      "titulo": "BOLSAS PARA LAVAR ROUPAS ® TTGRASIL para aiferee vaquines Ge azo oo NYLON Nao Anti-no Ndo Ndo Solta pViaterial  Distorce Amassa Fidpos CT4175 Bolsa para Lavar Roupas RS 4,90 Material Nylon a4 Medid",
+      "preco": "R$ 4,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": "",
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T21:04:09Z",
+      "ultima_atualizacao": "2025-10-23T21:12:46Z",
+      "extras": {
+        "score": null,
+        "origin": "ttbrasil-1_ocr.pdf",
+        "bbox": null
+      },
+      "ultima_origem": "ttbrasil"
+    },
+    {
+      "id": "gar_ecb5928c77bc12f3caef",
+      "titulo": "Embalagem Solapa",
+      "preco": "R$ 48,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_07a19c8e3cb0391d698c",
+      "titulo": "GU Borrifador Diamante Sortido",
+      "preco": "R$ 4,70",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_a7f3edb25503f66b1110",
+      "titulo": "Material Pet",
+      "preco": "R$ 4.223,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_2ccf491b05645a3c6063",
+      "titulo": "SPEED material Poliéster",
+      "preco": "R$ 0,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_5c63845ff6a745d5773c",
+      "titulo": "Embalagem Cartão",
+      "preco": "R$ 200,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_4c0cd2d08b7a78d28b2d",
+      "titulo": "PANOS MULTIUSO GLED Borrifador Sortido",
+      "preco": "R$ 360,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_9d95082b28232aeedd81",
+      "titulo": "LEE LD material plástico Embalagem Solapa",
+      "preco": "R$ 72,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_3c0ad2a9177d316cec08",
+      "titulo": "SAPATEIRAS ORGANIZADORA",
+      "preco": "R$ 4.039,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_b6793257ef8442251197",
+      "titulo": "SEIS material TNT e Tubo",
+      "preco": "R$ 60,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_ce9cda3ed42d5829b004",
+      "titulo": "CORES Salvanizado Embalagem Caixa",
+      "preco": "R$ 0,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0c9bc0756ff157cbbd08",
+      "titulo": "REGULAR ",
+      "preco": "R$ 4,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_7160bc71a9df117ea354",
+      "titulo": " PRATELEIRAS E",
+      "preco": "R$ 3.986,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_66b2ec04ca6ec7f2f1c5",
+      "titulo": "EB EA material plástico e",
+      "preco": "R$ 42,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_b8d4a836926c5c3bb063",
+      "titulo": "CEB materias tnr e tubo CORES Galvanizado",
+      "preco": "R$ 60,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_bce79ffee3b06cbc222b",
+      "titulo": "Embalagem Caixa",
+      "preco": "R$ 12,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_471a7f2485d8ee372ff5",
+      "titulo": "o RAS",
+      "preco": "R$ 4.042,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_ecc70344a36119861548",
+      "titulo": "R EXU material TNT e Tubo CORES Galvanizado,",
+      "preco": "R$ 60,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_8e0354d0038e4e8c9064",
+      "titulo": "CORES Galvanizado",
+      "preco": "R$ 60,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0536838c49754f45bced",
+      "titulo": "Material Plástico e",
+      "preco": "R$ 51,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_02d87b441982a8194843",
+      "titulo": "ORGANIZADORES MULTIUSO",
+      "preco": "R$ 4.188,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_1e722a2fdbdb7729e0cc",
+      "titulo": "Embalagem Etiqueta",
+      "preco": "R$ 270,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_f29b58f6dbc0dae9cba4",
+      "titulo": "REZA material plástico",
+      "preco": "R$ 20,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_7c9bd5f1013dd3fc604a",
+      "titulo": "SL REED material Plástico",
+      "preco": "R$ 18,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_a11017e292fa63756c72",
+      "titulo": "R FEIO material Plástico",
+      "preco": "R$ 30,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_2ea47e08068f6b344d54",
+      "titulo": "LEE IOD material plástico",
+      "preco": "R$ 2.025,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_634de858a58327e74b77",
+      "titulo": "CESTOS ORGANIZADOR",
+      "preco": "R$ 4.209,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_495678d0b1bbc4acdb4d",
+      "titulo": "Tecido Sortido",
+      "preco": "R$ 20,40",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_64fe1ea666b2d6eebf62",
+      "titulo": " e ad",
+      "preco": "R$ 40,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_c317a5ddf06d517f954b",
+      "titulo": "Embalagem Tag",
+      "preco": "R$ 50,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_9ba261eec8898a9d8206",
+      "titulo": "Tecido Sortido SEM material Tecido",
+      "preco": "R$ 35,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_bdc613ab1201886ca493",
+      "titulo": "Tecido Sortido ESP material Tecido  OVASDA ",
+      "preco": "R$ 40,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_7889c253c702d0ababe0",
+      "titulo": "SRA Material Tecido",
+      "preco": "R$ 40,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_2c00a7f7d9ee02e35fda",
+      "titulo": "S PER material Fibra de",
+      "preco": "R$ 36,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_8999d0931c7f51e3fb9c",
+      "titulo": "o quoNÃoNEco",
+      "preco": "R$ 40,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_9d26f2410a3e6770ca51",
+      "titulo": "BEM D material Tecido",
+      "preco": "R$ 35,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_d5dd9585da686d715d96",
+      "titulo": "O PkO% S/ST",
+      "preco": "R$ 7.908,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_f842f15ad7b9ad1e29db",
+      "titulo": "Dobrável Sortido SRD material Malha de Nylon + Arame e Metal E os",
+      "preco": "R$ 40,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_9dc34791c0ad98bbac50",
+      "titulo": "Economia de Espaço Fácil Armazenagem Fácil de Montar IDEAL PARA ORGANIZAR ROUPAS SUJAS, BRINQUEDOR, SAPATOS. INSTRUÇÕES DE USO",
+      "preco": "R$ 4,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_5f2d9433c7bb55842924",
+      "titulo": "dobrado da bolsa. lados do cesto. permitindo que o cesto abra completamente.",
+      "preco": "R$ 2,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_d9faec8a184a189448fd",
+      "titulo": "com cuidado.",
+      "preco": "R$ 45,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_6d877034987c334c0b21",
+      "titulo": "CESTOS ORGANIZADORES TTBRASIL",
+      "preco": "R$ 4.278,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_7a451c1d2b53fec1afc8",
+      "titulo": "Dobrável Sortido",
+      "preco": "R$ 7,98",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_61106c6e88d6e087629c",
+      "titulo": "Nylon + Arame e Metal",
+      "preco": "R$ 32,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0c2d3087f813002506bc",
+      "titulo": "IPO%  S/ST",
+      "preco": "R$ 7.908,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_aede9c68c1a52b1b13c4",
+      "titulo": "ORGANIZADORES DE ROUPA",
+      "preco": "R$ 4.330,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_26d5fcf7ee0b3ff9bcb2",
+      "titulo": "Material Nylon Pe A",
+      "preco": "R$ 32,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_85d2ea53f3a475e5e836",
+      "titulo": "NSEJEESD material Nylon CABIDE VARAL",
+      "preco": "R$ 2,20",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_5d61585b53b054725d7d",
+      "titulo": "Vá Ideal para sacadas e À Vá Sol e vento em todas as",
+      "preco": "R$ 360,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_521f8a0f4aa5f8e96a35",
+      "titulo": "e REGULAR",
+      "preco": "R$ 10,06",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_b3dc04d48c6eb8793eef",
+      "titulo": "Material Metal",
+      "preco": "R$ 35,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_18dc87c4cf0d9d6b49e9",
+      "titulo": "Furos Branco Material Plástico",
+      "preco": "R$ 2,10",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e91807a79290c704ae32",
+      "titulo": "Material Madeira e",
+      "preco": "R$ 2.025,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_343b40f3f80d00f60685",
+      "titulo": "BOLSAS PARA LAVAR ROUPAS",
+      "preco": "R$ 9,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_77da537e43fc2c3bb442",
+      "titulo": "INSERT material Nylon",
+      "preco": "R$ 16,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e71286409e96ce5d7be0",
+      "titulo": "NOLL material Nylon E ",
+      "preco": "R$ 60,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_f63681bf4670b0e4740d",
+      "titulo": "Não Solta",
+      "preco": "R$ 4.181,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e7301b13473d234d9916",
+      "titulo": "SER material Nylon em ans ",
+      "preco": "R$ 30,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_5bf34d8d573af981ea30",
+      "titulo": "NSEJE LD material Nylon  ad",
+      "preco": "R$ 2.025,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_befb57c449f4ba3ad0ad",
+      "titulo": "Unidades Sortido",
+      "preco": "R$ 20,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_34985f6dde5097237909",
+      "titulo": "PARA LIMPEZA PARAVÁRIAS PESADA SUPERFÍCIES LUVA DE LIMPEZA Tira Pelo Com Refil",
+      "preco": "R$ 4,30",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_77af458b2fe1bcebeb60",
+      "titulo": "PANO MULTIUSO TTBRASIL ESPONJA MÁGICA E TIRA PÉLOS Medidas CM Embalagem Solapa",
+      "preco": "R$ 60,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0b080d94f3c71cc914cd",
+      "titulo": "Medidas CM Embalagem Solapa",
+      "preco": "R$ 120,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_591ccd02b005d7ec7f30",
+      "titulo": "Magnético e Borracha Embalagem Caixa RODO o",
+      "preco": "R$ 30,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_4c7a3104a4862ac3f1a3",
+      "titulo": "o ns Sem CORDA DE A ID w SEGURANÇA é Ad PAPA BOLINHAS",
+      "preco": "R$ 4.341,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_806ed22558cff8c43e9e",
+      "titulo": "PS E Aço Inoxidável Embalagem Caixa Eletrônicos Embalagem Caixa",
+      "preco": "R$ 1,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_54256fcf63f7c4713c32",
+      "titulo": "na DP.  REGUIAR ES REGULAR Alimentação pe ree Possui reservatório Recarregável . . AA roupas e tecidos removível Cabo USB R. Possui reservatório Remove fios,  bolinhas e pelos de removível. roupas e tecidos",
+      "preco": "R$ 6,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_f75317e30a795eaba1f3",
+      "titulo": "OP GIRATÓRIO",
+      "preco": "R$ 360,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_a6bafe6caa422f9fc545",
+      "titulo": "Não Solta Fiapos  Cabo em Aço Inox e Balde com Alça e Cesto e Refil Incluso /",
+      "preco": "R$ 21,80",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_1aad3ae0d6ebf3da31a0",
+      "titulo": "Com saida de água Material Microfibra, Plástico e Aço Inox",
+      "preco": "R$ 156,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_2b0d1ab53b3a6ae5dc3f",
+      "titulo": "OPuxe a alça para cima O esfregão está pronko para o  Coboem trabalho. Aço Inox OPuxe a alça paro",
+      "preco": "R$ 360,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_622ac645dfe6065cdd91",
+      "titulo": " Refil Incluso ii  Lavável a mão ou na maquina",
+      "preco": "R$ 206,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_fbb36fbe2d4eafdb8f45",
+      "titulo": "Plástico e Aço Inox",
+      "preco": "R$ 105,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_62aec303e2e2e7e4be61",
+      "titulo": "Embalagem Solapa  uxe a alça para",
+      "preco": "R$ 30,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_b66f4979d9f1f5841047",
+      "titulo": "excesso de água e ve REGULAR",
+      "preco": "R$ 360,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_c69f59ca2fb6c02e51a6",
+      "titulo": " Refil Incluso + Lavável a mão ou na maquina Seo Troofó Reuiizável",
+      "preco": "R$ 7.422,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_851132ae3394f81f16df",
+      "titulo": " Refil Incluso  Rotação, ate  Lovável a mão ou na maquina TrasPó Reuiizál Indicado para pisos de cerâmica, sintéticos e Tira o Pó",
+      "preco": "R$ 9,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_413bb29d23a65a6bea86",
+      "titulo": "R LAU material Microfibra  Lavável a mão ou na maquina",
+      "preco": "R$ 5,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_ff10382658befc6f9f7f",
+      "titulo": " Lavável a mão ou na maquina",
+      "preco": "R$ 35,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_3f1bd01d8a5899319048",
+      "titulo": "CORDAS PARA VARAL E VARAL",
+      "preco": "R$ 1.129,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_91d1fc09ed500f6eae5d",
+      "titulo": "+ AZUNIDADES +",
+      "preco": "R$ 9,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_af65415b13af113e3c96",
+      "titulo": "CE capa PO S/ST tcc CHE ro ss",
+      "preco": "R$ 7.908,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_454949a1ac2979c7ce5c",
+      "titulo": "DE ROUPA ÚMIDA",
+      "preco": "R$ 2,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0dc5f2420eb3279886bd",
+      "titulo": "PR REGULAR ",
+      "preco": "R$ 10,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_233e94e002659d58502b",
+      "titulo": "VARAL à, é MÁGICO O",
+      "preco": "R$ 4.347,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_708981d494489ac82add",
+      "titulo": "Prático su de",
+      "preco": "R$ 4,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_abdb0d43b0e6eab52b21",
+      "titulo": "TT N  Dobravél",
+      "preco": "R$ 4.348,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_d032222d407d01068063",
+      "titulo": "Pode ser facilmente dobrado e armazenado em espaços pequenos.",
+      "preco": "R$ 4.249,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_728ec2b3b567f1dbc0ee",
+      "titulo": "SED material Ferro e",
+      "preco": "R$ 50,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e7732b0ad889c3a01661",
+      "titulo": "Plástico Embalagem Caixa IDEAL PARA A .",
+      "preco": "R$ 40,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_89eb2436cfd65fb04f35",
+      "titulo": "PEQUENAS. AJUSTÁVEL",
+      "preco": "R$ 7.323,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_581e554371d2b72c3647",
+      "titulo": "PREGADORES TTBRASIL",
+      "preco": "R$ 2.886,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0da5fed0dc878c51d947",
+      "titulo": "Material Plástico Medidas CM Embalagem Solapa",
+      "preco": "R$ 72,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_51ea4d508e0636e016c4",
+      "titulo": "Emborrachados Colorido",
+      "preco": "R$ 8,50",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_2e7ddbcfcc9ca7cc0d12",
+      "titulo": "es -  e INDISPONÍVEL a -  A",
+      "preco": "R$ 20,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_5de6beb3af6877014c03",
+      "titulo": " INDISPONÍVEL",
+      "preco": "R$ 1.674,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e6bac340c428f1d3fb77",
+      "titulo": "R EAD Material Plástico Medidas CM É Embalagem Solapa",
+      "preco": "R$ 72,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_33349791ecdc8a2831b4",
+      "titulo": "a e  INDISPONÍVEL TD ",
+      "preco": "R$ 2.887,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0d6ac17c52528d76f159",
+      "titulo": "LELLO material Plástico Medidas CM E Embalagem Solapa",
+      "preco": "R$ 72,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_bc88eccda2f135571eac",
+      "titulo": "E SS INDISPONÍVEL",
+      "preco": "R$ 2,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_d5a6fde7088742649f62",
+      "titulo": "TENSÍLIOS DE PAREDE DE BANHEIRO O TTGRASIL",
+      "preco": "R$ 4.046,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_b6b42049cf5e4b79e7bc",
+      "titulo": "R FPA material Plástico",
+      "preco": "R$ 15,30",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_600bc9f3fda26b6b1060",
+      "titulo": "R ERPIAUD material Plástico",
+      "preco": "R$ 14,10",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_8df9b3bf0bd20abae497",
+      "titulo": "R HH material Plástico",
+      "preco": "R$ 17,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0ca4685785e37497e83f",
+      "titulo": "am à N",
+      "preco": "R$ 4.054,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_eeef42ddbf7015093e3b",
+      "titulo": "R HELDA material Plástico",
+      "preco": "R$ 4.060,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_b2f64ca0cc08d193d0d7",
+      "titulo": "SBRT material Plástico",
+      "preco": "R$ 22,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_baea5c0126c8e78ed4a0",
+      "titulo": "EEEREOD material Plástico",
+      "preco": "R$ 26,50",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_f539b1768c5683e6e1c0",
+      "titulo": "R HLIPAD material Plástico",
+      "preco": "R$ 18,50",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_ac42101d542aabcb1670",
+      "titulo": "Embalagem Solapa Embalagem Solapa",
+      "preco": "R$ 48,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_9c0e5bb7f6e193d5ead2",
+      "titulo": "LED material Plástico",
+      "preco": "R$ 23,50",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_a095368ffa9b66e9c3ee",
+      "titulo": "LEPERTU material Plástico",
+      "preco": "R$ 22,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_0399afe8897a52a8ffc4",
+      "titulo": "Material Plástico pi ta",
+      "preco": "R$ 30,60",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_dca7a11dd84794bfc3a1",
+      "titulo": "Porta Toalha De Rosto E Banho Duplo Material Plástico",
+      "preco": "R$ 2,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_faf5807a56ee334c910a",
+      "titulo": "R PU IID material Plástico",
+      "preco": "R$ 25,20",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_224c364c56c1e4f87dff",
+      "titulo": "SEJ material Ferro",
+      "preco": "R$ 2.025,00",
+      "pagina": null,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:05:25Z",
+      "ultima_atualizacao": "2025-10-23T23:05:25Z",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_81da08c9b334a0ce224f",
+      "titulo": "IPI 13% S/ST EAN 7898681951260 GU Borrifador Diamante Sortido",
+      "preco": "R$ 4,70",
+      "pagina": 1,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_5468a24ca33017be084c",
+      "titulo": "EAN 7908425521908 36X40CM CT3021 kit Com 5 Peças Sortido",
+      "preco": "R$ 12,80",
+      "pagina": 1,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_68562f85bcb51adc45d1",
+      "titulo": "NCM 39249000 a 1PI6,5% S/ST EAN 7898681955329",
+      "preco": "R$ 10,06",
+      "pagina": 1,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_fd66c9a21f6ab44295b6",
+      "titulo": "IPO% S/ST EAN 7908425522035 CT3982 Esponja Mágica",
+      "preco": "R$ 1,20",
+      "pagina": 2,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_f1355a00830a961a8226",
+      "titulo": "PESADA SUPERFÍCIES LUVA DE LIMPEZA Tira Pelo Com Refil",
+      "preco": "R$ 4,30",
+      "pagina": 2,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_40215347d1da2bd46ecf",
+      "titulo": "1PI6,5% S/ST EAN 7899806914238 CT3508 Luva Para Limpeza Chenile Sortida",
+      "preco": "R$ 2,80",
+      "pagina": 2,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_cb4194418c79a60a11ce",
+      "titulo": "FRENTE VERSO",
+      "preco": "R$ 10,06",
+      "pagina": 2,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_337293ebb4bdf00626f2",
+      "titulo": "Remove fios, bolinhas e pelos de removível. roupas e tecidos",
+      "preco": "R$ 10,06",
+      "pagina": 3,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_c2f7d24d8af4d9363428",
+      "titulo": "Cabo em Aço Inox e Balde com Alça e Cesto e Refil Incluso /",
+      "preco": "R$ 21,80",
+      "pagina": 4,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_4e060abd7e7ea96040a1",
+      "titulo": "Lavável a mão ou na maquina 19076 Raio CT4222 vassoura Mop Flat 360º - 02 em 01 - Lava e",
+      "preco": "R$ 29,80",
+      "pagina": 4,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_980a9dfc3553b555a32d",
+      "titulo": "ERORCORO Seo Troofó Reuiizável C74221 Mop Esfregão Twister 360º - 2 em 1 - Lava e",
+      "preco": "R$ 21,80",
+      "pagina": 4,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_df76003db99c9210fb7e",
+      "titulo": "Tira o Pó 9 TTBRASIL CT4218 Mop Giratório Com Refil E Balde",
+      "preco": "R$ 33,00",
+      "pagina": 4,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_a5291977151c572cbaf6",
+      "titulo": "IPEO% S/ST EAN 7908425522134 CT4247 Refil Para Mop Retangular 02 em 01",
+      "preco": "R$ 3,58",
+      "pagina": 4,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_058e791bfcedbf96efe6",
+      "titulo": "EAN 7908425522158 Lavável a mão ou na maquina",
+      "preco": "R$ 10,06",
+      "pagina": 4,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_7818b82ba0f39718bc14",
+      "titulo": "CORDAS PARA VARAL E VARAL CT1129 Corda Para Varal 10M Sortida",
+      "preco": "R$ 4,40",
+      "pagina": 5,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_b9c92c424e3fdf8b1c47",
+      "titulo": "EAN 7908425522189 SUPORTA ATÉ 4KG",
+      "preco": "R$ 10,06",
+      "pagina": 5,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_7e7766693917dbab0c77",
+      "titulo": "IPI 0% s/ST EAN 7908425521601 BAIXO",
+      "preco": "R$ 10,06",
+      "pagina": 6,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_07ce4ac8bcbc1d6e9c71",
+      "titulo": "TENSÍLIOS DE PAREDE DE BANHEIRO O TTGRASIL CT4046 Porta Escova Pasta De Dente De Parede Branco",
+      "preco": "R$ 13,60",
+      "pagina": 8,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_eecf83a16f1b283caeed",
+      "titulo": "ss NCM 39249000 o dE NCM 39249000 PM N IPI6,5% S/ST IPI6,5% S/ST - EAN 7908425519073 ta a EAN 7908425519103",
+      "preco": "R$ 10,06",
+      "pagina": 8,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_c54e786ba6b5c38f7478",
+      "titulo": "TENSÍLIOS DE PAREDE DE BANHEIRO O TTGRASIL CT4048 Porta Shampoo Vazado Branco",
+      "preco": "R$ 21,80",
+      "pagina": 9,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_faa0be4829c7446deeb7",
+      "titulo": "IPI6,5% S/ST EAN 7908425519028 CT4057 Suporte Para Toalha Gancho",
+      "preco": "R$ 6,20",
+      "pagina": 9,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_6a898fa42e7e3f378519",
+      "titulo": "INDISPONÍVEL CT4049 Porta Toalha Rosto E Banho Argola CT4052",
+      "preco": "R$ 13,30",
+      "pagina": 9,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_c098cc52ae88dfff93cd",
+      "titulo": "EAN 7908425519059 CT3988 Suporte Para Toalha Com Adesivo Sortido SEJ material Ferro",
+      "preco": "R$ 10,06",
+      "pagina": 9,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_92a772a4e7dd9ca71fa0",
+      "titulo": "CORES Salvanizado Embalagem Caixa 00 Cx Master / Mitp. 12/6 NCM 94032090",
+      "preco": "R$ 3,25",
+      "pagina": 10,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_d2e19ec91407c39ef25a",
+      "titulo": "CORES Salvanizado Embalagem Caixa Cx Master / Mitp. 12/6 NCcM 94032090",
+      "preco": "R$ 3,25",
+      "pagina": 10,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_081a53e89e2a426933f9",
+      "titulo": "CORES Salvanizado Embalagem Caixa Cx Master / Mitp. 12/6 NCM 94032090",
+      "preco": "R$ 3,25",
+      "pagina": 10,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e649644d34c0dba8f015",
+      "titulo": "Embalagem Solapa Cx Master / Mitp. 50 / 10 NCM 94032090",
+      "preco": "R$ 3,25",
+      "pagina": 10,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_7dccb1106eaec15ea5d3",
+      "titulo": "Embalagem Solapa Cx Master / Mitp. 40 / 6 NCM 94032090",
+      "preco": "R$ 3,25",
+      "pagina": 10,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_704476d0f6649f2680ec",
+      "titulo": "Embalagem Caixa Cx Master / Mitp. 12/6 NCM 94032090",
+      "preco": "R$ 3,25",
+      "pagina": 10,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_31d57ed03ff30bab247e",
+      "titulo": "Embalagem Caixa aa Cx Master / Mitp. 12/6 NCM 94032090",
+      "preco": "R$ 3,25",
+      "pagina": 10,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_2ecf896a7905e0ce9fd3",
+      "titulo": "ORGANIZADORES MULTIUSO CT4188 Organizador Porta Objetos Sortido",
+      "preco": "R$ 2,18",
+      "pagina": 11,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_737da5ae9ed0b12d1f4f",
+      "titulo": "EAN 7908425521311 CT4173 Cesto Organizador Multiuso Sortido LEE IOD material plástico",
+      "preco": "R$ 10,06",
+      "pagina": 11,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_99d50014c5818c194a55",
+      "titulo": "CESTOS ORGANIZADOR CT4209 Cesto Organizador Lavanderia Redondo Em Tecido Sortido",
+      "preco": "R$ 20,40",
+      "pagina": 12,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_6bd50f3f7641bc18ed39",
+      "titulo": "EAN 7908425527511 CT4208 Cesto Organizador Lavanderia Redondo Em Tecido Sortido",
+      "preco": "R$ 18,00",
+      "pagina": 12,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_209ac99c6878c1f8beb2",
+      "titulo": "CT4538 Cesto Organizador Sortido ESPERO material Fibra de Poliéster",
+      "preco": "R$ 10,06",
+      "pagina": 12,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_83664d567f83c072e6fb",
+      "titulo": "CT4277 Cesto Organizador Roupa Suja Dobrável",
+      "preco": "R$ 8,36",
+      "pagina": 13,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e75fe84760a3e17c5e48",
+      "titulo": "2. Abra o cesto com cuidado. CT45 39 Cesto Organizador Sortido",
+      "preco": "R$ 19,00",
+      "pagina": 13,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_f3d8ca51d6eeb1a929d0",
+      "titulo": "IPI 0% s/ST CT4444 Cesto Organizador Infantil de Roupa Suja Dobrável Sortido",
+      "preco": "R$ 7,98",
+      "pagina": 13,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_e40738787ce8e0ed5303",
+      "titulo": "IPI 0% s/ST EAN 7908425526507 CT4540 Cesto Organizador Sortido",
+      "preco": "R$ 21,60",
+      "pagina": 13,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_a7ff3eca1474e5fbbdca",
+      "titulo": "IPO% S/ST EAN 7908425521748 oo0%",
+      "preco": "R$ 10,06",
+      "pagina": 13,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_acba34616b917550fdf2",
+      "titulo": "TT BRASIL 2025 TTBRASIL C7T4331 Organizador Para Roupas 11 Divisórias",
+      "preco": "R$ 5,36",
+      "pagina": 14,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_59c8c0c715ff3e84e0eb",
+      "titulo": "IPI 0% s/ST EAN 7908425523124 CT4327 Cabide Varal Espiral em Aço Inox",
+      "preco": "R$ 12,10",
+      "pagina": 14,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_82328374db1c7f71b916",
+      "titulo": "IPI 6,5% S/ST EAN 7908425523070 e REGULAR",
+      "preco": "R$ 10,06",
+      "pagina": 14,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_4426e0c0835df2e8e2ba",
+      "titulo": "ABIDES 9 TTBRASIL CT3815 Conjunto 3 Peças Cabide Com Presilha",
+      "preco": "R$ 7,98",
+      "pagina": 15,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_bb18ed649cfed075ff37",
+      "titulo": "CT3817 CT3820",
+      "preco": "R$ 16,00",
+      "pagina": 15,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_bb1a26f3d545454cba4a",
+      "titulo": "CT4202 Cabide Organizador Para Armário Nove Furos Branco Material Plástico",
+      "preco": "R$ 2,10",
+      "pagina": 15,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_9f38746a7eff697234ef",
+      "titulo": "EAN 7908425521595 BAIXO CT3819 Conjunto 4 Peças Cabide",
+      "preco": "R$ 8,50",
+      "pagina": 15,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_67c991482662adb76682",
+      "titulo": "1PI6,5% S/ST EAN 7908425515860 CT3818 Conjunto 4 Peças Cabide",
+      "preco": "R$ 8,40",
+      "pagina": 15,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_ce7ba0e46f896c3e5e1c",
+      "titulo": "3 Peças Material Madeira e Ferro",
+      "preco": "R$ 10,06",
+      "pagina": 15,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    },
+    {
+      "id": "gar_3afbc8be500987155bab",
+      "titulo": "CT4177 Bolsa para Lavar Roupas NSEJE LD material Nylon ad",
+      "preco": "R$ 10,06",
+      "pagina": 16,
+      "img_path": null,
+      "img_md5": null,
+      "fornecedor": "ttbrasil",
+      "origens": [
+        "ttbrasil"
+      ],
+      "criado_em": "2025-10-23T23:41:17+00:00",
+      "ultima_atualizacao": "2025-10-23T23:41:17+00:00",
+      "extras": {
+        "score": null,
+        "origin": null,
+        "bbox": null
+      }
+    }
+  ],
+  "index": {
+    "gar_dfaf496c64d6166b7c05": 7,
+    "gar_2ae84b8751f8af107b44": 8,
+    "gar_59bbdb7e2a5b8eaf3447": 9,
+    "gar_bc7ad2bab4de96b13ed9": 10,
+    "gar_8a6746ba0db64c244a90": 11,
+    "gar_a37ceb37bc464718a399": 12,
+    "gar_1ab4841c4c2c6e936d59": 13,
+    "gar_881ac5ed80e72322dd65": 14,
+    "gar_8809ea63c9303eea6095": 15,
+    "gar_5bbb46bda6e28ef4089b": 16,
+    "gar_af81aac660410087a125": 17,
+    "gar_16761d6000f9be1d40a8": 18,
+    "gar_b859f729e65dd140c312": 19,
+    "gar_3d939fd358e46f4644ca": 20,
+    "gar_30ebfd937a005fcc10a5": 21,
+    "gar_3007ef841118771c103c": 22,
+    "gar_7428fe81ce57a247eda7": 23,
+    "gar_8aac72a2816d1c57dbde": 24,
+    "gar_45abd4879916409ce388": 25,
+    "gar_4919d4b6a7647a23a72c": 26,
+    "gar_0e0127b99ddac0031b60": 27,
+    "gar_3ddfc1bfe2ef6b3cbe68": 28,
+    "gar_c7f96d2da52db8813f6d": 29,
+    "gar_b2751c687bb7ed1278ea": 30,
+    "gar_a6f5ab9edb206af177cb": 31,
+    "gar_ecb5928c77bc12f3caef": 32,
+    "gar_07a19c8e3cb0391d698c": 33,
+    "gar_a7f3edb25503f66b1110": 34,
+    "gar_2ccf491b05645a3c6063": 35,
+    "gar_5c63845ff6a745d5773c": 36,
+    "gar_4c0cd2d08b7a78d28b2d": 37,
+    "gar_9d95082b28232aeedd81": 38,
+    "gar_3c0ad2a9177d316cec08": 39,
+    "gar_b6793257ef8442251197": 40,
+    "gar_ce9cda3ed42d5829b004": 41,
+    "gar_0c9bc0756ff157cbbd08": 42,
+    "gar_7160bc71a9df117ea354": 43,
+    "gar_66b2ec04ca6ec7f2f1c5": 44,
+    "gar_b8d4a836926c5c3bb063": 45,
+    "gar_bce79ffee3b06cbc222b": 46,
+    "gar_471a7f2485d8ee372ff5": 47,
+    "gar_ecc70344a36119861548": 48,
+    "gar_8e0354d0038e4e8c9064": 49,
+    "gar_0536838c49754f45bced": 50,
+    "gar_02d87b441982a8194843": 51,
+    "gar_1e722a2fdbdb7729e0cc": 52,
+    "gar_f29b58f6dbc0dae9cba4": 53,
+    "gar_7c9bd5f1013dd3fc604a": 54,
+    "gar_a11017e292fa63756c72": 55,
+    "gar_2ea47e08068f6b344d54": 56,
+    "gar_634de858a58327e74b77": 57,
+    "gar_495678d0b1bbc4acdb4d": 58,
+    "gar_64fe1ea666b2d6eebf62": 59,
+    "gar_c317a5ddf06d517f954b": 60,
+    "gar_9ba261eec8898a9d8206": 61,
+    "gar_bdc613ab1201886ca493": 62,
+    "gar_7889c253c702d0ababe0": 63,
+    "gar_2c00a7f7d9ee02e35fda": 64,
+    "gar_8999d0931c7f51e3fb9c": 65,
+    "gar_9d26f2410a3e6770ca51": 66,
+    "gar_d5dd9585da686d715d96": 67,
+    "gar_f842f15ad7b9ad1e29db": 68,
+    "gar_9dc34791c0ad98bbac50": 69,
+    "gar_5f2d9433c7bb55842924": 70,
+    "gar_d9faec8a184a189448fd": 71,
+    "gar_6d877034987c334c0b21": 72,
+    "gar_7a451c1d2b53fec1afc8": 73,
+    "gar_61106c6e88d6e087629c": 74,
+    "gar_0c2d3087f813002506bc": 75,
+    "gar_aede9c68c1a52b1b13c4": 76,
+    "gar_26d5fcf7ee0b3ff9bcb2": 77,
+    "gar_85d2ea53f3a475e5e836": 78,
+    "gar_5d61585b53b054725d7d": 79,
+    "gar_521f8a0f4aa5f8e96a35": 80,
+    "gar_b3dc04d48c6eb8793eef": 81,
+    "gar_18dc87c4cf0d9d6b49e9": 82,
+    "gar_e91807a79290c704ae32": 83,
+    "gar_343b40f3f80d00f60685": 84,
+    "gar_77da537e43fc2c3bb442": 85,
+    "gar_e71286409e96ce5d7be0": 86,
+    "gar_f63681bf4670b0e4740d": 87,
+    "gar_e7301b13473d234d9916": 88,
+    "gar_5bf34d8d573af981ea30": 89,
+    "gar_befb57c449f4ba3ad0ad": 90,
+    "gar_34985f6dde5097237909": 91,
+    "gar_77af458b2fe1bcebeb60": 92,
+    "gar_0b080d94f3c71cc914cd": 93,
+    "gar_591ccd02b005d7ec7f30": 94,
+    "gar_4c7a3104a4862ac3f1a3": 95,
+    "gar_806ed22558cff8c43e9e": 96,
+    "gar_54256fcf63f7c4713c32": 97,
+    "gar_f75317e30a795eaba1f3": 98,
+    "gar_a6bafe6caa422f9fc545": 99,
+    "gar_1aad3ae0d6ebf3da31a0": 100,
+    "gar_2b0d1ab53b3a6ae5dc3f": 101,
+    "gar_622ac645dfe6065cdd91": 102,
+    "gar_fbb36fbe2d4eafdb8f45": 103,
+    "gar_62aec303e2e2e7e4be61": 104,
+    "gar_b66f4979d9f1f5841047": 105,
+    "gar_c69f59ca2fb6c02e51a6": 106,
+    "gar_851132ae3394f81f16df": 107,
+    "gar_413bb29d23a65a6bea86": 108,
+    "gar_ff10382658befc6f9f7f": 109,
+    "gar_3f1bd01d8a5899319048": 110,
+    "gar_91d1fc09ed500f6eae5d": 111,
+    "gar_af65415b13af113e3c96": 112,
+    "gar_454949a1ac2979c7ce5c": 113,
+    "gar_0dc5f2420eb3279886bd": 114,
+    "gar_233e94e002659d58502b": 115,
+    "gar_708981d494489ac82add": 116,
+    "gar_abdb0d43b0e6eab52b21": 117,
+    "gar_d032222d407d01068063": 118,
+    "gar_728ec2b3b567f1dbc0ee": 119,
+    "gar_e7732b0ad889c3a01661": 120,
+    "gar_89eb2436cfd65fb04f35": 121,
+    "gar_581e554371d2b72c3647": 122,
+    "gar_0da5fed0dc878c51d947": 123,
+    "gar_51ea4d508e0636e016c4": 124,
+    "gar_2e7ddbcfcc9ca7cc0d12": 125,
+    "gar_5de6beb3af6877014c03": 126,
+    "gar_e6bac340c428f1d3fb77": 127,
+    "gar_33349791ecdc8a2831b4": 128,
+    "gar_0d6ac17c52528d76f159": 129,
+    "gar_bc88eccda2f135571eac": 130,
+    "gar_d5a6fde7088742649f62": 131,
+    "gar_b6b42049cf5e4b79e7bc": 132,
+    "gar_600bc9f3fda26b6b1060": 133,
+    "gar_8df9b3bf0bd20abae497": 134,
+    "gar_0ca4685785e37497e83f": 135,
+    "gar_eeef42ddbf7015093e3b": 136,
+    "gar_b2f64ca0cc08d193d0d7": 137,
+    "gar_baea5c0126c8e78ed4a0": 138,
+    "gar_f539b1768c5683e6e1c0": 139,
+    "gar_ac42101d542aabcb1670": 140,
+    "gar_9c0e5bb7f6e193d5ead2": 141,
+    "gar_a095368ffa9b66e9c3ee": 142,
+    "gar_0399afe8897a52a8ffc4": 143,
+    "gar_dca7a11dd84794bfc3a1": 144,
+    "gar_faf5807a56ee334c910a": 145,
+    "gar_224c364c56c1e4f87dff": 146,
+    "gar_81da08c9b334a0ce224f": 147,
+    "gar_5468a24ca33017be084c": 148,
+    "gar_68562f85bcb51adc45d1": 149,
+    "gar_fd66c9a21f6ab44295b6": 150,
+    "gar_f1355a00830a961a8226": 151,
+    "gar_40215347d1da2bd46ecf": 152,
+    "gar_cb4194418c79a60a11ce": 153,
+    "gar_337293ebb4bdf00626f2": 154,
+    "gar_c2f7d24d8af4d9363428": 155,
+    "gar_4e060abd7e7ea96040a1": 156,
+    "gar_980a9dfc3553b555a32d": 157,
+    "gar_df76003db99c9210fb7e": 158,
+    "gar_a5291977151c572cbaf6": 159,
+    "gar_058e791bfcedbf96efe6": 160,
+    "gar_7818b82ba0f39718bc14": 161,
+    "gar_b9c92c424e3fdf8b1c47": 162,
+    "gar_7e7766693917dbab0c77": 163,
+    "gar_07ce4ac8bcbc1d6e9c71": 164,
+    "gar_eecf83a16f1b283caeed": 165,
+    "gar_c54e786ba6b5c38f7478": 166,
+    "gar_faa0be4829c7446deeb7": 167,
+    "gar_6a898fa42e7e3f378519": 168,
+    "gar_c098cc52ae88dfff93cd": 169,
+    "gar_92a772a4e7dd9ca71fa0": 170,
+    "gar_d2e19ec91407c39ef25a": 171,
+    "gar_081a53e89e2a426933f9": 172,
+    "gar_e649644d34c0dba8f015": 173,
+    "gar_7dccb1106eaec15ea5d3": 174,
+    "gar_704476d0f6649f2680ec": 175,
+    "gar_31d57ed03ff30bab247e": 176,
+    "gar_2ecf896a7905e0ce9fd3": 177,
+    "gar_737da5ae9ed0b12d1f4f": 178,
+    "gar_99d50014c5818c194a55": 179,
+    "gar_6bd50f3f7641bc18ed39": 180,
+    "gar_209ac99c6878c1f8beb2": 181,
+    "gar_83664d567f83c072e6fb": 182,
+    "gar_e75fe84760a3e17c5e48": 183,
+    "gar_f3d8ca51d6eeb1a929d0": 184,
+    "gar_e40738787ce8e0ed5303": 185,
+    "gar_a7ff3eca1474e5fbbdca": 186,
+    "gar_acba34616b917550fdf2": 187,
+    "gar_59c8c0c715ff3e84e0eb": 188,
+    "gar_82328374db1c7f71b916": 189,
+    "gar_4426e0c0835df2e8e2ba": 190,
+    "gar_bb18ed649cfed075ff37": 191,
+    "gar_bb1a26f3d545454cba4a": 192,
+    "gar_9f38746a7eff697234ef": 193,
+    "gar_67c991482662adb76682": 194,
+    "gar_ce7ba0e46f896c3e5e1c": 195,
+    "gar_3afbc8be500987155bab": 196
+  }
+}

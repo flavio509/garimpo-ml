@@ -1,0 +1,5 @@
+upload_id: uploads
+supplier: ttbrasil
+filename: TABELA_TTBRASIL.pdf
+saved_as: data/uploads/source/source.pdf
+created_at: 2025-10-29T13:36:53.844609

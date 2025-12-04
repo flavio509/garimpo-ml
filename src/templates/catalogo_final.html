@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Catálogo Final Consolidado</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 24px;
+            background: #f7f7f7;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-size: 14px;
+        }
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Catálogo Final Consolidado</h1>
+
+        {% if produtos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Preço (raw)</th>
+                    <th>Página</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in produtos %}
+                <tr>
+                    <td>{{ p.codigo }}</td>
+                    <td>{{ p.descricao }}</td>
+                    <td>{{ p.preco }}</td>
+                    <td>{{ p.preco_raw }}</td>
+                    <td>{{ p.page }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Nenhum produto encontrado em merged_output.json</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Revisão do Catálogo – Garimpo ML</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f7f7f7; margin:20px; }
+    h1 { color:#222; }
+    .selector-container { text-align:center; margin-bottom:20px; }
+    select { padding:6px 10px; border-radius:6px; border:1px solid #ccc; font-size:15px; }
+    table { width:100%; border-collapse: collapse; background:white; margin-top:10px; }
+    th, td { border:1px solid #ddd; padding:8px; text-align:left; vertical-align:middle; }
+    th { background:#007BFF; color:white; }
+    tr:nth-child(even){ background:#f2f2f2; }
+    img.thumb { width: 90px; height: auto; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.25); }
+    button { padding:5px 10px; border:none; border-radius:4px; cursor:pointer; font-size:14px; }
+    .save { background:#28a745; color:white; }
+    .delete { background:#dc3545; color:white; }
+    input { width:100%; border:none; background:transparent; }
+    input:focus { background:#ffffcc; outline:none; }
+    .nav { margin-top:20px; text-align:center; }
+    .nav a {
+      text-decoration:none; color:white; background:#007BFF;
+      padding:8px 15px; border-radius:6px; margin:0 5px;
+    }
+    .nav a:hover { background:#0056b3; }
+    .empty { color:#999; font-style:italic; margin-top:20px; }
+  </style>
+
+  <script>
+    function trocarCatalogo(sel) {
+      const novoCatalogo = sel.value;
+      if (!novoCatalogo) return;
+      window.location.href = `/meuapp/catalog-api/review?file=${novoCatalogo}&page=1`;
+    }
+
+    async function salvar(cod) {
+      const row = document.getElementById('row_' + cod);
+      const data = {
+        codigo: cod,
+        titulo: row.querySelector('.titulo').value,
+        preco: row.querySelector('.preco').value,
+        origem: row.dataset.origem
+      };
+      const resp = await fetch('/meuapp/catalog-api/update', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify([data])
+      });
+      const j = await resp.json();
+      alert(j.ok ? 'Produto atualizado!' : 'Erro: ' + j.erro);
+    }
+
+    async function remover(cod) {
+      if (!confirm('Remover produto ' + cod + '?')) return;
+      const resp = await fetch('/meuapp/catalog-api/remove', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({codigo: cod})
+      });
+      const j = await resp.json();
+      if (j.ok) document.getElementById('row_' + cod).remove();
+      else alert('Erro: ' + j.erro);
+    }
+
+    async function uploadImagem(cod) {
+      const input = document.getElementById('file_' + cod);
+      const file = input.files[0];
+      if (!file) return;
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('codigo', cod);
+      const resp = await fetch('/meuapp/catalog-api/upload-image', {
+        method: 'POST',
+        body: formData
+      });
+      const j = await resp.json();
+      if (j.ok) {
+        const img = document.getElementById('img_' + cod);
+        const newSrc = '/recortes/' + j.arquivo + '?t=' + new Date().getTime();
+        if (img.tagName === 'IMG') img.src = newSrc;
+        else {
+          const newImg = document.createElement('img');
+          newImg.className = 'thumb';
+          newImg.id = 'img_' + cod;
+          newImg.src = newSrc;
+          img.replaceWith(newImg);
+        }
+        alert('Imagem atualizada!');
+      } else {
+        alert('Erro: ' + j.erro);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Revisão do Catálogo – Página {{page}} de {{total_paginas}}</h1>
+
+  <div class="selector-container">
+    <label for="catalogoSelect"><b>Selecionar catálogo:</b></label>
+    <select id="catalogoSelect" onchange="trocarCatalogo(this)">
+      {% for cat in catalogos_disponiveis %}
+        <option value="{{ cat }}" {% if cat == catalogo_atual %}selected{% endif %}>{{ cat }}</option>
+      {% endfor %}
+    </select>
+    <p style="color:#666; margin-top:6px;">Catálogo atual: <b>{{ catalogo_atual }}</b></p>
+  </div>
+
+  {% if produtos %}
+  <table>
+    <tr><th>Imagem</th><th>Código</th><th>Título</th><th>Preço</th><th>Ações</th></tr>
+    {% for p in produtos %}
+    <tr id="row_{{p['codigo']}}" data-origem="{{catalogo_atual}}">
+      <td style="text-align:center;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          {% if p.get('imagem') %}
+            <img class="thumb" id="img_{{p['codigo']}}" src="{{ p['imagem'] }}" alt="Imagem do produto">
+          {% else %}
+            <span id="img_{{p['codigo']}}" style="color:#999;font-style:italic;">(sem imagem)</span>
+          {% endif %}
+          <input type="file" id="file_{{p['codigo']}}" style="display:none;" accept=".jpg,.jpeg,.png"
+            onchange="uploadImagem('{{p['codigo']}}')">
+          <button class="save" style="margin-top:4px;" onclick="document.getElementById('file_{{p['codigo']}}').click();">
+            📤 Trocar
+          </button>
+        </div>
+      </td>
+      <td>{{p['codigo']}}</td>
+      <td><input class="titulo" value="{{p.get('titulo','')}}"></td>
+      <td><input class="preco" value="{{p.get('preco','')}}"></td>
+      <td>
+        <button class="save" onclick="salvar('{{p['codigo']}}')">💾 Salvar</button>
+        <button class="delete" onclick="remover('{{p['codigo']}}')">🗑️ Remover</button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="empty">Nenhum produto detectado nesta página.</p>
+  {% endif %}
+
+  <div class="nav">
+    {% if page > 1 %}
+      <a href="/meuapp/catalog-api/review?file={{catalogo_atual}}&page={{page-1}}">&laquo; Página Anterior</a>
+    {% endif %}
+    {% if page < total_paginas %}
+      <a href="/meuapp/catalog-api/review?file={{catalogo_atual}}&page={{page+1}}">Próxima Página &raquo;</a>
+    {% endif %}
+  </div>
+
+  <div class="nav">
+    <p>Ir para página:</p>
+    {% for i in range(1, total_paginas+1) %}
+      <a href="/meuapp/catalog-api/review?file={{catalogo_atual}}&page={{i}}">{{i}}</a>
+    {% endfor %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,362 @@
+[
+  {
+    "codigo": "REGULAR",
+    "titulo": "REGULAR REGULAR",
+    "preco": 4.7,
+    "pagina": 1,
+    "imagem": "out/images/ttbrasil/page_001.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:29:44Z"
+  },
+  {
+    "codigo": "CT3982",
+    "titulo": "CT3982 Esponja Mágica",
+    "preco": 1.2,
+    "pagina": 2,
+    "imagem": "out/images/ttbrasil/page_002.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:29:51Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 4,30 Material: Plástico",
+    "preco": 4.3,
+    "pagina": 2,
+    "imagem": "out/images/ttbrasil/page_002.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:29:51Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 2,80 Material; Microfibra",
+    "preco": 2.8,
+    "pagina": 2,
+    "imagem": "out/images/ttbrasil/page_002.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:29:51Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 10,70 Material: Plastico ABS +",
+    "preco": 10.7,
+    "pagina": 3,
+    "imagem": "out/images/ttbrasil/page_003.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:29:58Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 33,00 Material: Microfibra, ||",
+    "preco": 33.0,
+    "pagina": 4,
+    "imagem": "out/images/ttbrasil/page_004.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:14Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 4,08 Material: Microfibra",
+    "preco": 4.08,
+    "pagina": 4,
+    "imagem": "out/images/ttbrasil/page_004.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:14Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 3,58 Material: Microfibra",
+    "preco": 3.58,
+    "pagina": 4,
+    "imagem": "out/images/ttbrasil/page_004.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:14Z"
+  },
+  {
+    "codigo": "q",
+    "titulo": "q . CT4349 Varal De Parede Retrátil",
+    "preco": 98.0,
+    "pagina": 5,
+    "imagem": "out/images/ttbrasil/page_005.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:26Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 7,80 Material: Plástico",
+    "preco": 7.8,
+    "pagina": 6,
+    "imagem": "out/images/ttbrasil/page_006.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:36Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 4,10 Material: Plástico Medidas: 8,5CM",
+    "preco": 4.1,
+    "pagina": 6,
+    "imagem": "out/images/ttbrasil/page_006.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:36Z"
+  },
+  {
+    "codigo": "Branco",
+    "titulo": "Branco",
+    "preco": 13.6,
+    "pagina": 8,
+    "imagem": "out/images/ttbrasil/page_008.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:50Z"
+  },
+  {
+    "codigo": "12,20",
+    "titulo": "12,20 Material: Plastico",
+    "preco": 12.2,
+    "pagina": 8,
+    "imagem": "out/images/ttbrasil/page_008.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:50Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 9,80 Material: Plástico",
+    "preco": 9.8,
+    "pagina": 8,
+    "imagem": "out/images/ttbrasil/page_008.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:50Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 12,40 Material: Plástico",
+    "preco": 12.4,
+    "pagina": 8,
+    "imagem": "out/images/ttbrasil/page_008.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:50Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 23,50 Material: Plastico",
+    "preco": 23.5,
+    "pagina": 8,
+    "imagem": "out/images/ttbrasil/page_008.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:30:50Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 6,20 Material: Plastico",
+    "preco": 6.2,
+    "pagina": 9,
+    "imagem": "out/images/ttbrasil/page_009.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:01Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 28,80 Material: Plastico",
+    "preco": 28.8,
+    "pagina": 9,
+    "imagem": "out/images/ttbrasil/page_009.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:01Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 8,40 Material: Ferro",
+    "preco": 8.4,
+    "pagina": 9,
+    "imagem": "out/images/ttbrasil/page_009.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:01Z"
+  },
+  {
+    "codigo": "IPI:",
+    "titulo": "IPI: 3,25% S/ST",
+    "preco": 3.25,
+    "pagina": 10,
+    "imagem": "out/images/ttbrasil/page_010.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:16Z"
+  },
+  {
+    "codigo": "“060",
+    "titulo": "“060 Cx Master / Mitp.: 12/6",
+    "preco": 3.25,
+    "pagina": 10,
+    "imagem": "out/images/ttbrasil/page_010.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:16Z"
+  },
+  {
+    "codigo": "Prateleiras",
+    "titulo": "Prateleiras",
+    "preco": 56.8,
+    "pagina": 10,
+    "imagem": "out/images/ttbrasil/page_010.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:16Z"
+  },
+  {
+    "codigo": "CORES:",
+    "titulo": "CORES: Embalagem: Caixa",
+    "preco": 3.25,
+    "pagina": 10,
+    "imagem": "out/images/ttbrasil/page_010.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:16Z"
+  },
+  {
+    "codigo": "CT3985",
+    "titulo": "CT3985 Sapateira Com 4 Prateleiras",
+    "preco": 18.0,
+    "pagina": 10,
+    "imagem": "out/images/ttbrasil/page_010.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:16Z"
+  },
+  {
+    "codigo": "IPI:",
+    "titulo": "IPI: 3,25% | S/ST",
+    "preco": 3.25,
+    "pagina": 10,
+    "imagem": "out/images/ttbrasil/page_010.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:16Z"
+  },
+  {
+    "codigo": "Tecido",
+    "titulo": "Tecido Sortido",
+    "preco": 20.4,
+    "pagina": 12,
+    "imagem": "out/images/ttbrasil/page_012.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:36Z"
+  },
+  {
+    "codigo": "18,00",
+    "titulo": "18,00 Material: Tecido",
+    "preco": 18.0,
+    "pagina": 12,
+    "imagem": "out/images/ttbrasil/page_012.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:36Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 23,00 Material; Fibra de",
+    "preco": 23.0,
+    "pagina": 12,
+    "imagem": "out/images/ttbrasil/page_012.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:36Z"
+  },
+  {
+    "codigo": "Em",
+    "titulo": "Em Tecido Sortido",
+    "preco": 18.0,
+    "pagina": 12,
+    "imagem": "out/images/ttbrasil/page_012.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:36Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 23,00 Material: Fibra de",
+    "preco": 23.0,
+    "pagina": 12,
+    "imagem": "out/images/ttbrasil/page_012.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:36Z"
+  },
+  {
+    "codigo": "Sortido",
+    "titulo": "Sortido",
+    "preco": 7.36,
+    "pagina": 13,
+    "imagem": "out/images/ttbrasil/page_013.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:47Z"
+  },
+  {
+    "codigo": "Dobrável",
+    "titulo": "Dobrável Sortido",
+    "preco": 7.98,
+    "pagina": 13,
+    "imagem": "out/images/ttbrasil/page_013.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:47Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 21,60 Material: Poliéster +",
+    "preco": 21.6,
+    "pagina": 13,
+    "imagem": "out/images/ttbrasil/page_013.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:47Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 5,68 Material: Nylon",
+    "preco": 5.68,
+    "pagina": 14,
+    "imagem": "out/images/ttbrasil/page_014.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:54Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 5,98 Material: Nylon",
+    "preco": 5.98,
+    "pagina": 14,
+    "imagem": "out/images/ttbrasil/page_014.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:54Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 12,10 material: Ago Inox Medidas: 45CM",
+    "preco": 12.1,
+    "pagina": 14,
+    "imagem": "out/images/ttbrasil/page_014.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:31:54Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 4,90 Material: Nylon",
+    "preco": 4.9,
+    "pagina": 16,
+    "imagem": "out/images/ttbrasil/page_016.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:32:13Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 6,40 Material: Nylon",
+    "preco": 6.4,
+    "pagina": 16,
+    "imagem": "out/images/ttbrasil/page_016.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:32:13Z"
+  },
+  {
+    "codigo": "R$",
+    "titulo": "R$ 5,90 material: Nylon",
+    "preco": 5.9,
+    "pagina": 16,
+    "imagem": "out/images/ttbrasil/page_016.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:32:13Z"
+  },
+  {
+    "codigo": "RS",
+    "titulo": "RS 8,30 Material: Nylon",
+    "preco": 8.3,
+    "pagina": 16,
+    "imagem": "out/images/ttbrasil/page_016.jpg",
+    "origin": "ocr",
+    "created_at": "2025-10-24T15:32:13Z"
+  }
+]

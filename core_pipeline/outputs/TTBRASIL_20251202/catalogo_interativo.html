@@ -1,0 +1,6551 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+<meta charset='utf-8'>
+<title>Catálogo Interativo (linha a linha)</title>
+<style>
+body{font-family:Arial, sans-serif;background:#f5f5f5;margin:0;padding:0;}
+header{background:#222;color:#fff;padding:12px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+h1{margin:0;font-size:22px;}
+button{padding:6px 12px;margin:4px;border:none;border-radius:4px;color:#fff;cursor:pointer;font-weight:bold;}
+.btn-add{background:#007bff;} .btn-add:hover{background:#0069d9;}
+.btn-export{background:#28a745;} .btn-export:hover{background:#218838;}
+.btn-remove{background:#dc3545;} .btn-remove:hover{background:#bb2d3b;}
+.btn-save{background:#17a2b8;} .btn-save:hover{background:#138496;}
+.btn-save-all{background:#6f42c1;} .btn-save-all:hover{background:#5936a2;}
+.pagination{text-align:center;margin:20px;}
+table{width:98%;margin:10px auto;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;}
+th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left;font-size:14px;}
+th{background:#f8f9fa;}
+img{max-height:80px;object-fit:contain;border:1px solid #ccc;border-radius:6px;background:#fff;}
+input[type=text],textarea{width:100%;border:1px solid #ccc;border-radius:4px;padding:6px;font-size:14px;}
+#msg{color:#00ff88;font-weight:bold;margin-left:10px;}
+</style>
+</head>
+<body>
+<header>
+<h1>📘 Catálogo Interativo (TTBRASIL_20251202)</h1>
+<button class='btn-add' onclick='addProduto()'>+ Adicionar</button>
+<button class='btn-save-all' onclick='saveAll()'>💾 Salvar todas</button>
+<button class='btn-export' onclick='exportJSON()'>📤 Exportar JSON</button>
+<span id="msg"></span>
+</header>
+
+<div class='pagination' id='pagination'></div>
+
+<table id='tbl'>
+<thead>
+<tr>
+  <th>Imagem</th>
+  <th>Código</th>
+  <th>Título</th>
+  <th>Preço</th>
+  <th>Ações</th>
+</tr>
+</thead>
+<tbody id='tbody'></tbody>
+</table>
+
+<script>
+const PAGES_DATA = {
+  "1": [
+    {
+      "page": 1,
+      "codigo": "",
+      "titulo": "€) TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_01_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 1,
+      "codigo": "",
+      "titulo": "[8 | Jo |",
+      "preco": "",
+      "imagem": "/crops/page_01_2.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 1,
+      "codigo": "",
+      "titulo": "8 mo = 4",
+      "preco": "",
+      "imagem": "/crops/page_01_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 1,
+      "codigo": "",
+      "titulo": "“a |",
+      "preco": "",
+      "imagem": "/crops/page_01_7.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "2": [
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_02_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "Brasil especializada de utilidades domésticas, ATT importação é na",
+      "preco": "",
+      "imagem": "/crops/page_02_2.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "decoração, produtos de lazer acessórios camping. pet, para e",
+      "preco": "",
+      "imagem": "/crops/page_02_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "sede de fornecemos produtos alta qualidade Com Rio Janeiro, no",
+      "preco": "",
+      "imagem": "/crops/page_02_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "todo Brasil. Além disso, competitivos contamos e preços em o com um",
+      "preco": "",
+      "imagem": "/crops/page_02_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "showroom Paulo, onde clientes podem conhecer de São perto em nossos",
+      "preco": "",
+      "imagem": "/crops/page_02_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "linha de produtos receber atendimento personalizado. nossa e",
+      "preco": "",
+      "imagem": "/crops/page_02_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "qualidade, variedade Aqui necessita você encontra preço e que",
+      "preco": "",
+      "imagem": "/crops/page_02_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "atender clientes da melhor possível. maneira para seus",
+      "preco": "",
+      "imagem": "/crops/page_02_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "E \" MAZOO A",
+      "preco": "",
+      "imagem": "/crops/page_02_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "| ETERNY YINS [convoys",
+      "preco": "",
+      "imagem": "/crops/page_02_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "ONT'poor. ANIMAL OME ESTIMAÇÃO ELHORES PRODUTOS PARA SEU DE",
+      "preco": "",
+      "imagem": "/crops/page_02_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "MIDIAS SOCIAIS",
+      "preco": "",
+      "imagem": "/crops/page_02_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "(6) tbrasil.com.br (E) Dribrasil (3) (Drbrasil oficial oficial",
+      "preco": "",
+      "imagem": "/crops/page_02_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "(im) (BD) eTTBrasi ftbrasil",
+      "preco": "",
+      "imagem": "/crops/page_02_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "TIBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_02_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "—SHOWROOM",
+      "preco": "",
+      "imagem": "/crops/page_02_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "SÃO SHOWROOM RIO DE JANEIRO SHOWROOM PAULO SHOWROOM SP BARRA FUNDA -",
+      "preco": "",
+      "imagem": "/crops/page_02_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "Rod. Washington Senador Andar, Sala de Salas 201/202 Luiz, 2400, Parque Duque, Queiros, 605, 20º 2015, Av. São Vicente, 230, Av. Marquês",
+      "preco": "",
+      "imagem": "/crops/page_02_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "de Brasil. Brasil. Funda Brasil. Duque Caxias RJ, 25085-009, Centro SP 01026-001, Barra SP 01139-000, - - - Contato: 21 99577-6/64 Contato: 11 98635-2637 Contato:",
+      "preco": "",
+      "imagem": "/crops/page_02_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "Atenção:",
+      "preco": "",
+      "imagem": "/crops/page_02_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "de Informamos pode haver variações prévio. aviso preço sem que",
+      "preco": "",
+      "imagem": "/crops/page_02_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "Recomendamos de confirmar qualquer consulte sistema antes orçamento, que, compra ou o",
+      "preco": "",
+      "imagem": "/crops/page_02_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "confirmar valores atualizados. Mercos para os",
+      "preco": "",
+      "imagem": "/crops/page_02_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 2,
+      "codigo": "",
+      "titulo": "CNPJ: 19.142.808/0001-3",
+      "preco": "",
+      "imagem": "/crops/page_02_27.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "4": [
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "1) TTBRASIL BORRIFADORES PANOS MULTIUSO E",
+      "preco": "",
+      "imagem": "/crops/page_04_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "CT2093",
+      "titulo": "Borrifador Borrifador Animal Print Sortido Sortido",
+      "preco": "",
+      "imagem": "/crops/page_04_CT2093.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "R$ R$ LIZA END material: Material: Pet pet Capacidade: Capacidade: 300ML 360ML",
+      "preco": "",
+      "imagem": "/crops/page_04_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_04_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "/ 48/0 / / Mitp.: Mitp.: Cx Master Cx Master 48 12",
+      "preco": "",
+      "imagem": "/crops/page_04_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "NCM: 9616000 NCM: 9616000",
+      "preco": "",
+      "imagem": "/crops/page_04_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPl:13% IPl:13%",
+      "preco": "",
+      "imagem": "/crops/page_04_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "EAN: 7898681951260 EAN: 7898681955596",
+      "preco": "",
+      "imagem": "/crops/page_04_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "| REGULAR | REGULAR a",
+      "preco": "",
+      "imagem": "/crops/page_04_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "se “E",
+      "preco": "",
+      "imagem": "/crops/page_04_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "CTti Borrifador Borrifador Diamante Sortido Diamante Sortido GD 656",
+      "preco": "",
+      "imagem": "/crops/page_04_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "GEP 5,10 Material: Material: Plástico Pet Capacidade: Capacidade: 500ML 600ML",
+      "preco": "R$4,70",
+      "imagem": "/crops/page_04_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa a a 24 / 48/0 / /12 Mitp.: Mitp.: Cx Master Cx Master 72 AR A R « N RH = NA NCM: 9616000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_04_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "— — a S/ST S/ST IPl:13% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_04_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "E 7898681951246 EAN: 7898681955329",
+      "preco": "",
+      "imagem": "/crops/page_04_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_04_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "= ms —o o",
+      "preco": "",
+      "imagem": "/crops/page_04_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "CT4223",
+      "titulo": "Amarelo Multiuso Limpeza 02 Pano Para",
+      "preco": "",
+      "imagem": "/crops/page_04_CT4223.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "Unidades Material: Poliéster Medidas: 36X40CM",
+      "preco": "R$2,98",
+      "imagem": "/crops/page_04_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "Embalagem: Cartão",
+      "preco": "",
+      "imagem": "/crops/page_04_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "/ / Mitp.: Cx Master 200 40",
+      "preco": "",
+      "imagem": "/crops/page_04_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_04_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "AMARELO PANO ins S/ST IPI: 0%",
+      "preco": "",
+      "imagem": "/crops/page_04_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "EAN: 7908425521908",
+      "preco": "",
+      "imagem": "/crops/page_04_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_04_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "36X40CM",
+      "preco": "",
+      "imagem": "/crops/page_04_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "CT3021",
+      "titulo": "Kit Sortido Com 5 Peças",
+      "preco": "",
+      "imagem": "/crops/page_04_CT3021.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "R$ PAD material: Microfibra Medidas: 35X35CM",
+      "preco": "",
+      "imagem": "/crops/page_04_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_04_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "/ / Mitp.: Cx Master 48 12",
+      "preco": "",
+      "imagem": "/crops/page_04_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_04_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "S/ST IPI: 0% beu",
+      "preco": "",
+      "imagem": "/crops/page_04_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "EAN: 7898681955640 Pano! dicro",
+      "preco": "",
+      "imagem": "/crops/page_04_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_04_34.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 4,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_04_35.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "5": [
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "1) PANO MULTIUSO TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_05_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "CT4234",
+      "titulo": "Multiuso Limpeza Rolo Com 50 Pano Para",
+      "preco": "",
+      "imagem": "/crops/page_05_CT4234.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "Unidades Sortido SED material: / TNT Medidas: 20X30CM 15M",
+      "preco": "",
+      "imagem": "/crops/page_05_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "Embalagem: Cartão",
+      "preco": "",
+      "imagem": "/crops/page_05_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "/ Master /30 Mitp.: X 150 ROLO COM * NCM: 63071000 15 METROS",
+      "preco": "",
+      "imagem": "/crops/page_05_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_05_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "EAN: 7908425522035",
+      "preco": "",
+      "imagem": "/crops/page_05_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL na",
+      "preco": "",
+      "imagem": "/crops/page_05_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "E MÁGICA PÉLOS ESPONJA TIRA",
+      "preco": "",
+      "imagem": "/crops/page_05_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "CT3982",
+      "titulo": "Mágica Refil Esponja Tira Pelo Com",
+      "preco": "",
+      "imagem": "/crops/page_05_CT3982.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "Material: Material: Plástico Esponja Nano Medidas: Medidas: 10X7X3CM CM",
+      "preco": "",
+      "imagem": "/crops/page_05_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa E / /48 / / Mitp.: Mitp.: Cx Master 240 Cx Master 60 12",
+      "preco": "",
+      "imagem": "/crops/page_05_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_05_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "— — be S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_05_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "EAN: 7908425518328 EAN: 7899806914238 E=",
+      "preco": "",
+      "imagem": "/crops/page_05_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_05_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "/3 fa o a Cm) A Re",
+      "preco": "",
+      "imagem": "/crops/page_05_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "VÁRIAS PARA LIMPEZA PARA SUPERFÍCIES PESADA",
+      "preco": "",
+      "imagem": "/crops/page_05_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "LUVA DE LIMPEZA",
+      "preco": "",
+      "imagem": "/crops/page_05_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "CT3508",
+      "titulo": "Limpeza Chenile Sortida Luva Para",
+      "preco": "",
+      "imagem": "/crops/page_05_CT3508.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "material: Microfibra [DD Medidas: CM",
+      "preco": "",
+      "imagem": "/crops/page_05_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_05_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "VERSO FRENTE / / 120 Mitp.: Cx Master 24",
+      "preco": "",
+      "imagem": "/crops/page_05_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "NCM: 63071000",
+      "preco": "",
+      "imagem": "/crops/page_05_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "c/sT 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_05_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "EAN: 7908425510889",
+      "preco": "",
+      "imagem": "/crops/page_05_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_05_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 5,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 5",
+      "preco": "",
+      "imagem": "/crops/page_05_28.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "6": [
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "MAGNÉTICO O) LIMPADOR VIDRO DE TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_06_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "CT4207",
+      "titulo": "Magnético timpador Vidro De",
+      "preco": "",
+      "imagem": "/crops/page_06_CT4207.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "ESPONJA R$ CAE) 20,8 Material: Plástico, Aço Medidas: di 16X13,5CM",
+      "preco": "",
+      "imagem": "/crops/page_06_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "Magnético Borracha e Embalagem: Caixa IC]",
+      "preco": "",
+      "imagem": "/crops/page_06_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "/ Master /6 Mitp.: Cx 30 NASA bs NCM: 96039000 e =",
+      "preco": "",
+      "imagem": "/crops/page_06_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_06_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": ">» IMÃ EAN: 7908425521694 cum",
+      "preco": "",
+      "imagem": "/crops/page_06_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "ami 55",
+      "preco": "",
+      "imagem": "/crops/page_06_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "BOLINHAS PAPA",
+      "preco": "",
+      "imagem": "/crops/page_06_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "CT4341",
+      "titulo": "Recarregável Bolinhas Pilha Bolinhas Papa Papa a",
+      "preco": "",
+      "imagem": "/crops/page_06_CT4341.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "— SB SEER LUSA material: Plástico material: plástico Medidas: Medidas: ABS 5,5X7,5X10CM 13X7X6,5CM + e",
+      "preco": "",
+      "imagem": "/crops/page_06_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "Eletrônicos Inoxidável PS E Aço Embalagem: Embalagem: Caixa Caixa",
+      "preco": "",
+      "imagem": "/crops/page_06_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "/ 120/24 / 80/0 Mkp.: Mitp.: CxMaster Cx Master | o",
+      "preco": "",
+      "imagem": "/crops/page_06_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "NCM: 85098090 NCM: 85098090 Prático",
+      "preco": "",
+      "imagem": "/crops/page_06_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "Cc/ST C/ST 10% WPKE10% IPI: qu ) EAN: 7908425523193 EAN: 7908425523209 q Compacto Compacto",
+      "preco": "",
+      "imagem": "/crops/page_06_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR o = -",
+      "preco": "",
+      "imagem": "/crops/page_06_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "fiapos, Remove Alimentação Recarregável Possui reservatório bolinhas pelos de e AA removível. Possui reservatório tecidos Cabo R. USB roupas e fiapos, Remove I removivel. bolinhas pelos de e tecidos roupas e",
+      "preco": "",
+      "imagem": "/crops/page_06_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 6,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_06_20.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "7": [
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "GIRATÓRIO (9 MOP TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_07_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "CT4218",
+      "titulo": "Giratório Refil Balde Mop Com E",
+      "preco": "",
+      "imagem": "/crops/page_07_CT4218.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "RS 33,00 360º Base Material: Microfibra, Medidas: Solta Mop: 107CM Não Fiapos",
+      "preco": "R$33,00",
+      "imagem": "/crops/page_07_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Plástico Aço Inox e Balde: 45,5X26CM",
+      "preco": "",
+      "imagem": "/crops/page_07_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Refil: 21X8CM",
+      "preco": "",
+      "imagem": "/crops/page_07_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Cabo Indicado de Aço Inox pisos e em para Embalagem: Caixa cerâmica, sintéticos Balde Alça Cesto e e com e / 25/5 Mitp.: Cx Master madeira. Refil Incluso / e NCM: 96039000",
+      "preco": "",
+      "imagem": "/crops/page_07_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI: Capacidade: saida de Com água EAN: 7908425521854 10 LITROS REGULAR ab)",
+      "preco": "",
+      "imagem": "/crops/page_07_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Reutilizável Seca Lava Tira Pó o",
+      "preco": "",
+      "imagem": "/crops/page_07_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "CT4219",
+      "titulo": "Flat 360º Vassoura Mop",
+      "preco": "",
+      "imagem": "/crops/page_07_CT4219.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "CT4244",
+      "titulo": "Refil Retangular Flat Para Mop Medidas: Material: Microfibra, Mop: 156CM",
+      "preco": "R$21,80",
+      "imagem": "/crops/page_07_CT4244.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Plástico Aço Inox RS e Refil: 4,08 45X11,5CM Medidas: Material: Microfibra 5X11,5CM",
+      "preco": "",
+      "imagem": "/crops/page_07_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa alça OPuxe a para Embalagem: Solapa esfregão cima: O Lavável mão º a / / Mitp.: Cx Master 40 6 Caboem está pronto * / / Mitp.: para o Cx Master 200 40 maquina ou na trabalho. Aço Inox NCM: 96039000 NCM: 63079090 | alça QPuxe S/ST a para IPI:O% S/ST IPI: 0% baixo: Remova o de EAN: 7908425521861 água excesso e EAN: 7908425522134 sujeira.",
+      "preco": "",
+      "imagem": "/crops/page_07_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_07_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "R Rotação 360º ate",
+      "preco": "",
+      "imagem": "/crops/page_07_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Refil Inclus e Lavável mão e a ou na maquina",
+      "preco": "",
+      "imagem": "/crops/page_07_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "DOSE",
+      "preco": "",
+      "imagem": "/crops/page_07_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Lova — Reutilizável Seca TiraoPó",
+      "preco": "",
+      "imagem": "/crops/page_07_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "CT4222",
+      "titulo": "Flat 360º Vassoura Mop 02 01 Lava em e - -",
+      "preco": "",
+      "imagem": "/crops/page_07_CT4222.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "CT4247",
+      "titulo": "Seca Material: Microfibra, Medidas: Mop: 105CM Refil Retangular Para Mop 02 01 em Plástico Aço Inox e Refil: 35X10CM",
+      "preco": "R$29,80",
+      "imagem": "/crops/page_07_CT4247.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Material: Microfibra Medidas: 35X10CM alça OPuxe a para / / Mitp.: Cx Master 30 10 esfregão Embalagem: Solapa cima: O Lavável mão º a Caboem está pronto para o * NCM: 96039000 maquina / / Mitp.: trabalho. Cx Master 200 40 ou na Aço Inox",
+      "preco": "R$3,58",
+      "imagem": "/crops/page_07_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI: NCM: 63079090 alça QPuxe a para baixo: Remova o EAN: 7908425521892 S/ST IPI: 0% de água excesso e sujeira. REGULAR EAN: 7908425522165",
+      "preco": "",
+      "imagem": "/crops/page_07_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_07_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Rotação 360º ate",
+      "preco": "",
+      "imagem": "/crops/page_07_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Refil Incluso e Lavável maquina mão e a ou na",
+      "preco": "",
+      "imagem": "/crops/page_07_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "C7T74221 Esfregão Twister 360º 2 1 Lava Mop em e - -",
+      "preco": "",
+      "imagem": "/crops/page_07_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "CT4246",
+      "titulo": "Seca Material: Microfibra, Medidas: Mop: 116CM Refil Tipo Twister X Para Mop",
+      "preco": "R$21,80",
+      "imagem": "/crops/page_07_CT4246.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Plástico Aço Inox e Refil: 35,5X14CM Ê «ORSÃO RS 4,38 , Us. Embalagem: Solapa Material: Microfibra Medidas: 14CM (o) TEMA JS a 9 [o / / Mitp.: Cx Master 40 10 a Embalagem: Solapa ie) (o) NCM: 96039000 / / Mitp.: Cx Master 200 40 — S/ST IPI:0% NCM: 63079090",
+      "preco": "R$4,38",
+      "imagem": "/crops/page_07_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "EAN: 7908425521885 S/ST 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_07_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "REGULAR EAN: 7908425522158",
+      "preco": "",
+      "imagem": "/crops/page_07_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "REGULAR Lavável mão e a = maquina ou na",
+      "preco": "",
+      "imagem": "/crops/page_07_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Refil Incluso e Rotação ate Lavável maquina mão e 360º a ou na",
+      "preco": "",
+      "imagem": "/crops/page_07_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "Lava Reutilizável Seca TiraoPó",
+      "preco": "",
+      "imagem": "/crops/page_07_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 7,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_07_33.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "8": [
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "1) CORDAS PARA VARAL E VARAL TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_08_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "CT1131",
+      "titulo": "Corda Varal Sortida Corda Varal Sortida 10M Para 20M Para",
+      "preco": "",
+      "imagem": "/crops/page_08_CT1131.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "RS RS 3,00 4,40 Material: Polietileno Material: Polietileno Medidas: Medidas: 10M 20M",
+      "preco": "R$3,00",
+      "imagem": "/crops/page_08_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "CAIXA COM Embalagem: Solapa Embalagem: Solapa INTERNA 4! +, +4* / CAIXA IRENDADES! COM + INTERNA / / + / 96 Mitp.: Mitp.: te Cx Master 96 12 Cx Master 12 * UNIDADES 12 + + COM: NCM: 56075090 NCM: 56075090 Sum — — era 2 DE S/ST S/ST PI:0% PI:0% CADA >-AZUL MARIE EAN: 7908425500521 EAN: 7908425500507 ENS?",
+      "preco": "",
+      "imagem": "/crops/page_08_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "2. VERMELHO INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_08_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "CT4349",
+      "titulo": "Retrátil Varal Parede De . .",
+      "preco": "",
+      "imagem": "/crops/page_08_CT4349.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "ELA material: de Liga Medidas: 6 BUCHAS 80X40X10CM É ei E Ti Alumínio Embalagem: PARAFUSOS lili Caixa ATÉ SUPORTA 5KG / Master Mitp.: 6/3 Cx . ÚMIDA DE ROUPA NCM: 73269090 Q. S/ST PE5% = EAN: 7908425523278 E 3 = — — REGULAR - - 4",
+      "preco": "",
+      "imagem": "/crops/page_08_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "é “VARAL : . — MÁGICO” -",
+      "preco": "",
+      "imagem": "/crops/page_08_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "CT4347",
+      "titulo": "Varal Chão Secar De Para Roupas Ideal Varandas, Quintas para: e Lavanderias. [SKEISHELD TI! ALII [À material: Tubo de Medidas: Ferro 180X105X50CM",
+      "preco": "",
+      "imagem": "/crops/page_08_CT4347.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa EDS | | / 10/5 Mitp.: Cx Master à",
+      "preco": "",
+      "imagem": "/crops/page_08_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "' N I NCM: 73239400",
+      "preco": "",
+      "imagem": "/crops/page_08_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "& S/ST IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_08_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "EAN: 798425523254 k Prático e suporto REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_08_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "40k9 Cida roupo o",
+      "preco": "",
+      "imagem": "/crops/page_08_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "Dobravél",
+      "preco": "",
+      "imagem": "/crops/page_08_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "CT4348",
+      "titulo": "Varal Chão Secar De Para Roupas )",
+      "preco": "",
+      "imagem": "/crops/page_08_CT4348.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "R$ [ED Material: Tubo de Ferro Medidas: 160X105X50CM",
+      "preco": "",
+      "imagem": "/crops/page_08_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_08_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "Fácil de / 10/5 Mitp.: Cx Master Guardar É É NCM: 73239400 . E S/ST IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_08_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "EAN: 798425523254",
+      "preco": "",
+      "imagem": "/crops/page_08_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_08_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "Pode facilmente dobrado ser e",
+      "preco": "",
+      "imagem": "/crops/page_08_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "armazenado em espaços pequenos.",
+      "preco": "",
+      "imagem": "/crops/page_08_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "CT4249",
+      "titulo": "Retrátil Varal Portatil Multiuso",
+      "preco": "",
+      "imagem": "/crops/page_08_CT4249.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "AEB ED material: Ferro Medidas: 50X28CM e",
+      "preco": "",
+      "imagem": "/crops/page_08_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "Fisica Embalagem: Caixa",
+      "preco": "",
+      "imagem": "/crops/page_08_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "Ed / /8 Mitp.: Cx Master 40 DOBRÁVEL E",
+      "preco": "",
+      "imagem": "/crops/page_08_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "PEQUENAS. AJUSTÁVEL NCM: 73239400",
+      "preco": "",
+      "imagem": "/crops/page_08_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "S/ST IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_08_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "EAN: 7908425522189",
+      "preco": "",
+      "imagem": "/crops/page_08_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_08_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "SUPORTA",
+      "preco": "",
+      "imagem": "/crops/page_08_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "4KG ATÉ",
+      "preco": "",
+      "imagem": "/crops/page_08_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 8,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025 8",
+      "preco": "",
+      "imagem": "/crops/page_08_34.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "9": [
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "(9 PREGADORES TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_09_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "CT2886",
+      "titulo": "Cti1 Kit Pregadores Sortidos Conjunto Pregadores Sortido 12 674 Com 12 Peças",
+      "preco": "",
+      "imagem": "/crops/page_09_CT2886.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "R$ 3,70 Material: Plástico Material: Plástico Medidas: Medidas: CM CM",
+      "preco": "R$7,80",
+      "imagem": "/crops/page_09_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_09_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "/ /12 / / Mitp.: Mitp.: Cx Master 72 Cx Master 72 12 e TR NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_09_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "cd — — S/ST S/ST IPI:6,55% IP1:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_09_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": ": EAN: 7908425506639 EAN: 7898681959822 ” É — BAXO Gti INDISPONÍVEL [pi",
+      "preco": "",
+      "imagem": "/crops/page_09_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "A ES) qn",
+      "preco": "",
+      "imagem": "/crops/page_09_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "dm TP",
+      "preco": "",
+      "imagem": "/crops/page_09_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "CT2134",
+      "titulo": "Conjunto Pregadores Kit Pregadores Com 12 12 Peças",
+      "preco": "",
+      "imagem": "/crops/page_09_CT2134.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "Emborrachados Colorido $ RS 4,10 5,40 R Material: Plástico Material: Plástico Medidas: Medidas: 8,5CM CM",
+      "preco": "R$4,10",
+      "imagem": "/crops/page_09_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_09_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "VR / /6 / /12 Mitp.: Mitp.: Cx Master 36 Cx Master 72 A E e NCM: 39249000 NCM: 39249000 E — — SS” S/ST ASS S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_09_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "ES a EAN: 7908425500491 EAN: 7908425506646",
+      "preco": "",
+      "imagem": "/crops/page_09_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "go SAS INDISPONÍVEL INDISPONÍVEL e",
+      "preco": "",
+      "imagem": "/crops/page_09_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "CT4170",
+      "titulo": "C7T4169 Prendedor Prendedor De Roupas Com 20 Com 20 Peças Peças De Roupas",
+      "preco": "",
+      "imagem": "/crops/page_09_CT4170.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "RS RS 4,40 3,00 Material: Bambu Material: Bambu Medidas: Medidas: Ferro Ferro 7X1,3CM 6X1CM e e",
+      "preco": "R$4,40",
+      "imagem": "/crops/page_09_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Etiqueta Etiqueta",
+      "preco": "",
+      "imagem": "/crops/page_09_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "/ / 250 / 150/30 Mitp.: Mitp.: Cx Master 50 Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_09_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "NCM: 44191900 NCM: 44191900",
+      "preco": "",
+      "imagem": "/crops/page_09_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "S/ST S/ST 0% 0% IPI: IPI:",
+      "preco": "",
+      "imagem": "/crops/page_09_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "EAN: 7908425521601 EAN: 7908425521618",
+      "preco": "",
+      "imagem": "/crops/page_09_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_09_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 9,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_09_25.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "10": [
+    {
+      "page": 10,
+      "codigo": "",
+      "titulo": "ORGANIZAÇÃO",
+      "preco": "",
+      "imagem": "/crops/page_10_1.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "11": [
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "1) UTENSÍLIOS BANHEIRO DE PAREDE DE TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_11_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "CT4046",
+      "titulo": "Parede Saboneteira Parede Porta Escova Pasta De Dente De De Branca",
+      "preco": "",
+      "imagem": "/crops/page_11_CT4046.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "Branco SF SP ERA EAD material: plástico material: plástico Medidas: Medidas: 11,9X9,4X16,1CM 14,1X10,3X9,7CM",
+      "preco": "",
+      "imagem": "/crops/page_11_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_11_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "/ 24/24 / / Mitp.: Mitp.: Cx Master Cx Master 72 12",
+      "preco": "",
+      "imagem": "/crops/page_11_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000 má = — — \"o S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_11_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "EAN: 7908425519004 EAN: 7908425519011",
+      "preco": "",
+      "imagem": "/crops/page_11_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "BAIXO REGULAR Co",
+      "preco": "",
+      "imagem": "/crops/page_11_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "CT4050",
+      "titulo": "Higiênico Higiênico Papel Parede Papel De Porta Porta Branco",
+      "preco": "",
+      "imagem": "/crops/page_11_CT4050.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "R$ RS 12,20 12,40 Material: Plástico Material: Plástico Medidas: Medidas: 15,3X17,5CM 17X7,5X10,5CM",
+      "preco": "R$12,20",
+      "imagem": "/crops/page_11_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": ") Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_11_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: | Cx Master 72 12 Cx Master 96 12",
+      "preco": "",
+      "imagem": "/crops/page_11_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_11_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "PN — — S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_11_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "Na EAN: 7908425519042 EAN: 7908425519097",
+      "preco": "",
+      "imagem": "/crops/page_11_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "BAXO A REGULAR ,",
+      "preco": "",
+      "imagem": "/crops/page_11_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "CT4054",
+      "titulo": "Shampoo Shampoo Porta Reto Branco Porta Reto",
+      "preco": "",
+      "imagem": "/crops/page_11_CT4054.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "SB SF LI EBD material: Plástico material: Plástico Medidas: Medidas: 22X11,5X7,5CM 29,4X11X7CM",
+      "preco": "",
+      "imagem": "/crops/page_11_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_11_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: Cx Master 48 12 Cx Master 48 12",
+      "preco": "",
+      "imagem": "/crops/page_11_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_11_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_11_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "EAN: 7908425519080 EAN: 7908425519141 ” REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_11_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "CT3989",
+      "titulo": "Prateleira Organizador Multiuso Cantoneira Adesivo Com",
+      "preco": "",
+      "imagem": "/crops/page_11_CT3989.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "RS 9,40 Material: Plástico Material: Plástico Medidas: Medidas: 26,5X12X9CM 23,5X17X8CM",
+      "preco": "R$9,80",
+      "imagem": "/crops/page_11_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_11_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "/ 48/8 / 36 Mitp.: Mitp.: Cx Master Cx Master /6",
+      "preco": "",
+      "imagem": "/crops/page_11_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_11_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_11_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "EAN: 7908425518595 EAN: 7908425518601",
+      "preco": "",
+      "imagem": "/crops/page_11_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "BAXO INDISPONÍVEL o",
+      "preco": "",
+      "imagem": "/crops/page_11_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "CT4056",
+      "titulo": "C7T4053 Shampoo Shampoo Vazado Cesto Porta Branco Porta",
+      "preco": "",
+      "imagem": "/crops/page_11_CT4056.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "SE SERA LPUD material: Plástico material: plástico Medidas: Medidas: 18,5X9X12,2CM 22X11,5X7,5CM",
+      "preco": "",
+      "imagem": "/crops/page_11_34.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_11_35.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "nu” / / / 36 Mitp.: Mitp.: Cx Master 48 12 Cx Master /6 a - + di = = NCM: 39249000 NCM: 39249000 = = — — S/ST S/ST IPI:6,5% IPI:6,5% Fr a as EAN: 7908425519073 EAN:7908425519103 - = »",
+      "preco": "",
+      "imagem": "/crops/page_11_36.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR a",
+      "preco": "",
+      "imagem": "/crops/page_11_37.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 11,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 n",
+      "preco": "",
+      "imagem": "/crops/page_11_38.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "12": [
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "1) UTENSÍLIOS BANHEIRO DE PAREDE DE TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_12_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "CT4048",
+      "titulo": "C7T74058 Shampoo Vazado Shampoo Vazado Canto Porta Branco Porta De",
+      "preco": "",
+      "imagem": "/crops/page_12_CT4048.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "SA R$ RD 28,80 material: Plástico Material: Plástico Medidas: Medidas: 30,6X11,8X17,6CM 25,2X25,2X12,7CM",
+      "preco": "",
+      "imagem": "/crops/page_12_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Solapa Caixa",
+      "preco": "",
+      "imagem": "/crops/page_12_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "/ / 24/0 / 24 Mitp.: Mitp.: Cx Master CxMaster 12 4 ha pm ha > — NCM: 39249000 NCM: 39249000 TT — — S/ST S/ST IPl:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_12_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "EAN: 7908425519028 EAN: 7908425519127",
+      "preco": "",
+      "imagem": "/crops/page_12_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "2 REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_12_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "CT4057",
+      "titulo": "Toalha Gancho Toalha Banho Argola Suporte E Para Porta De Rosto",
+      "preco": "",
+      "imagem": "/crops/page_12_CT4057.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "ASASZUD material prástico Material: Plástico Medidas: Medidas: 3,9X6,5X9,7CM 16X24X6CM",
+      "preco": "R$12,70",
+      "imagem": "/crops/page_12_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa E",
+      "preco": "",
+      "imagem": "/crops/page_12_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "«a | N / / / / Mitp.: Mitp.: Cx Master 96 12 Cx Master 48 12",
+      "preco": "",
+      "imagem": "/crops/page_12_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "| [E NCM: 39249000 NCM: 39249000 pa — 7 S/ST S/ST P:6,5% IPI:6,5% o",
+      "preco": "",
+      "imagem": "/crops/page_12_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "d EAN: 7908425519110 EAN: 7908425519134",
+      "preco": "",
+      "imagem": "/crops/page_12_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "| Fr REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_12_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "CT4049",
+      "titulo": "Toalha Banho Argola Toalha Banho C74051 Porta Rosto E Porta De Rosto E",
+      "preco": "",
+      "imagem": "/crops/page_12_CT4049.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "REP ERAD material: plástico Material: Plástico Medidas: Medidas: 16X24X6CM 22X11,5X7,5CM",
+      "preco": "",
+      "imagem": "/crops/page_12_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_12_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "/ / / / 96 Mitp.: Mitp.: Cx Master 48 12 Cx Master 16",
+      "preco": "",
+      "imagem": "/crops/page_12_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000 <A pa — — S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_12_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "EAN: 7908425519035 EAN: 7908425519059",
+      "preco": "",
+      "imagem": "/crops/page_12_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_12_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "= = sd",
+      "preco": "",
+      "imagem": "/crops/page_12_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "CT4052",
+      "titulo": "Toalha Banho Duplo Toalha Adesivo Sortido De Suporte Com Porta Rosto E Para",
+      "preco": "",
+      "imagem": "/crops/page_12_CT4052.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "Material: Plástico Material: Medidas: Ferro Medidas: 29,7X10X13CM 50X7,5X8,5CM",
+      "preco": "R$8,40",
+      "imagem": "/crops/page_12_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_12_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "/ / 96 / /8 Mitp.: Mitp.: Cx Master 16 Cx Master 48",
+      "preco": "",
+      "imagem": "/crops/page_12_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 83025000",
+      "preco": "",
+      "imagem": "/crops/page_12_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST Ts IPI:6,5% IPI:6,5% TE",
+      "preco": "",
+      "imagem": "/crops/page_12_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "EAN: 7908425519066 EAN: 7908425518588",
+      "preco": "",
+      "imagem": "/crops/page_12_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "ng INDISPONÍVEL REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_12_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 12,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025 2",
+      "preco": "",
+      "imagem": "/crops/page_12_31.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "13": [
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "(9 SAPATEIRAS ORGANIZADORAS TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_13_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "CT4039",
+      "titulo": "Sapateira Organizadora Sortidas Sapateira Organizadora Sortidas Cores 4 Cores 5",
+      "preco": "",
+      "imagem": "/crops/page_13_CT4039.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "Prateleiras Prateleiras R$ R$ e e 36, 40) 41, 105) Material: TNT Tubo Material: TNT Tubo Medidas: Medidas: 60X30X73CM 60X30X90CM CORES: Galvanizado Galvanizado CORES: Embalagem: Embalagem: Caixa Caixa",
+      "preco": "",
+      "imagem": "/crops/page_13_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "/ / 12/6 Master 12/6 Mitp.: Mitp.: Cx Master Cx",
+      "preco": "",
+      "imagem": "/crops/page_13_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "NCM: 94032090 NCM: 94032090",
+      "preco": "",
+      "imagem": "/crops/page_13_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:3,25% IPI:3,25%",
+      "preco": "",
+      "imagem": "/crops/page_13_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "EAN: 7908425518939 EAN: 7908425518946 4. o. REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_13_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "CT4042",
+      "titulo": "Sapateira Organizadora Sortidas Sapateira Organizadora Sortidas C74041 Cores 6 Cores 7",
+      "preco": "",
+      "imagem": "/crops/page_13_CT4042.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "Prateleiras Prateleiras R$ RS 51, 45,80 80 e Material: Tubo Material: TNT Tubo TNT Medidas: Medidas: 60X30X107CM 60X30X125CM e CORES: Galvanizado Galvanizado CORES: Embalagem: Embalagem: Caixa Caixa",
+      "preco": "R$51,",
+      "imagem": "/crops/page_13_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "dl, - / 12/6 / 12/6 Mitp.: Mitp.: Cx Master Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_13_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "NCM: 94032090 NCM: 94032090",
+      "preco": "",
+      "imagem": "/crops/page_13_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:3,25% IPI:3,25%",
+      "preco": "",
+      "imagem": "/crops/page_13_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "EAN: 7908425518953 EAN: 7908425518960",
+      "preco": "",
+      "imagem": "/crops/page_13_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_13_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "PRATELEIRAS",
+      "preco": "",
+      "imagem": "/crops/page_13_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "CT4043",
+      "titulo": "Sapateira Organizadora Sortidas Sapateira Organizadora Sortidas Cores 8 GE Cores 9",
+      "preco": "",
+      "imagem": "/crops/page_13_CT4043.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "Prateleiras Prateleiras | 68,10 ) R$ 56,80 10 e Material: Tubo Material: TNT Tubo Medidas: Medidas: TNT 60X30X145CM 60X30X160CM e Galvanizado CORES: Salvanizado É Embalagem: CORES; Embalagem: Caixa Caixa",
+      "preco": "R$68,",
+      "imagem": "/crops/page_13_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "/ / 12/6 Master 12/6 Mitp.: Mitp.: Cx Master Cx",
+      "preco": "",
+      "imagem": "/crops/page_13_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "NCM: 94032090 NCM: 94032090 E S/ST S/ST IPI:3,25% IPI:3,25%",
+      "preco": "",
+      "imagem": "/crops/page_13_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "EAN: 7908425518977 EAN: 7908425518984",
+      "preco": "",
+      "imagem": "/crops/page_13_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "9. INDISPONÍVEL REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_13_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "PRATELEIRAS",
+      "preco": "",
+      "imagem": "/crops/page_13_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "CT3986",
+      "titulo": "Sapateira Prateleiras Sapateira Organizadora Vertical Com 10 5",
+      "preco": "",
+      "imagem": "/crops/page_13_CT3986.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "Prateleiras GSE RS 41, RASID 80 material: plástico Material: Plástico Medidas: Medidas: 41X19X71CM 51X16X139CM e e",
+      "preco": "R$41,",
+      "imagem": "/crops/page_13_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "Erro Ferro Embalagem: Solapa Embalagem: Caixa",
+      "preco": "",
+      "imagem": "/crops/page_13_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "AA / / / 50 Master 12/6 Mitp.: Mitp.: Cx Master 10 Cx",
+      "preco": "",
+      "imagem": "/crops/page_13_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "NCM: 94032090 NCM: 94032090 10",
+      "preco": "",
+      "imagem": "/crops/page_13_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:3,25% IPI:3,25%",
+      "preco": "",
+      "imagem": "/crops/page_13_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "EAN: 7908425518564 EAN: 7908425518991",
+      "preco": "",
+      "imagem": "/crops/page_13_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR PRATELEIRAS PRATELEIRAS",
+      "preco": "",
+      "imagem": "/crops/page_13_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "CT3985",
+      "titulo": "4 Sapateira Prateleiras Com",
+      "preco": "",
+      "imagem": "/crops/page_13_CT3985.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "Material: Plástico Medidas: 42X19X59CM e",
+      "preco": "R$18,00",
+      "imagem": "/crops/page_13_34.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "Ferro Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_13_35.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "/ Mitp.: Cx Master 40 /6",
+      "preco": "",
+      "imagem": "/crops/page_13_36.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "NCM: 94032090",
+      "preco": "",
+      "imagem": "/crops/page_13_37.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "S/ST IPI:3,25%",
+      "preco": "",
+      "imagem": "/crops/page_13_38.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "EAN: 7908425518557",
+      "preco": "",
+      "imagem": "/crops/page_13_39.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_13_40.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "PRATELEIRAS",
+      "preco": "",
+      "imagem": "/crops/page_13_41.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 13,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 13",
+      "preco": "",
+      "imagem": "/crops/page_13_42.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "14": [
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "(9 ORGANIZADORES MULTIUSO TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_14_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "CT4174",
+      "titulo": "Organizador Objetos Sortido Organizador Multiuso Sortido CT4 188 Cesto Porta",
+      "preco": "",
+      "imagem": "/crops/page_14_CT4174.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "R$ SB 2,18 HI Material: Plástico Material: Plástico Medidas: Medidas: 9,5X11CM 30X20X18CM",
+      "preco": "",
+      "imagem": "/crops/page_14_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Etiqueta Etiqueta f",
+      "preco": "",
+      "imagem": "/crops/page_14_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "/ / 270 / / Mitp.: Mitp.: Cx Master 30 Cx Master 60 12",
+      "preco": "",
+      "imagem": "/crops/page_14_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_14_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:6,5% PI:6,5% 0 EAN: 7908425521489 EAN: 7908425521311",
+      "preco": "",
+      "imagem": "/crops/page_14_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_14_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "CT4172",
+      "titulo": "Organizador Multiuso Sortido Organizador Multiuso Sortido Cesto C74173 Cesto",
+      "preco": "",
+      "imagem": "/crops/page_14_CT4172.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "Material: Plástico Material: Plástico Medidas: Medidas: 20X15X12CM 26X17,5X14CM",
+      "preco": "",
+      "imagem": "/crops/page_14_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Etiqueta Etiqueta",
+      "preco": "",
+      "imagem": "/crops/page_14_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "/ / / 120 / 80 Mitp.: Mitp.: Cx Master 24 Cx Master 16",
+      "preco": "",
+      "imagem": "/crops/page_14_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000 |",
+      "preco": "",
+      "imagem": "/crops/page_14_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_14_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "EAN: 790842552198 EAN: 7908425521304",
+      "preco": "",
+      "imagem": "/crops/page_14_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_14_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "C7T74171 Organizador Multiuso Sortido Cesto",
+      "preco": "",
+      "imagem": "/crops/page_14_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "ET ROD Material: Plástico Medidas: 18X12X10CM",
+      "preco": "",
+      "imagem": "/crops/page_14_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "Embalagem: Etiqueta",
+      "preco": "",
+      "imagem": "/crops/page_14_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "/ / 120 Mitp.: Cx Master 24 Px",
+      "preco": "",
+      "imagem": "/crops/page_14_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_14_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "S/ST 6,5% IPI: ga",
+      "preco": "",
+      "imagem": "/crops/page_14_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "Veg EAN: 7908425521281",
+      "preco": "",
+      "imagem": "/crops/page_14_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_14_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 14,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025 14",
+      "preco": "",
+      "imagem": "/crops/page_14_25.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "15": [
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "(9 CESTOS ORGANIZADORES TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_15_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "CT4209",
+      "titulo": "Organizador Lavanderia Redondo Organizador Lavanderia Redondo Cesto Cesto Em Em",
+      "preco": "",
+      "imagem": "/crops/page_15_CT4209.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Tecido Sortido Tecido Sortido SAD material: Tecido Material: Tecido Medidas: Medidas: 40X50CM 35X45CM",
+      "preco": "",
+      "imagem": "/crops/page_15_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Tag Tag —> = / / / 50 / 50 Mitp.: Mitp.: Cx Master 10 Cx Master 10",
+      "preco": "",
+      "imagem": "/crops/page_15_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "lJaundry NCM: 63079090 NCM: 63079090 laundry",
+      "preco": "",
+      "imagem": "/crops/page_15_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "S/ST S/ST 0% IPI: IPI: 0%",
+      "preco": "",
+      "imagem": "/crops/page_15_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "EAN: 7908425521755 EAN: 7908425521748",
+      "preco": "",
+      "imagem": "/crops/page_15_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "tmp REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_15_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "CT4210",
+      "titulo": "pador Lavanderia Redondo Organizador Lavanderia Retangular C74211 cesto Cosan Cesto Em",
+      "preco": "",
+      "imagem": "/crops/page_15_CT4210.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Tecido Sortido Em Tecido i r Mata ER EROD material: Tecido Medidas: Medidas: 35X45CM 40X26X46CM",
+      "preco": "",
+      "imagem": "/crops/page_15_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Tag Tag E / / / 50 / 50 Mitp.: Mitp.: Cx Master 10 Cx Master 10 NÃO NEgo, NO NCM: 63079090 NCM: 63079090 = PASSO QUANDO PUDER — — S/ST S/ST 0% “Organização IPI: IPI:0%",
+      "preco": "",
+      "imagem": "/crops/page_15_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "EAN: 7908425521779 EAN: 7908425521762",
+      "preco": "",
+      "imagem": "/crops/page_15_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_15_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "CT4212",
+      "titulo": "Organizador Lavanderia Redondo Organizador Redondo Tecido Cesto Em C74213 Cesto Em",
+      "preco": "",
+      "imagem": "/crops/page_15_CT4212.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Tecido Sortido Sortido R$ 14, 40 00 Material: Tecido Ea Tecido Medidas: Medidas: 40X50CM 35X45CM",
+      "preco": "R$20,",
+      "imagem": "/crops/page_15_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "ves Embalagem: Embalagem: Cuneo o Tag Tag é cê / A! 2 / / / 50 Mitp.: Mitp.: Cx Master 50 10 Cx Master 10 | IOUPASUJA SF ) piaçe » Eu NCM: 63079090 NCM: 63079090 4 eo em asA — Ada as = S/ST S/ST IPI:0% e te NE — Ra STR EAN: 7908425521786 EAN: 7908425521793 õ, Ap ig REGULAR Geo Ei no",
+      "preco": "",
+      "imagem": "/crops/page_15_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "o q!",
+      "preco": "",
+      "imagem": "/crops/page_15_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "as “SE",
+      "preco": "",
+      "imagem": "/crops/page_15_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "CT453",
+      "titulo": "Organizador Sortido Cesto Organizador Redondo Tecido Cesto CT42 Em 8 14",
+      "preco": "",
+      "imagem": "/crops/page_15_CT453.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Sortido 23,00 Material: Tecido Material: Fibra de Medidas: Medidas: 40X50CM 42X55CM",
+      "preco": "R$16,",
+      "imagem": "/crops/page_15_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Poliéster NE care Embalagem: oE Embalagem: Tag Tag id =p",
+      "preco": "",
+      "imagem": "/crops/page_15_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Res / / Master / Master / 9, Mitp.: Mitp.: Cx 50 10 Cx 60 12 A e arado da Y ER NCM: 63079090 NCM: 63079090 E nas — dá EST aa S/ST da S/ST IPI:0% 0% IPI: enio po EAN: 7908425521809 EAN: 7908425527481 & Da e 2 REGULAR REGULAR inE des yo ES",
+      "preco": "",
+      "imagem": "/crops/page_15_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "CT4541",
+      "titulo": "Organizador Sortido Cesto",
+      "preco": "",
+      "imagem": "/crops/page_15_CT4541.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Material: Fibra de Medidas: 36X43CM",
+      "preco": "R$23,00",
+      "imagem": "/crops/page_15_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "Poliéster Embalagem: Tag",
+      "preco": "",
+      "imagem": "/crops/page_15_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "/ / Mitp.: Cx Master 60 12",
+      "preco": "",
+      "imagem": "/crops/page_15_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_15_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_15_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "EAN: 7908425527511",
+      "preco": "",
+      "imagem": "/crops/page_15_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_15_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 15,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 5",
+      "preco": "",
+      "imagem": "/crops/page_15_31.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "16": [
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "1) TTBRASIL CESTOS ORGANIZADORES",
+      "preco": "",
+      "imagem": "/crops/page_16_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "CT4278",
+      "titulo": "C7T4277 Dobrável Dobrável Organizador Suja Organizador Suja Cesto Roupa Cesto Roupa",
+      "preco": "",
+      "imagem": "/crops/page_16_CT4278.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Sortido Sortido R$ 7,36 Material: Nylon Metal Material: Nylon Metal Medidas: Medidas: 30X30X50CM 40X40X70CM e e",
+      "preco": "R$8,36",
+      "imagem": "/crops/page_16_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Embalagem: Cartão Embalagem: Cartão",
+      "preco": "",
+      "imagem": "/crops/page_16_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "/ 120 Mitp.: / / Cx Master /12 Mitp.: Cx Master 5O 12",
+      "preco": "",
+      "imagem": "/crops/page_16_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "NCM: 63079090 NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_16_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI: S/ST 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_16_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "EAN: 7908425522448 EAN: 7908425522455",
+      "preco": "",
+      "imagem": "/crops/page_16_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_16_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "CT4442",
+      "titulo": "Infantil Infantil Organizador de Suja Organizador de Suja Cesto Roupa Cesto Roupa",
+      "preco": "",
+      "imagem": "/crops/page_16_CT4442.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Dobrável Dobrável Sortido Sortido R$ 10,80 Material: Malha de Material: Malha de Medidas: Medidas: 40X60CM 34X56CM",
+      "preco": "R$11,80",
+      "imagem": "/crops/page_16_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Nylon Metal Nylon Metal Arame Arame + + e e Embalagem: Embalagem: Cartão Cartão",
+      "preco": "",
+      "imagem": "/crops/page_16_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "E / ai Master 120/24 / 120/24 Mitp.: Mitp.: Cx Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_16_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "NCM: 63079090 NCM: 63079090 — S/ST S/ST IPI:0% 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_16_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "EAN: 7908425526491 EAN: 7908425526484",
+      "preco": "",
+      "imagem": "/crops/page_16_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_16_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "CT4444",
+      "titulo": "Infantil Organizador de Suja Cesto Roupa",
+      "preco": "",
+      "imagem": "/crops/page_16_CT4444.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Dobrável Sortido Material: Malha de Medidas: 32X42CM de Economia Espaço Nylon Metal Arame + e Embalagem: Cartão",
+      "preco": "R$7,98",
+      "imagem": "/crops/page_16_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "/ Master /24 Mitp.: Cx 120",
+      "preco": "",
+      "imagem": "/crops/page_16_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_16_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_16_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "(O) EAN: 7908425526507",
+      "preco": "",
+      "imagem": "/crops/page_16_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_16_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Fácil de Montar",
+      "preco": "",
+      "imagem": "/crops/page_16_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "IDEAL PARA ORGANIZAR: ROUPAS SUJAS, BRINQUEDOR, SAPATOS.",
+      "preco": "",
+      "imagem": "/crops/page_16_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "INSTRUÇÕES USO: DE",
+      "preco": "",
+      "imagem": "/crops/page_16_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "UAI :",
+      "preco": "",
+      "imagem": "/crops/page_16_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Abra Descobre 1. Retire 2. 3. 4. Puxe centrais cesto cesto o o os as peças dobrado da bolsa. cuidado. lados permitindo do cesto. cesto com que o abra completamente.",
+      "preco": "",
+      "imagem": "/crops/page_16_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "CT4539",
+      "titulo": "Organizador Sortido Organizador Sortido Cesto Cesto",
+      "preco": "",
+      "imagem": "/crops/page_16_CT4539.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "R$ 21,60 Material: Material: Poliéster Poliéster Medidas: Medidas: 35X45CM 40X50CM + +",
+      "preco": "R$19,00",
+      "imagem": "/crops/page_16_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "Algodam Algodão Embalagem: Embalagem: Tag Tag",
+      "preco": "",
+      "imagem": "/crops/page_16_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: Cx Master 100 20 Cx Master 100 20 NEL ANNA NNE",
+      "preco": "",
+      "imagem": "/crops/page_16_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "NCM: 63079090 NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_16_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "S/ST S/ST 0% 0% IPI: IPI:",
+      "preco": "",
+      "imagem": "/crops/page_16_34.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "SAS fi EAN: 7908425527498 EAN: 7908425521748 ONRVA",
+      "preco": "",
+      "imagem": "/crops/page_16_35.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "VA DAVA VAN REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_16_36.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "u E EM p= Md V N R o) j TIN 7 é d IN WMM: % % R E [4 q Uh E“ AY 7 o \"8 a. AA A EIS EN Wãig” NNE VPAVA SAIA SME r Bi S NX sto E Ria É",
+      "preco": "",
+      "imagem": "/crops/page_16_37.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 16,
+      "codigo": "",
+      "titulo": "16 TT BRASIL 2025 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_16_38.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "17": [
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "1) ORGANIZADORES ROUPA DE TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_17_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "CT4330",
+      "titulo": "Divisórias Divisórias Organizador Organizador Para Roupas 6 Para 11 Roupas",
+      "preco": "",
+      "imagem": "/crops/page_17_CT4330.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "SEIO SEAT: Material: Nyion Material: Nyion Medidas: Medidas: 32X31,5X12CM 31,5X12X11CM",
+      "preco": "",
+      "imagem": "/crops/page_17_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Cartão Cartão",
+      "preco": "",
+      "imagem": "/crops/page_17_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "/ / /50 / 250 Mitp.: Mitp.: Cx Master 250 Cx Master 50",
+      "preco": "",
+      "imagem": "/crops/page_17_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "NCM: 63079090 NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_17_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "S/ST S/ST 0% 0% IPI: IPI:",
+      "preco": "",
+      "imagem": "/crops/page_17_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "EAN: 7908425523117 EAN: 7908425523124",
+      "preco": "",
+      "imagem": "/crops/page_17_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_17_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "CT4332",
+      "titulo": "Divisórias Organizador Para 7 Roupas",
+      "preco": "",
+      "imagem": "/crops/page_17_CT4332.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "SED material: Nyion Medidas: 36X17X12CM",
+      "preco": "",
+      "imagem": "/crops/page_17_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "Embalagem: Cartão",
+      "preco": "",
+      "imagem": "/crops/page_17_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "/ 250/50 Mitp.: Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_17_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_17_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "S/ST 0% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_17_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "EAN: 7908425523131",
+      "preco": "",
+      "imagem": "/crops/page_17_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_17_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "CABIDE VARAL",
+      "preco": "",
+      "imagem": "/crops/page_17_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "CT4327",
+      "titulo": "Cabide Varal Espiral Aço Inox em",
+      "preco": "",
+      "imagem": "/crops/page_17_CT4327.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "d Até 2,2 [) metros menos em de 50em Ná ELIAAUD material: Aço Inox Medidas: 45CM",
+      "preco": "R$12,10",
+      "imagem": "/crops/page_17_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_17_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "/ /20 Mitp.: Cx Master 80 4 Economiza espaço NCM: 83025000",
+      "preco": "",
+      "imagem": "/crops/page_17_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "— S/ST IPI:6,5% “ar Vá Ideal sacadas EAN: 7908425523070 para e",
+      "preco": "",
+      "imagem": "/crops/page_17_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "gi apartamentos REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_17_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "Sol todas vento e em as L",
+      "preco": "",
+      "imagem": "/crops/page_17_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "(rotação 360º) partes",
+      "preco": "",
+      "imagem": "/crops/page_17_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 17,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 17",
+      "preco": "",
+      "imagem": "/crops/page_17_27.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "18": [
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "(9 CABIDES TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_18_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "CT3815",
+      "titulo": "Armário Conjunto Cabide Presilha Cabide Organizador 3 Com Peças Para Nove",
+      "preco": "",
+      "imagem": "/crops/page_18_CT3815.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "Furos Branco R$ 2,10 Material: Metal Material: Plástico Medidas: Medidas: 35X10CM 33X5CM",
+      "preco": "R$7,98",
+      "imagem": "/crops/page_18_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Etiqueta » ( / 72/0 / / Mitp.: Mitp.: — Cx Master Cx Master 200 40",
+      "preco": "",
+      "imagem": "/crops/page_18_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "É NCM: 83025000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_18_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "— S/ST —S/ST IPI:6,5% PI:6,5% f",
+      "preco": "",
+      "imagem": "/crops/page_18_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "EAN: 7908425515822 EAN: 790842552 1595",
+      "preco": "",
+      "imagem": "/crops/page_18_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "BAIXO INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_18_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "CT3817",
+      "titulo": "Conjunto Cabide Conjunto Cabide 3 4 Peças Peças",
+      "preco": "",
+      "imagem": "/crops/page_18_CT3817.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "R$ RS 9,10 8,50 Material: Plástico Material: Plástico Medidas: Medidas: 41,5X20CM 41X20CM",
+      "preco": "R$9,10",
+      "imagem": "/crops/page_18_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_18_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: Cx Master 60 12 Cx Master 60 12",
+      "preco": "",
+      "imagem": "/crops/page_18_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_18_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPI:6,5% IPI:6,5% j",
+      "preco": "",
+      "imagem": "/crops/page_18_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "EAN: 7908425515846 EAN: 7908425515860 CR",
+      "preco": "",
+      "imagem": "/crops/page_18_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_18_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "CT3820",
+      "titulo": "Conjunto Cabide Conjunto Cabide 5 Peças 4 Peças",
+      "preco": "",
+      "imagem": "/crops/page_18_CT3820.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "R$ 8,40 Material: Plástico Material: Plástico Medidas: Medidas: 41X20CM 40X21CM",
+      "preco": "R$16,00",
+      "imagem": "/crops/page_18_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_18_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "/ 44/11 / / Mitp.: Mitp.: Cx Master Cx Master 48 12",
+      "preco": "",
+      "imagem": "/crops/page_18_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_18_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_18_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "EAN: 7908425515877 EAN: 7908425515853",
+      "preco": "",
+      "imagem": "/crops/page_18_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_18_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "CT3816",
+      "titulo": "Conjunto Cabide Conjunto Cabide de Madeira Presilha 3 Com Peças Preto",
+      "preco": "",
+      "imagem": "/crops/page_18_CT3816.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "3 Peças R$ RS 1721) 13,40 material: Plástico Material: Madeira Medidas: Medidas: 43X21CM 45X25CM e",
+      "preco": "R$1721",
+      "imagem": "/crops/page_18_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "Ferro Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_18_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "o / /8 / / Mitp.: Mitp.: Cx Master 40 Cx Master 36 12",
+      "preco": "",
+      "imagem": "/crops/page_18_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 44211000",
+      "preco": "",
+      "imagem": "/crops/page_18_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "— S/ST S/ST IPI:6,5% IPI: 0%",
+      "preco": "",
+      "imagem": "/crops/page_18_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "EAN: 7908425515839 EAN: 7908425519271",
+      "preco": "",
+      "imagem": "/crops/page_18_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 18,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_18_35.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "19": [
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "(9 BOLSAS ROUPAS PARA LAVAR TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_19_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "? a pi tipos + s Máquina",
+      "preco": "",
+      "imagem": "/crops/page_19_2.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "azão",
+      "preco": "",
+      "imagem": "/crops/page_19_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "oZío",
+      "preco": "",
+      "imagem": "/crops/page_19_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "NYLON",
+      "preco": "",
+      "imagem": "/crops/page_19_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "Não Anti-nó Solta Não Não",
+      "preco": "",
+      "imagem": "/crops/page_19_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "Distorce Fiapos Amassa Material",
+      "preco": "",
+      "imagem": "/crops/page_19_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "Resistente",
+      "preco": "",
+      "imagem": "/crops/page_19_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "CT4175",
+      "titulo": "Bolsa Bolsa Lavar CT4 181 Roupas Lavar Roupas para para",
+      "preco": "",
+      "imagem": "/crops/page_19_CT4175.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "R$ 3,90 Material: Nylon Material: Nylon Medidas: Medidas: 16X16CM 30X40CM",
+      "preco": "R$4,90",
+      "imagem": "/crops/page_19_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_19_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "/ /30 / / Mitp.: Mitp.: Cx Master 300 Cx Master 200 40",
+      "preco": "",
+      "imagem": "/crops/page_19_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "NCM: 39231990 NCM: 39231990",
+      "preco": "",
+      "imagem": "/crops/page_19_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "com ZIPEp = S/ST S/ST IPI: 15% IPI: 15%",
+      "preco": "",
+      "imagem": "/crops/page_19_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "Gm EAN: 7908425521328 EAN: 7908425521380 ag (a ARO",
+      "preco": "",
+      "imagem": "/crops/page_19_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "CT4179",
+      "titulo": "Bolsa Bolsa CT4 180 Lavar Roupas Lavar Roupas para para",
+      "preco": "",
+      "imagem": "/crops/page_19_CT4179.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "R$ 5,90 Material: Nylon Material: Nylon Medidas: Medidas: 40X50CM 60X50CM",
+      "preco": "R$4,80",
+      "imagem": "/crops/page_19_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_19_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: Cx Master 200 40 Cx Master 200 40",
+      "preco": "",
+      "imagem": "/crops/page_19_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "NCM: 39231990 NCM: 39231990",
+      "preco": "",
+      "imagem": "/crops/page_19_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI: 15% IPI: 15%",
+      "preco": "",
+      "imagem": "/crops/page_19_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "EAN: 7908425521373 EAN: 7908425521366",
+      "preco": "",
+      "imagem": "/crops/page_19_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "CT4178",
+      "titulo": "Bolsa Bolsa Lavar Lavar Roupas Roupas para para",
+      "preco": "",
+      "imagem": "/crops/page_19_CT4178.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "R$ 8,30 Material: Nylon Material: Nylon Medidas: Medidas: 60X60CM 60X70CM",
+      "preco": "R$6,40",
+      "imagem": "/crops/page_19_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_19_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: Cx Master 200 40 Cx Master 200 40",
+      "preco": "",
+      "imagem": "/crops/page_19_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "NCM: 39231990 NCM: 39231990",
+      "preco": "",
+      "imagem": "/crops/page_19_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI: 15% IPI: 15%",
+      "preco": "",
+      "imagem": "/crops/page_19_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "EAN: 7908425521359 EAN: 7908425521342",
+      "preco": "",
+      "imagem": "/crops/page_19_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 19,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 19",
+      "preco": "",
+      "imagem": "/crops/page_19_30.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "20": [
+    {
+      "page": 20,
+      "codigo": "",
+      "titulo": "CUIDADOS",
+      "preco": "",
+      "imagem": "/crops/page_20_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 20,
+      "codigo": "",
+      "titulo": "PESSOAIS",
+      "preco": "",
+      "imagem": "/crops/page_20_2.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "21": [
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "1) TOALHA CABELO PARA TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_21_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "CT3523",
+      "titulo": "Toalha Cabelo Sortida Para",
+      "preco": "",
+      "imagem": "/crops/page_21_CT3523.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "Material: Microfibra Medidas: 22X53",
+      "preco": "R$4,18",
+      "imagem": "/crops/page_21_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_21_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "/ / 120 Mitp.: Cx Master 24",
+      "preco": "",
+      "imagem": "/crops/page_21_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "NCM: 63079090",
+      "preco": "",
+      "imagem": "/crops/page_21_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "— S/ST IPI:0%",
+      "preco": "",
+      "imagem": "/crops/page_21_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "EAN: 7908425510896",
+      "preco": "",
+      "imagem": "/crops/page_21_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_21_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "ESPONJA BANHO DE",
+      "preco": "",
+      "imagem": "/crops/page_21_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "CT3971",
+      "titulo": "Esponja de Banho Sortida Esponja de Banho Divertida Sortida Frutas",
+      "preco": "",
+      "imagem": "/crops/page_21_CT3971.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "60 Material: Material: Esponja Esponja Medidas: Medidas: CM CM",
+      "preco": "R$3,",
+      "imagem": "/crops/page_21_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Etiqueta Etiqueta ot",
+      "preco": "",
+      "imagem": "/crops/page_21_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "/ / /50 / 200 Mitp.: Mitp.: Cx Master 200 Cx Master 50",
+      "preco": "",
+      "imagem": "/crops/page_21_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "NCM: 39249000 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_21_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_21_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "EAN: 7908425517116 EAN: 7908425517109",
+      "preco": "",
+      "imagem": "/crops/page_21_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_21_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "BALANÇAS",
+      "preco": "",
+      "imagem": "/crops/page_21_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "CT1070",
+      "titulo": "Balança Digital Redonda Balança Digital Quadrada GE",
+      "preco": "",
+      "imagem": "/crops/page_21_CT1070.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "GEID P 4:00) Material: Vidro Material: Vidro Medidas: Medidas: 32X9CM 30X30CM",
+      "preco": "",
+      "imagem": "/crops/page_21_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "Capacidade: 180kg Capacidade: 180kg",
+      "preco": "",
+      "imagem": "/crops/page_21_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "“ Lo Ra Embalagem: Embalagem: Caixa Caixa S / 20/5 / 10/5 Mitp.: Mitp.: Cx Master Cx Master A,",
+      "preco": "",
+      "imagem": "/crops/page_21_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": ") NCM: 84231000 NCM: 84231000 | | — — C/ST C/ST IPI:13% IPIl:13% | | | I A Pon EAN: 7898681957590 EAN: 7898681957583",
+      "preco": "",
+      "imagem": "/crops/page_21_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "Mecânica Balança Sortido C71071",
+      "preco": "",
+      "imagem": "/crops/page_21_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "Material: Plástico Medidas: 28X27CM",
+      "preco": "R$22,10",
+      "imagem": "/crops/page_21_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "o: Capacidade: 130kg",
+      "preco": "",
+      "imagem": "/crops/page_21_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "Embalagem: Caixa",
+      "preco": "",
+      "imagem": "/crops/page_21_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "/ / 20 Mitp.: Cx Master 10",
+      "preco": "",
+      "imagem": "/crops/page_21_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "NCM: 84231000",
+      "preco": "",
+      "imagem": "/crops/page_21_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "c/sT IPI: 13%",
+      "preco": "",
+      "imagem": "/crops/page_21_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "EAN: 7898681957606",
+      "preco": "",
+      "imagem": "/crops/page_21_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_21_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 21,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 21",
+      "preco": "",
+      "imagem": "/crops/page_21_34.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "22": [
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "PORTÁTEIS (9 TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_22_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "Rretátil Multiuso Viagem Sortido Multiuso Viagem CT45 10 Frasco C74511 03 01 Frasco para em para",
+      "preco": "",
+      "imagem": "/crops/page_22_2.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "Sortido RS 5,18 Material: Silicone Material: Silicone Capacidade: Medidas: 110ML 4,6X3,5X10,5CM",
+      "preco": "R$5,18",
+      "imagem": "/crops/page_22_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "stoxsacm — Medidores Embalagem: Capacidade: Etiqueta 6OML",
+      "preco": "",
+      "imagem": "/crops/page_22_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "« / / Embalagem: Mitp.: Etiqueta Cx Master 300 60 1 E",
+      "preco": "",
+      "imagem": "/crops/page_22_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "E / / Mitp.: Cx Master 300 60 NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_22_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "— S/ST IPI:6,5% NCM: 39249000",
+      "preco": "",
+      "imagem": "/crops/page_22_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "— S/ST 6,5% IPI: EAN: 7908425526651",
+      "preco": "",
+      "imagem": "/crops/page_22_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "REGULAR EAN: 7908425526668",
+      "preco": "",
+      "imagem": "/crops/page_22_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_22_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "Rm E",
+      "preco": "",
+      "imagem": "/crops/page_22_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "Água Multiuso Viagem Bolsa de CT45 13 Frasco 03 01 CT45 Quente 14 em para",
+      "preco": "",
+      "imagem": "/crops/page_22_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "Sortido",
+      "preco": "",
+      "imagem": "/crops/page_22_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "R$ R$ SID EK: VA Medidas: . CM Material: Silicone material: Silicone Medidas: 7,8X11,6X15,6CM",
+      "preco": "",
+      "imagem": "/crops/page_22_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "Capacidade: 90ML Capacidade: Fa 230ML di Embalagem: ro Etiqueta ( Embalagem: Etiqueta / Master / Me Mitp.: Cx 252 42 / / Mitp.: Cx Master 70 14",
+      "preco": "",
+      "imagem": "/crops/page_22_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "NCM: 39249000 | NCM: 40149010 F, — S/ST IPI:6,5% — C/ST 15% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_22_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "EAN: 7908425526682 EAN: 7908425526699",
+      "preco": "",
+      "imagem": "/crops/page_22_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR -",
+      "preco": "",
+      "imagem": "/crops/page_22_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 22,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_22_19.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "23": [
+    {
+      "page": 23,
+      "codigo": "",
+      "titulo": "BANHEIRO",
+      "preco": "",
+      "imagem": "/crops/page_23_1.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "24": [
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "UTENSÍLIOS (9 BANHEIRO DE TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_24_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "CT4279",
+      "titulo": "Líquido Líquido Dispenser Sabonete Sortido Dispenser Sabonete Sortido CEI Para Para",
+      "preco": "",
+      "imagem": "/crops/page_24_CT4279.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "| 17,60 ) R$ (50) 17,60 Material: Cerâmica Material: Cerâmica Medidas: Medidas: 6,8X6,8X17,5CM 7X17,5CM",
+      "preco": "R$17,",
+      "imagem": "/crops/page_24_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "+Plástico +Plástico PP ABS PP ABS + + Capacidade: Capacidade: 300ML 300ML",
+      "preco": "",
+      "imagem": "/crops/page_24_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "o Embalagem: Embalagem: á Caixa Caixa",
+      "preco": "",
+      "imagem": "/crops/page_24_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: Cx Master 60 12 Cx Master 60 12",
+      "preco": "",
+      "imagem": "/crops/page_24_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "NCM: 69120000 NCM: 69120000",
+      "preco": "",
+      "imagem": "/crops/page_24_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "C/ST C/ST 6,5% IPI: IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_24_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "EAN: 7908425524664 EAN: 7908425524688",
+      "preco": "",
+      "imagem": "/crops/page_24_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_24_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "CT4285",
+      "titulo": "Líquido Líquido Dispenser Sabonete Sortido Dispenser Sabonete C74321 Para Waves Para",
+      "preco": "",
+      "imagem": "/crops/page_24_CT4285.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "Sortido R$ 19, 80 Material: Cerâmica Material: Cerâmica Medidas: Medidas: 8,8X17CM 8X8X16CM",
+      "preco": "R$17,60",
+      "imagem": "/crops/page_24_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "+Plástico +Plástico PP ABS PP ABS Capacidade: + Capacidade: + 320ML 300ML",
+      "preco": "",
+      "imagem": "/crops/page_24_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Caixa Caixa",
+      "preco": "",
+      "imagem": "/crops/page_24_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "/ / / / Mitp.: Mitp.: Cx Master 60 12 Cx Master 60 12",
+      "preco": "",
+      "imagem": "/crops/page_24_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "NCM: 69120000 NCM: 69120000",
+      "preco": "",
+      "imagem": "/crops/page_24_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "C/ST C/ST 6,5% 6,5% IPI: IPI:",
+      "preco": "",
+      "imagem": "/crops/page_24_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "EAN: 7908425524695 EAN: 7908425524701",
+      "preco": "",
+      "imagem": "/crops/page_24_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "a JB REGULAR REGULAR | y",
+      "preco": "",
+      "imagem": "/crops/page_24_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "VR | ; a \"",
+      "preco": "",
+      "imagem": "/crops/page_24_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "CT4322",
+      "titulo": "Líquido Líquido Dispenser Sabonete Sortido Dispenser Sabonete Sortido Para Para",
+      "preco": "",
+      "imagem": "/crops/page_24_CT4322.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "R$ 19,80 Material: Cerâmica Material: Cerâmica Medidas: Medidas: 7,7X7,7X18CM 8,5X8,5X16CM",
+      "preco": "R$19,80",
+      "imagem": "/crops/page_24_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "+Plástico +Plástico PP ABS PP ABS Capacidade: + + Capacidade: 320ML 350ML",
+      "preco": "",
+      "imagem": "/crops/page_24_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Caixa Caixa 5» / / / / Mitp.: Mitp.: Cx Master 48 12 Cx Master 60 12",
+      "preco": "",
+      "imagem": "/crops/page_24_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "NCM: 69120000 NCM: 69120000",
+      "preco": "",
+      "imagem": "/crops/page_24_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "C/ST C/ST 6,5% 6,5% IPI: IPI:",
+      "preco": "",
+      "imagem": "/crops/page_24_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "EAN: 7908425524718 EAN: 7908425524725",
+      "preco": "",
+      "imagem": "/crops/page_24_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "v REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_24_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "CT4346",
+      "titulo": "Mônaco Bélgica Kit Banheiro Kit Banheiro 4 4 Preto Branco peças peças",
+      "preco": "",
+      "imagem": "/crops/page_24_CT4346.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "R$ RS 49,80 49,80 Material: Cerâmica Embalagem: Material: Cerâmica Embalagem: Caixa Caixa",
+      "preco": "R$49,80",
+      "imagem": "/crops/page_24_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "+Plástico / +Plástico PP+ABS PP ABS Master /6 / /6 Mitp.: Mitp.: + Cx 12 Cx Master 12 PORTA PASTA DE DENTE: PORTA PASTA DE DENTE: | area 7,2X7,2X10,5CM 7X7X11CM NCM: 69120000 NCM: 69120000 NT |. C/ST C/ST 6,5% IPI: IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_24_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "EAN: 7908425524732 EAN: 7908425524756",
+      "preco": "",
+      "imagem": "/crops/page_24_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_24_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "PORTA ESCOVA: 300ML PORTA ESCOVA: 290ML N 7X7X11CM 7,2X7,2X10,5CM ResaBONETEIRA: AsaBonETEIRA: DISPENSER: Penn DISPENSER: 340ML 12,6X9,8X2,5CM 7,2X7,2X17€ 11,5X8,6X2,4CM 7XIX 17CcM",
+      "preco": "",
+      "imagem": "/crops/page_24_34.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "CT4357",
+      "titulo": "Itália Kit Banheiro Kit Banheiro 4 4 França Branco Preto peças peças",
+      "preco": "",
+      "imagem": "/crops/page_24_CT4357.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "R$ 49,80 Material: Cerâmica Material: Cerâmica Embalagem: Embalagem: Caixa Caixa",
+      "preco": "R$49,80",
+      "imagem": "/crops/page_24_36.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "+Plástico +Plástico / ABS PP ABS PP+ Master /6 / /6 + Mitp.: Mitp.: Cx 12 Cx Master 12 PORTA PASTA DE DENTE: PORTA PASTA DE DENTE: 7,5X7,5X10CM 7,5X7,5X11CM NCM: 69120000 NCM: 69120000 4 R R << per eee C/ST C/ST 6,5% IPI: IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_24_37.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "EAN: 7908425524749 EAN: 7908425524763",
+      "preco": "",
+      "imagem": "/crops/page_24_38.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_24_39.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "PORTA ESCOVA: 350ML A ESCOVA: 7,5X7,5X10CM PORTA 310ML N 7,5X7,5X11CM (sngongreira: DISPENSER: 310ML RSABONETEIRA: DISPENSER: 450ML 7X7X17CM 10X10X2,5CM 7,5X7,5X17,5CM 12,2X8,2X3CM",
+      "preco": "",
+      "imagem": "/crops/page_24_40.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 24,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025",
+      "preco": "",
+      "imagem": "/crops/page_24_41.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "25": [
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "UTENSÍLIOS O TTBRASIL BANHEIRO DE",
+      "preco": "",
+      "imagem": "/crops/page_25_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "Kit Banheiro Sortido Caos 4 peças",
+      "preco": "",
+      "imagem": "/crops/page_25_2.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "[ 49,80 ) R$ UR) Material: Cerâmica Embalagem: Caixa",
+      "preco": "",
+      "imagem": "/crops/page_25_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "+Plástico PP ABS / /6 + Mitp.: Cx Master 12",
+      "preco": "",
+      "imagem": "/crops/page_25_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "us ma, (emo NCM: 69120000 rompe == ——",
+      "preco": "",
+      "imagem": "/crops/page_25_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "C/ST 6,5% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_25_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "EAN: 7908425524787",
+      "preco": "",
+      "imagem": "/crops/page_25_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_25_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "a DISPENSER: era 8,5X8,5X18 SABONETEIRA: Penta OM 13,5X8,8X2,3CM",
+      "preco": "",
+      "imagem": "/crops/page_25_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "CT4362",
+      "titulo": "Kit Banheiro Espanha 4 Preto peças",
+      "preco": "",
+      "imagem": "/crops/page_25_CT4362.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "R$ UH material: Cerâmica Embalagem: Caixa",
+      "preco": "",
+      "imagem": "/crops/page_25_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "+Plástico Mitp.: PP ABS / / + Cx Master 12 6 PORTA PASTA DE DENTE: 5 + NCM: 69120000",
+      "preco": "",
+      "imagem": "/crops/page_25_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "C/ST IPI: 6,5% e",
+      "preco": "",
+      "imagem": "/crops/page_25_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "EAN: 7908425524770",
+      "preco": "",
+      "imagem": "/crops/page_25_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_25_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "N PORTA ESCOVA: 220ML 7X7X11CM SABONETEIRA: DISPENSER: 260ML 7,5X7,5X17CM 11X8,5X2,3CM",
+      "preco": "",
+      "imagem": "/crops/page_25_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 25,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 25",
+      "preco": "",
+      "imagem": "/crops/page_25_17.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "26": [
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "(9 TTBRASIL UTENSÍLIOS BANHEIRO DE",
+      "preco": "",
+      "imagem": "/crops/page_26_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "CT0407",
+      "titulo": "Líquido pa Sabão Decorado De Líquido Dispenser Sabonete Vidro Para",
+      "preco": "",
+      "imagem": "/crops/page_26_CT0407.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "ortido Diamond Sortido R$ EXU R$ LIZA material: vidro Capacidade: 400ML Material: vidro Capacidade: e 360ML e Plástico Plástico =— o, Embalagem: Etiqueta Embalagem: 4 Caixa 11 1 | / Master 18/9 Mitp.: Cx / 24/6 mm Mitp.: mm Cx Master dm NCM: 70139900 NCM: 70139900",
+      "preco": "",
+      "imagem": "/crops/page_26_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "d Ga pur vo S/ST IPI:9,75% S/ST IPI:9,75% e vera Peste deco EAN: 7898681954957 EAN: 7908425510155 do",
+      "preco": "",
+      "imagem": "/crops/page_26_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL o o INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_26_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "CT0409",
+      "titulo": "Soap/Bath Líquido Dispenser Sabão Kit Banheiro Vidro Balls Sortido 2 Peças De",
+      "preco": "",
+      "imagem": "/crops/page_26_CT0409.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "Sortido R$ 17,20 Material: Vidro Material: Vidro Medidas: Capacidade: 7,5X7,5X19CM 5SO0ML e e Plestici Plástico Im 7,5X7,5X10CM Embalagem: Etiqueta == 1 Capacidade: 400ML / 24/4 Mitp.: Cx Master o Embalagem: |] Caixa = | ER NCM: 70139900 1 / /6 Mitp.: Cx Master 12 = S/ST IP1:9,75% NCM: 70139900 É",
+      "preco": "R$6,20",
+      "imagem": "/crops/page_26_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "S/ST IP1:9,75% EAN: 7898681954971",
+      "preco": "",
+      "imagem": "/crops/page_26_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "EAN: 7908425510117",
+      "preco": "",
+      "imagem": "/crops/page_26_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "j INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_26_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "CT3091",
+      "titulo": "Kit Banheiro Vidro London Sortido Kit Banheiro Vidro Dublin Sortido 2 2 Peças Peças",
+      "preco": "",
+      "imagem": "/crops/page_26_CT3091.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "ESB AEE TIELD ER) material: vidro Material: vidro Medidas: Medidas: 7,5X7,5X19CM 7,5X7,5X19CM e e Plástico Plástico 7,5X7,5X10CM 7,5X7,5X10CM | Capacidade: Capacidade: 400ML 400ML",
+      "preco": "",
+      "imagem": "/crops/page_26_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Caixa Caixa",
+      "preco": "",
+      "imagem": "/crops/page_26_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "/ Master /6 / 12/6 Mitp.: Mitp.: Cx 12 Cx Master | | NCM: 70139900 NCM: 70139900 * | S/ST S/ST = 1PI:9,75% 1PI:9,75%",
+      "preco": "",
+      "imagem": "/crops/page_26_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "| dass EAN: 7908425510124 EAN: 7908425510100 E",
+      "preco": "",
+      "imagem": "/crops/page_26_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "4 INDISPONIVEL",
+      "preco": "",
+      "imagem": "/crops/page_26_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 26,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025 26",
+      "preco": "",
+      "imagem": "/crops/page_26_17.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "27": [
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "SANITÁRIOS (9 ASSENTOS TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_27_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "CT74125",
+      "titulo": "Sanitário Almofadado Sanitário Almofadado Sortido Sortido Liso Assento Assento",
+      "preco": "",
+      "imagem": "/crops/page_27_CT74125.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "Estampado Adulto Adulto",
+      "preco": "",
+      "imagem": "/crops/page_27_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "Material: Material: Plástico Plástico Medidas: Medidas: 41X36CM 41X36CM e e Espunja Esponja BR\" Embalagem: Embalagem: Caixa Caixa a ai E Es / o 0» a CxMaster 12/4 CxMaster/Mktp.: 12/6 y Mitp.: à",
+      "preco": "",
+      "imagem": "/crops/page_27_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "; “q NCM: 39222000 NCM: 39222000",
+      "preco": "",
+      "imagem": "/crops/page_27_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "% C/ST C/ST ES) 0% IPI: IPI:0% ” e 7 À | | | à a , 1 “+ EAN: 7908425520420 EAN: 7908425520437 El Sa",
+      "preco": "",
+      "imagem": "/crops/page_27_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "ey N N",
+      "preco": "",
+      "imagem": "/crops/page_27_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "SANITÁRIO ASSENTO INFANTIL",
+      "preco": "",
+      "imagem": "/crops/page_27_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "CT4127",
+      "titulo": "Sanitário Almofadado Sortido Assento EM ; AS ” Infantil",
+      "preco": "",
+      "imagem": "/crops/page_27_CT4127.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "ER LHED material: Plásticoe Medidas: 29X27CM",
+      "preco": "",
+      "imagem": "/crops/page_27_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "Esponja Antibacteriano Encaixe Embalagem: Fácil de Alta Caixa Fácil Durabilidade Limpar / 24/4 Mitp.: Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_27_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "NCM: 39222000",
+      "preco": "",
+      "imagem": "/crops/page_27_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "c/sST",
+      "preco": "",
+      "imagem": "/crops/page_27_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "Universal: Formato dos modelos de sanitário. Encaixa maioria na vaso",
+      "preco": "",
+      "imagem": "/crops/page_27_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "CORTINAS BOX PARA",
+      "preco": "",
+      "imagem": "/crops/page_27_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "CT2183",
+      "titulo": "Cortina Sortida Box Para",
+      "preco": "",
+      "imagem": "/crops/page_27_CT2183.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "Medidas: 180X180CM",
+      "preco": "",
+      "imagem": "/crops/page_27_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_27_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "/ 48/8 Mitp.: Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_27_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "NCM: 39269090",
+      "preco": "",
+      "imagem": "/crops/page_27_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "S/ST IP1:9,75%",
+      "preco": "",
+      "imagem": "/crops/page_27_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "EAN: 7898681959433",
+      "preco": "",
+      "imagem": "/crops/page_27_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL",
+      "preco": "",
+      "imagem": "/crops/page_27_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 27,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 27",
+      "preco": "",
+      "imagem": "/crops/page_27_24.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "28": [
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "(9 VARÕES EXTENSÍVEIS TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_28_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "CT4399",
+      "titulo": "Extensível Extensível Varão Cortina Varão Cortina T4398 e) Para Box Roma Para Box Roma",
+      "preco": "",
+      "imagem": "/crops/page_28_CT4399.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "SED :40) material: Inoxidável Material: Inoxidável Aço Medidas: até Aço Medidas: 7OCM 1,20M 1,10M 2,0M a",
+      "preco": "R$4",
+      "imagem": "/crops/page_28_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Embalagem: Rótulo Embalagem: Rótulo",
+      "preco": "",
+      "imagem": "/crops/page_28_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "/ Master 25/5 / 25/5 Mitp.: Mitp.: Cx Cx Master Pal",
+      "preco": "",
+      "imagem": "/crops/page_28_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "NCM: 83025000 NCM: 83025000",
+      "preco": "",
+      "imagem": "/crops/page_28_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPI:6,5% IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_28_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "EAN: 7908425527399 EAN: 7908425527405",
+      "preco": "",
+      "imagem": "/crops/page_28_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "CT4402",
+      "titulo": "Extensível Extensível Nápoles Varão Cortina Varão Cortina T4400 e) Para Para Box Roma Box",
+      "preco": "",
+      "imagem": "/crops/page_28_CT4402.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Material: Inoxidável Material:Aço Inoxidável Aço Medidas: Medidas: 1,40M 2,60M 1,10CM 2,00M a a",
+      "preco": "R$18,70",
+      "imagem": "/crops/page_28_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Embalagem: Rótulo Embalagem: Rótulo",
+      "preco": "",
+      "imagem": "/crops/page_28_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "/ / 25/5 * Master /6 Mitp.: Mitp.: Cx Master Cx 30",
+      "preco": "",
+      "imagem": "/crops/page_28_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "NCM: 83025000 NCM: 83025000 q — S/ST S/ST IPI:6,5% IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_28_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "EAN: 7908425527412 EAN: 7908425527436 ) | [REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_28_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "PONTAS EMBORRACHADAS",
+      "preco": "",
+      "imagem": "/crops/page_28_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "CT4795",
+      "titulo": "Extensível Nápoles Varão Cortina Para Box Extensível Nápoles Varão Cortina Para Box",
+      "preco": "",
+      "imagem": "/crops/page_28_CT4795.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "R$ SHU 15,80 Material:Aço Inoxidável Medidas: material: Inoxidável 70CM 1,20M Aço Medidas: até 1,40M 2,60M a",
+      "preco": "",
+      "imagem": "/crops/page_28_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Embalagem: Rótulo Embalagem: Rótulo",
+      "preco": "",
+      "imagem": "/crops/page_28_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "/ CxMaster 30/6 Mitp.: / /6 Mitp.: Cx Master 30 o",
+      "preco": "",
+      "imagem": "/crops/page_28_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "NCM: 83025000 NCM: 83025000 7 — — S/ST IPI:6,5% S/ST IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_28_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "EAN: 7908425532737 EAN: 7908425527443",
+      "preco": "",
+      "imagem": "/crops/page_28_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "CT4405",
+      "titulo": "Extensível Varão Cortina Bari Extensível Para Box Varão Cortina Bari Para Box",
+      "preco": "",
+      "imagem": "/crops/page_28_CT4405.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "R$ 11,60 Material:Aço Inoxidável Medidas: Material: Inoxidável Medidas: até 1,10M 2,00M Aço 70CM 1,20M a",
+      "preco": "R$15,50",
+      "imagem": "/crops/page_28_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Embalagem: Rótulo Embalagem: Rótulo",
+      "preco": "",
+      "imagem": "/crops/page_28_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "/ / 50 Mitp.: / / Mitp.: Cx Master 10 Cx Master 50 10",
+      "preco": "",
+      "imagem": "/crops/page_28_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "NCM: 83025000 NCM: 83025000",
+      "preco": "",
+      "imagem": "/crops/page_28_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "— — S/ST S/ST IPI:6,5% la IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_28_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "(ss EAN: 7908425527467 EAN: 7908425527450",
+      "preco": "",
+      "imagem": "/crops/page_28_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "EMBORRACHAL",
+      "preco": "",
+      "imagem": "/crops/page_28_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "INSTRUÇÕES DE MONTAGEM: Base Trava (N a | ||",
+      "preco": "",
+      "imagem": "/crops/page_28_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "CT4796",
+      "titulo": "ts Tubo Tubo Externo Interno Extensível Varão Cortina Bari Para Box",
+      "preco": "",
+      "imagem": "/crops/page_28_CT4796.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Material:Aço Inoxidável Medidas: 1,40M 2,60M a",
+      "preco": "R$18,50",
+      "imagem": "/crops/page_28_34.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Embalagem: Rótulo p Do / / Mitp.: Cx Master 50 10",
+      "preco": "",
+      "imagem": "/crops/page_28_35.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": ": g NCM: 83025000",
+      "preco": "",
+      "imagem": "/crops/page_28_36.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "— S/ST IPI:6,5%",
+      "preco": "",
+      "imagem": "/crops/page_28_37.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "EAN: 7908425532744",
+      "preco": "",
+      "imagem": "/crops/page_28_38.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "Pe = = =",
+      "preco": "",
+      "imagem": "/crops/page_28_39.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 28,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025 28",
+      "preco": "",
+      "imagem": "/crops/page_28_40.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "29": [
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "(9 TAPETES BOX TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_29_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "Cc7ti1 Retangular Sortido Fundo Sortido 749 CT2 130 Tapete Box Tapete Para Box Do Mar",
+      "preco": "",
+      "imagem": "/crops/page_29_2.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "SB SED RSI material: material: pvc pvc Medidas: Medidas: 36X67CM 36X66CM",
+      "preco": "",
+      "imagem": "/crops/page_29_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_29_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "/ 30/6 / 30/6 Mitp.: Mitp.: Cx Master Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_29_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "NCM: 39189000 NCM: 39181000",
+      "preco": "",
+      "imagem": "/crops/page_29_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:3,25% IPI: 0%",
+      "preco": "",
+      "imagem": "/crops/page_29_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "EAN: 7898681957149 EAN: 7898681957200 a REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_29_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "CT2131",
+      "titulo": "Pés Translúcido Conchas Sortido Sortido Tapete Para Box Tapete Box",
+      "preco": "",
+      "imagem": "/crops/page_29_CT2131.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "SED SEI material: material: pvc pvc Medidas: Medidas: 36X65CM 36X67CM",
+      "preco": "",
+      "imagem": "/crops/page_29_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_29_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "/ / / 30/0 Mitp.: Mitp.: Cx Master 60 12 Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_29_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "NCM: 39189000 NCM: 39189000",
+      "preco": "",
+      "imagem": "/crops/page_29_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:3,25% IPI:3,25%",
+      "preco": "",
+      "imagem": "/crops/page_29_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "EAN: 7898681957217 EAN: 7898681957804",
+      "preco": "",
+      "imagem": "/crops/page_29_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "à y INDISPONÍVEL REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_29_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "C7ti1 Ccti Oval Sortido Diamante Sortido 746 747 Tapete Para Box Tapete Ret Para Box",
+      "preco": "",
+      "imagem": "/crops/page_29_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "SEMED SED material: material: Medidas: Medidas: pvc pvc 36X66CM 36X66CM",
+      "preco": "",
+      "imagem": "/crops/page_29_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_29_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "/ / 30/6 Master 30/6 Mitp.: Mitp.: Cx Master Cx",
+      "preco": "",
+      "imagem": "/crops/page_29_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "E A bd NCM: 39189000 NCM: 39189000",
+      "preco": "",
+      "imagem": "/crops/page_29_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "st0l6ês Setaçãe S/ST S/ST IPI:3,25% IPI:3,25%",
+      "preco": "",
+      "imagem": "/crops/page_29_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "EAN: 7898681957125 EAN: 7898681957118",
+      "preco": "",
+      "imagem": "/crops/page_29_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_29_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 29,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 29",
+      "preco": "",
+      "imagem": "/crops/page_29_26.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "30": [
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "(9 TTERASIL TAPETES DE BANHEIRO",
+      "preco": "",
+      "imagem": "/crops/page_30_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "CT3025",
+      "titulo": "Geométrico Sortido Banheiro Absorvente Antiderrapante Tapete Tapete",
+      "preco": "",
+      "imagem": "/crops/page_30_CT3025.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "Listras Sortido R$ 11,40 00 Material: Polipropileno Material: Poliéster Medidas: Medidas: 40X60CM 40X60CM e",
+      "preco": "R$16,",
+      "imagem": "/crops/page_30_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "Veludo Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_30_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "/ / Mitp.:50/1 / 50 Mitp.: Cx Master Cx Master 10",
+      "preco": "",
+      "imagem": "/crops/page_30_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "NCM: 39269090 NCM: 57019000",
+      "preco": "",
+      "imagem": "/crops/page_30_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI: 6,5% IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_30_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "EAN: 7898681958870 EAN: 7908425523179",
+      "preco": "",
+      "imagem": "/crops/page_30_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "R REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_30_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "CT3026",
+      "titulo": "Geométrico Conchas Sortido Sortido Tapete Tapete",
+      "preco": "",
+      "imagem": "/crops/page_30_CT3026.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "ESA R5 e ED ERRA Materia!: Polipropileno Material: Poliéster Medidas: Medidas: 40X60CM 40X60CM",
+      "preco": "",
+      "imagem": "/crops/page_30_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "Veludo Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_30_12.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "/ / Mitp.:50/1 / 50 Mitp.: Cx Master Cx Master 10",
+      "preco": "",
+      "imagem": "/crops/page_30_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "NCM: 39269090 NCM: 39269090",
+      "preco": "",
+      "imagem": "/crops/page_30_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "S/ST S/ST 6,5% IPI: IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_30_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "EAN: 7898681958887 EAN: 7908425523162",
+      "preco": "",
+      "imagem": "/crops/page_30_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_30_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "CT1046",
+      "titulo": "Banheiro Pedras Sortido Banheiro Coração Sortido Gr o 7 Tapete Para Tapete E)",
+      "preco": "",
+      "imagem": "/crops/page_30_CT1046.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "Material: Poliéster Material: Polipropileno Medidas: Medidas: 40X60CM 40X60CM",
+      "preco": "R$13,60",
+      "imagem": "/crops/page_30_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_30_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "/ 30/0 / 30/0 Mitp.: Mitp.: Cx Master Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_30_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "NCM: 39269090 NCM: 39269090",
+      "preco": "",
+      "imagem": "/crops/page_30_22.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "S/ST S/ST IPI:9,75% IPI:9,75%",
+      "preco": "",
+      "imagem": "/crops/page_30_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "EAN: 7898681958832 EAN: 7898681958825",
+      "preco": "",
+      "imagem": "/crops/page_30_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "REGULAR REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_30_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "Banheiro Listras T1045 Tapete Para a",
+      "preco": "",
+      "imagem": "/crops/page_30_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "23, 80 Material: Poliéster Medidas: 38X68CM",
+      "preco": "",
+      "imagem": "/crops/page_30_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_30_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "/ 30/0 Mitp.: Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_30_29.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "NCM: 39269090",
+      "preco": "",
+      "imagem": "/crops/page_30_30.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "S/ST IPI:9,75%",
+      "preco": "",
+      "imagem": "/crops/page_30_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "EAN: 7898681958818 |",
+      "preco": "",
+      "imagem": "/crops/page_30_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "REGULAR ze",
+      "preco": "",
+      "imagem": "/crops/page_30_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 30,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025 K10)",
+      "preco": "",
+      "imagem": "/crops/page_30_34.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "31": [
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "(9 TTBRASIL CONJUNTOS DE BANHEIRO",
+      "preco": "",
+      "imagem": "/crops/page_31_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "CT3015",
+      "titulo": "Kit Banheiro Sortido 3 Peças Para",
+      "preco": "",
+      "imagem": "/crops/page_31_CT3015.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "EJA REL material: Poliéster Medidas: Tapete: 58X40CM +",
+      "preco": "",
+      "imagem": "/crops/page_31_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "Pvc Tampa: 38X43CM",
+      "preco": "",
+      "imagem": "/crops/page_31_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "sanitário: Tapete 48X39CM =",
+      "preco": "",
+      "imagem": "/crops/page_31_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_31_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "/ 40/0 Mitp.: Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_31_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "NCM: 57024200",
+      "preco": "",
+      "imagem": "/crops/page_31_8.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "S/ST 6,5% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_31_9.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "EAN: 7898681955671",
+      "preco": "",
+      "imagem": "/crops/page_31_10.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_31_11.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "CT3022",
+      "titulo": "Kit Banheiro Sortido 3 Gomos Peças Para",
+      "preco": "",
+      "imagem": "/crops/page_31_CT3022.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "R$ PAD Material: Poliéster Medidas: Tapete: 59X39CM +",
+      "preco": "",
+      "imagem": "/crops/page_31_13.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "Pvc Tampa: 38X43CM",
+      "preco": "",
+      "imagem": "/crops/page_31_14.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "sanitário: Tapete 39X39CM",
+      "preco": "",
+      "imagem": "/crops/page_31_15.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "Embalagem: Solapa",
+      "preco": "",
+      "imagem": "/crops/page_31_16.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "/ 40/0 Mitp.: Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_31_17.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "NCM: 57024200",
+      "preco": "",
+      "imagem": "/crops/page_31_18.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "S/ST 6,5% IPI:",
+      "preco": "",
+      "imagem": "/crops/page_31_19.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "EAN: 7898681955688",
+      "preco": "",
+      "imagem": "/crops/page_31_20.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_31_21.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "CT2116",
+      "titulo": "Lixeira Marmorizada Lixeira Inox",
+      "preco": "",
+      "imagem": "/crops/page_31_CT2116.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "R$ 26,80 Material: Material: Inox Capacidade: Inox Capacidade: 3L 3L",
+      "preco": "R$42,50",
+      "imagem": "/crops/page_31_23.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Caixa Caixa | E / 6/3 / 18/6 Mitp.: Mitp.: Cx Master Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_31_24.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "NCM: 73239300 NCM: 73239300",
+      "preco": "",
+      "imagem": "/crops/page_31_25.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "S/ST S/ST 6,5% 6,5% IPI: IPI: '",
+      "preco": "",
+      "imagem": "/crops/page_31_26.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "EAN: 7908425500187 EAN: 7898681950997",
+      "preco": "",
+      "imagem": "/crops/page_31_27.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "INDISPONÍVEL REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_31_28.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "CT2117",
+      "titulo": "lixeira Marmorizada",
+      "preco": "",
+      "imagem": "/crops/page_31_CT2117.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "Material: Inox Capacidade: 5L",
+      "preco": "R$54,60",
+      "imagem": "/crops/page_31_31.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "Embalagem: Caixa |",
+      "preco": "",
+      "imagem": "/crops/page_31_32.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "/ 6/3 Mitp.: Cx Master",
+      "preco": "",
+      "imagem": "/crops/page_31_33.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "NCM: 73239300",
+      "preco": "",
+      "imagem": "/crops/page_31_34.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "S/ST IPI: 6,5%",
+      "preco": "",
+      "imagem": "/crops/page_31_35.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "ee EAN: 7908425500194",
+      "preco": "",
+      "imagem": "/crops/page_31_36.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "REGULAR",
+      "preco": "",
+      "imagem": "/crops/page_31_37.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 31,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 | 10.06.2025 31",
+      "preco": "",
+      "imagem": "/crops/page_31_38.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "32": [
+    {
+      "page": 32,
+      "codigo": "",
+      "titulo": "(9 SANITÁRIAS TTBRASIL ESCOVAS",
+      "preco": "",
+      "imagem": "/crops/page_32_1.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 32,
+      "codigo": "CT2082",
+      "titulo": "Sanitária Sanitária Color Sortida Marmorizada Escova Escova",
+      "preco": "",
+      "imagem": "/crops/page_32_CT2082.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 32,
+      "codigo": "",
+      "titulo": "RS RS 6,00 24,20 Material: Polipropileno Material: Medidas: Inox Medidas: 46X13,5CM 32X9CM",
+      "preco": "R$6,00",
+      "imagem": "/crops/page_32_3.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 32,
+      "codigo": "",
+      "titulo": "Embalagem: Embalagem: Etiqueta Caixa ; A A",
+      "preco": "",
+      "imagem": "/crops/page_32_4.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 32,
+      "codigo": "",
+      "titulo": "/ / / 24/4 Mitp.: Mitp.: Cx Master 60 12 Cx Master v | | E NCM: 96039000 NCM: 96039000",
+      "preco": "",
+      "imagem": "/crops/page_32_5.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 32,
+      "codigo": "",
+      "titulo": "S/ST S/ST 0% IPI: IPI: 0% ] EAN: 7898681956104 EAN: 7908425500200",
+      "preco": "",
+      "imagem": "/crops/page_32_6.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 32,
+      "codigo": "",
+      "titulo": "REGULAR INDISPONIVEL 8568 TS) sãos dias = a",
+      "preco": "",
+      "imagem": "/crops/page_32_7.jpg",
+      "fonte": "crops_auto"
+    },
+    {
+      "page": 32,
+      "codigo": "",
+      "titulo": "TT BRASIL 2025 10.06.2025 32",
+      "preco": "",
+      "imagem": "/crops/page_32_10.jpg",
+      "fonte": "crops_auto"
+    }
+  ],
+  "33": [
+    {
+      "page": 33,
+      "codigo": "",
+      "titulo": "TTBRASIL",
+      "preco": "",
+      "imagem": "/crops/page_33_1.jpg",
+      "fonte": "crops_auto"
+    }
+  ]
+};
+let currentPage = 1;
+
+function loadPage(page){
+  currentPage = page;
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  const produtos = PAGES_DATA[page] || [];
+  produtos.forEach((p,i) => {
+    const tr = document.createElement('tr');
+
+    const imgTd = document.createElement('td');
+    const img = document.createElement('img');
+    const src = (p.imagem && p.imagem.trim() !== '') ? p.imagem : '/placeholder.jpg';
+    img.src = src;
+    img.onerror = function(){ this.src = '/placeholder.jpg'; };
+    imgTd.appendChild(img);
+    tr.appendChild(imgTd);
+
+    const codTd = document.createElement('td');
+    const codInput = document.createElement('input');
+    codInput.type = 'text';
+    codInput.value = p.codigo || '';
+    codInput.oninput = e => { p.codigo = e.target.value; };
+    codTd.appendChild(codInput);
+    tr.appendChild(codTd);
+
+    const titTd = document.createElement('td');
+    const titArea = document.createElement('textarea');
+    titArea.value = p.titulo || '';
+    titArea.rows = 2;
+    titArea.oninput = e => { p.titulo = e.target.value; };
+    titTd.appendChild(titArea);
+    tr.appendChild(titTd);
+
+    const precoTd = document.createElement('td');
+    const precoInput = document.createElement('input');
+    precoInput.type = 'text';
+    precoInput.value = p.preco || '';
+    precoInput.oninput = e => { p.preco = e.target.value; };
+    precoTd.appendChild(precoInput);
+    tr.appendChild(precoTd);
+
+    const acTd = document.createElement('td');
+    const btnSave = document.createElement('button');
+    btnSave.className = 'btn-save';
+    btnSave.textContent = 'Salvar';
+    btnSave.onclick = () => showMsg('Produto salvo (localmente).');
+    const btnDel = document.createElement('button');
+    btnDel.className = 'btn-remove';
+    btnDel.textContent = 'Excluir';
+    btnDel.onclick = () => removeProduto(page, i);
+    acTd.appendChild(btnSave);
+    acTd.appendChild(btnDel);
+    tr.appendChild(acTd);
+
+    tbody.appendChild(tr);
+  });
+
+  const pag = document.getElementById('pagination');
+  pag.innerHTML = '';
+  const totalPages = Object.keys(PAGES_DATA).length;
+  for(let i=1;i<=totalPages;i++) {
+    const btn = document.createElement('button');
+    btn.className = 'btn-save-all';
+    btn.style.margin = '4px';
+    btn.textContent = i;
+    if(i === page) btn.style.background = '#0056b3';
+    btn.onclick = () => loadPage(i);
+    pag.appendChild(btn);
+  }
+}
+
+function showMsg(text){
+  const el = document.getElementById('msg');
+  el.textContent = text;
+  setTimeout(() => { el.textContent = ''; }, 1500);
+}
+
+function addProduto(){
+  if(!PAGES_DATA[currentPage]) PAGES_DATA[currentPage] = [];
+  PAGES_DATA[currentPage].push({codigo:'', titulo:'', preco:'', imagem:''});
+  loadPage(currentPage);
+}
+
+function removeProduto(page, i){
+  if(confirm('Excluir produto?')){
+    PAGES_DATA[page].splice(i,1);
+    loadPage(page);
+  }
+}
+
+function saveAll(){
+  showMsg('💾 Salvando todas (localmente)...');
+}
+
+function exportJSON(){
+  const blob = new Blob([JSON.stringify(PAGES_DATA, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'catalogo_corrigido.json';
+  a.click();
+  showMsg('✅ JSON exportado com sucesso!');
+}
+
+loadPage(1);
+</script>
+</body>
+</html>

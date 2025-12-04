@@ -1,0 +1,418 @@
+[
+  {
+    "titulo": "GU Borrifador Diamante Sortido",
+    "preco": "4,70",
+    "pagina": 1,
+    "img_path": "out/images/ttbrasil-1_page1.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT3021 kit Com 5 Peças Sortido",
+    "preco": "12,80",
+    "pagina": 1,
+    "img_path": "out/images/ttbrasil-1_page1.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "INDISPONÍVEL",
+    "preco": "10.06",
+    "pagina": 1,
+    "img_path": "out/images/ttbrasil-1_page1.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT3982 Esponja Mágica",
+    "preco": "R$ 1,20",
+    "pagina": 2,
+    "img_path": "out/images/ttbrasil-1_page2.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Tira Pelo Com Refil",
+    "preco": "R$ 4,30",
+    "pagina": 2,
+    "img_path": "out/images/ttbrasil-1_page2.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT3508 Luva Para Limpeza Chenile Sortida",
+    "preco": "R$ 2,80",
+    "pagina": 2,
+    "img_path": "out/images/ttbrasil-1_page2.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "roupas e tecidos",
+    "preco": "10.06",
+    "pagina": 3,
+    "img_path": "out/images/ttbrasil-1_page3.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "e Refil Incluso /",
+    "preco": "R$ 21,80",
+    "pagina": 4,
+    "img_path": "out/images/ttbrasil-1_page4.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4222 vassoura Mop Flat 360º - 02 em 01 - Lava e",
+    "preco": "R$ 29,80",
+    "pagina": 4,
+    "img_path": "out/images/ttbrasil-1_page4.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "C74221 Mop Esfregão Twister 360º - 2 em 1 - Lava e",
+    "preco": "R$ 21,80",
+    "pagina": 4,
+    "img_path": "out/images/ttbrasil-1_page4.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4218 Mop Giratório Com Refil E Balde",
+    "preco": "R$ 33,00",
+    "pagina": 4,
+    "img_path": "out/images/ttbrasil-1_page4.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4247 Refil Para Mop Retangular 02 em 01",
+    "preco": "R$ 3,58",
+    "pagina": 4,
+    "img_path": "out/images/ttbrasil-1_page4.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "ou na maquina",
+    "preco": "10.06",
+    "pagina": 4,
+    "img_path": "out/images/ttbrasil-1_page4.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT1129 Corda Para Varal 10M Sortida",
+    "preco": "R$ 4,40",
+    "pagina": 5,
+    "img_path": "out/images/ttbrasil-1_page5.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "ATÉ 4KG",
+    "preco": "10.06",
+    "pagina": 5,
+    "img_path": "out/images/ttbrasil-1_page5.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "EAN: 7908425521601",
+    "preco": "10.06",
+    "pagina": 6,
+    "img_path": "out/images/ttbrasil-1_page6.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4046 Porta Escova Pasta De Dente De Parede",
+    "preco": "R$ 13,60",
+    "pagina": 8,
+    "img_path": "out/images/ttbrasil-1_page8.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "- EAN: 7908425519073 & ta a EAN: 7908425519103",
+    "preco": "10.06",
+    "pagina": 8,
+    "img_path": "out/images/ttbrasil-1_page8.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4048 Porta Shampoo Vazado Branco",
+    "preco": "R$21,80",
+    "pagina": 9,
+    "img_path": "out/images/ttbrasil-1_page9.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4057 Suporte Para Toalha Gancho",
+    "preco": "R$ 6,20",
+    "pagina": 9,
+    "img_path": "out/images/ttbrasil-1_page9.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4049 Porta Toalha Rosto E Banho Argola",
+    "preco": "R$ 13,30",
+    "pagina": 9,
+    "img_path": "out/images/ttbrasil-1_page9.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "SEJ material: Ferro",
+    "preco": "10.06",
+    "pagina": 9,
+    "img_path": "out/images/ttbrasil-1_page9.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCcM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT3986 Sapateira Com 5 Prateleiras",
+    "preco": "R$ 18,50",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "|| NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NCM: 94032090",
+    "preco": "3,25",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "PRATELEIRAS",
+    "preco": "10.06",
+    "pagina": 10,
+    "img_path": "out/images/ttbrasil-1_page10.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4188 Organizador Porta Objetos Sortido",
+    "preco": "R$ 2,18",
+    "pagina": 11,
+    "img_path": "out/images/ttbrasil-1_page11.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "LEE IOD material: plástico",
+    "preco": "10.06",
+    "pagina": 11,
+    "img_path": "out/images/ttbrasil-1_page11.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Tecido Sortido",
+    "preco": "R$ 20,40",
+    "pagina": 12,
+    "img_path": "out/images/ttbrasil-1_page12.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Tecido Sortido",
+    "preco": "R$ 18,00",
+    "pagina": 12,
+    "img_path": "out/images/ttbrasil-1_page12.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Poliéster",
+    "preco": "10.06",
+    "pagina": 12,
+    "img_path": "out/images/ttbrasil-1_page12.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Sortido",
+    "preco": "R$ 8,36",
+    "pagina": 13,
+    "img_path": "out/images/ttbrasil-1_page13.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT45 39 Cesto Organizador Sortido",
+    "preco": "R$ 19,00",
+    "pagina": 13,
+    "img_path": "out/images/ttbrasil-1_page13.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Dobrável Sortido",
+    "preco": "R$ 7,98",
+    "pagina": 13,
+    "img_path": "out/images/ttbrasil-1_page13.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4540 Cesto Organizador Sortido",
+    "preco": "R$ 21,60",
+    "pagina": 13,
+    "img_path": "out/images/ttbrasil-1_page13.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "EAN: 7908425521748",
+    "preco": "10.06",
+    "pagina": 13,
+    "img_path": "out/images/ttbrasil-1_page13.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "C7T4331 Organizador Para Roupas 11 Divisórias",
+    "preco": "R$ 5,36",
+    "pagina": 14,
+    "img_path": "out/images/ttbrasil-1_page14.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT4327 Cabide Varal Espiral em Aço Inox",
+    "preco": "R$ 12,10",
+    "pagina": 14,
+    "img_path": "out/images/ttbrasil-1_page14.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "e REGULAR]",
+    "preco": "10.06",
+    "pagina": 14,
+    "img_path": "out/images/ttbrasil-1_page14.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT3815 Conjunto 3 Peças Cabide Com Presilha",
+    "preco": "7,98",
+    "pagina": 15,
+    "img_path": "out/images/ttbrasil-1_page15.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Material: Plástico",
+    "preco": "R$ 2,10",
+    "pagina": 15,
+    "img_path": "out/images/ttbrasil-1_page15.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT3819 Conjunto 4 Peças Cabide",
+    "preco": "R$ 8,50",
+    "pagina": 15,
+    "img_path": "out/images/ttbrasil-1_page15.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "CT3818 Conjunto 4 Peças Cabide",
+    "preco": "R$ 8,40",
+    "pagina": 15,
+    "img_path": "out/images/ttbrasil-1_page15.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "Material: Madeira e",
+    "preco": "10.06",
+    "pagina": 15,
+    "img_path": "out/images/ttbrasil-1_page15.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  },
+  {
+    "titulo": "NSEJE LD material: Nylon",
+    "preco": "10.06",
+    "pagina": 16,
+    "img_path": "out/images/ttbrasil-1_page16.png",
+    "origin": "ocr_local",
+    "fornecedor": "ttbrasil-1"
+  }
+]

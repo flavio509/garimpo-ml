@@ -1,0 +1,403 @@
+<!doctype html><html lang='pt-br'><head><meta charset='utf-8'>
+<title>Catálogo Editável - TT Brasil</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;background:#f7f7fb;margin:0}
+header{display:flex;gap:12px;align-items:center;padding:16px 24px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+h1{font-size:20px;margin:0}
+.btn{background:#2563eb;color:#fff;border:none;border-radius:8px;padding:10px 14px;cursor:pointer}
+.search{flex:1;max-width:520px;padding:10px 12px;border:1px solid #ddd;border-radius:8px}
+table{width:100%;border-collapse:collapse;background:#fff;margin:18px auto;max-width:1280px;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.06)}
+th,td{border-bottom:1px solid #eee;padding:10px 12px;text-align:left;vertical-align:middle}
+th{background:#f0f3f9;font-weight:600}
+tr:hover{background:#fafcff}
+input[type=text]{width:100%;padding:8px 10px;border:1px solid #dce1ee;border-radius:8px}
+.imgwrap{width:88px;height:88px;display:flex;align-items:center;justify-content:center;background:#fafafa;border:1px solid #eee;border-radius:10px;overflow:hidden}
+.imgwrap img{max-width:100%;max-height:100%;display:block}
+.muted{color:#6b7280;font-size:12px}
+</style>
+<script>
+function salvar(){
+  const rows=[...document.querySelectorAll('tbody tr')];
+  const out=rows.map(tr=>({
+    image: tr.querySelector('.col-img')?.dataset?.src || '',
+    code: tr.querySelector('.col-code').value.trim(),
+    title: tr.querySelector('.col-title').value.trim(),
+    price: tr.querySelector('.col-price').value.trim()
+  }));
+  const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='catalogo_editado.json'; a.click();
+}
+function filtrar(v){
+  v=v.toLowerCase();
+  document.querySelectorAll('tbody tr').forEach(tr=>{
+    const t=tr.innerText.toLowerCase(); tr.style.display = t.includes(v)?'':'none';
+  });
+}
+</script>
+</head><body>
+<header>
+<h1>📄 Catálogo Editável - TT Brasil</h1>
+<input class='search' placeholder='Buscar por código, título ou preço...' oninput='filtrar(this.value)'>
+<button class='btn' onclick='salvar()'>💾 Salvar alterações</button>
+</header>
+<main><table>
+<thead><tr><th>Imagem</th><th>Código</th><th>Título</th><th>Preço</th></tr></thead><tbody>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-02/page-02_block_002.jpg'><img src='out/blocks/page-02/page-02_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='TT BRASIL'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-02/page-02_block_013.jpg'><img src='out/blocks/page-02/page-02_block_013.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Rod, 2400 Porque dor'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-02/page-02_block_015.jpg'><img src='out/blocks/page-02/page-02_block_015.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Rod, pion 2400 Parque'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-05/page-05_block_002.jpg'><img src='out/blocks/page-05/page-05_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='OH Pára Bats Com BO'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-05/page-05_block_005.jpg'><img src='out/blocks/page-05/page-05_block_005.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Tha Peta Con Re'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-05/page-05_block_008.jpg'><img src='out/blocks/page-05/page-05_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Toma Fora Hinpaza'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-07/page-07_block_008.jpg'><img src='out/blocks/page-07/page-07_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='ff polapz:'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-07/page-07_block_010.jpg'><img src='out/blocks/page-07/page-07_block_010.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Embslagenx Solapa:'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-09/page-09_block_002.jpg'><img src='out/blocks/page-09/page-09_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Pregadores'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-09/page-09_block_006.jpg'><img src='out/blocks/page-09/page-09_block_006.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Ds Raunas ane'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-09/page-09_block_007.jpg'><img src='out/blocks/page-09/page-09_block_007.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Com PO Petas'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-11/page-11_block_002.jpg'><img src='out/blocks/page-11/page-11_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Escova Pasta Tá'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-11/page-11_block_011.jpg'><img src='out/blocks/page-11/page-11_block_011.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Prateleira'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-11/page-11_block_016.jpg'><img src='out/blocks/page-11/page-11_block_016.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Porta Shampoo parado'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-12/page-12_block_003.jpg'><img src='out/blocks/page-12/page-12_block_003.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Shampas Di'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-12/page-12_block_013.jpg'><img src='out/blocks/page-12/page-12_block_013.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Toalha sorria'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-12/page-12_block_014.jpg'><img src='out/blocks/page-12/page-12_block_014.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Rats Toalha Adesivo'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-13/page-13_block_008.jpg'><img src='out/blocks/page-13/page-13_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='corns Prateleiras'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-13/page-13_block_009.jpg'><img src='out/blocks/page-13/page-13_block_009.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='ACTAUAS vertical 10'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-15/page-15_block_004.jpg'><img src='out/blocks/page-15/page-15_block_004.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='PEDE RUST'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-15/page-15_block_007.jpg'><img src='out/blocks/page-15/page-15_block_007.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='4 Orgunização'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-15/page-15_block_008.jpg'><img src='out/blocks/page-15/page-15_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='4 Organização'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-15/page-15_block_009.jpg'><img src='out/blocks/page-15/page-15_block_009.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Cesto tavandefla'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-15/page-15_block_012.jpg'><img src='out/blocks/page-15/page-15_block_012.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Redondo em 7'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-16/page-16_block_001.jpg'><img src='out/blocks/page-16/page-16_block_001.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='CESTOSIORCANIZADORE'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-16/page-16_block_002.jpg'><img src='out/blocks/page-16/page-16_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Cx Mastes / 1207 17'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-16/page-16_block_003.jpg'><img src='out/blocks/page-16/page-16_block_003.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Less Raia soja'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-16/page-16_block_004.jpg'><img src='out/blocks/page-16/page-16_block_004.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Cesto ge Roupa Suja'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-16/page-16_block_005.jpg'><img src='out/blocks/page-16/page-16_block_005.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Organizadod InfanHl de Suja'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-16/page-16_block_007.jpg'><img src='out/blocks/page-16/page-16_block_007.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='me EMetd Embalagem Cartão:'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-16/page-16_block_008.jpg'><img src='out/blocks/page-16/page-16_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Aa à Master F 26 É J 720'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-17/page-17_block_003.jpg'><img src='out/blocks/page-17/page-17_block_003.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Pará Ul Divisórias'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-17/page-17_block_008.jpg'><img src='out/blocks/page-17/page-17_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='varal Aco'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-18/page-18_block_007.jpg'><img src='out/blocks/page-18/page-18_block_007.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='GIG 9 Peças'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-18/page-18_block_013.jpg'><img src='out/blocks/page-18/page-18_block_013.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Master Maza A 407'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-20/page-20_block_001.jpg'><img src='out/blocks/page-20/page-20_block_001.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='PESSOAIS Jus'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-20/page-20_block_004.jpg'><img src='out/blocks/page-20/page-20_block_004.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='CUIDADOS'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-20/page-20_block_005.jpg'><img src='out/blocks/page-20/page-20_block_005.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='PESSOAIS'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-21/page-21_block_005.jpg'><img src='out/blocks/page-21/page-21_block_005.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='be Ox Master f 200 / Sal f 100'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-21/page-21_block_008.jpg'><img src='out/blocks/page-21/page-21_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Balança Digital Quadrada'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-21/page-21_block_009.jpg'><img src='out/blocks/page-21/page-21_block_009.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='CTIOZE Batencamectnica sortido'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-22/page-22_block_002.jpg'><img src='out/blocks/page-22/page-22_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Para Vinte'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_002.jpg'><img src='out/blocks/page-24/page-24_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Pára Sabonete'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_004.jpg'><img src='out/blocks/page-24/page-24_block_004.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Ls Master Et'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_006.jpg'><img src='out/blocks/page-24/page-24_block_006.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Pere Cata'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_007.jpg'><img src='out/blocks/page-24/page-24_block_007.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='ZE Para Waves'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_008.jpg'><img src='out/blocks/page-24/page-24_block_008.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='WPlástica BP.'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_009.jpg'><img src='out/blocks/page-24/page-24_block_009.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Pata sortido'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_014.jpg'><img src='out/blocks/page-24/page-24_block_014.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='MR petas Preto'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_015.jpg'><img src='out/blocks/page-24/page-24_block_015.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Ntsanheiro peças'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-24/page-24_block_017.jpg'><img src='out/blocks/page-24/page-24_block_017.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Fit Preto:'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-26/page-26_block_005.jpg'><img src='out/blocks/page-26/page-26_block_005.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Wide Balls'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-28/page-28_block_009.jpg'><img src='out/blocks/page-28/page-28_block_009.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Vatão Pará Rox'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-28/page-28_block_012.jpg'><img src='out/blocks/page-28/page-28_block_012.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='carting Roz'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-30/page-30_block_002.jpg'><img src='out/blocks/page-30/page-30_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='AL PRESA SOT'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-30/page-30_block_003.jpg'><img src='out/blocks/page-30/page-30_block_003.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='24, cx Master'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-30/page-30_block_004.jpg'><img src='out/blocks/page-30/page-30_block_004.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='Para Tanete Banheiro'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-31/page-31_block_002.jpg'><img src='out/blocks/page-31/page-31_block_002.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='yay OF a sanitário:'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+<tr>
+<td><div class='imgwrap col-img' data-src='out/blocks/page-31/page-31_block_004.jpg'><img src='out/blocks/page-31/page-31_block_004.jpg'></div></td>
+<td><input class='col-code' type='text' value=''></td>
+<td><input class='col-title' type='text' value='. sanitário:'></td>
+<td><input class='col-price' type='text' value=''></td>
+</tr>
+</tbody></table>
+<div style='max-width:1280px;margin:0 auto 40px' class='muted'>
+⚙️ Dica: edite os campos e clique <b>Salvar alterações</b> para baixar <code>catalogo_editado.json</code>.
+</div></main></body></html>

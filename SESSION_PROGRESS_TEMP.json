@@ -1,0 +1,75 @@
+{
+  "actions": [
+    "Leitura completa dos arquivos chat0212-4.txt, chat0212-5.txt e chat0212-6.txt.",
+    "Mapeamento dos arquivos criados durante a sessão.",
+    "Mapeamento dos arquivos modificados durante a sessão.",
+    "Identificação das lógicas empregadas nos pipelines.",
+    "Identificação das técnicas aplicadas no processo de OCR, normalização e montagem.",
+    "Levantamento dos testes manuais e via interface que foram executados."
+  ],
+  "files_created": [
+    "core_pipeline/extractors/ocr_page_processor.py",
+    "core_pipeline/pipeline_normalize_by_page.py",
+    "core_pipeline/assembler/assemble_products.py",
+    "core_pipeline/assembler/generate_editable_html.py",
+    "core_pipeline/utils/cleanup_legacy_outputs.py",
+    "core_pipeline/converters/pdf_to_jpg_converter.py",
+    "src/static_output_router.py"
+  ],
+  "files_modified": [
+    "src/app.py",
+    "src/templates/process.html",
+    "src/templates/extracted_review.html"
+  ],
+  "files_deleted": [],
+  "tests_executed": [
+    "python3 core_pipeline/extractors/ocr_page_processor.py <job>",
+    "python3 core_pipeline/pipeline_normalize_by_page.py <job>",
+    "python3 core_pipeline/assembler/assemble_products.py <job>",
+    "python3 core_pipeline/assembler/generate_editable_html.py <job>",
+    "Testes via interface: upload -> process -> iniciar extração -> abrir HTML"
+  ],
+  "errors_fixed": [],
+  "pending_items": [],
+  "impact_accumulated": [
+    "Pipeline 2810 completamente restaurado.",
+    "Caminhos corrigidos para pages_jpg, OCR, normalize, assemble e HTML.",
+    "Pipeline antigo removido do fluxo principal.",
+    "Backend integrado ao pipeline 2810 através de /process-run/<job_id>.",
+    "Static router passa a servir HTML, crops, JPG e JSON corretamente."
+  ],
+  "steps_completed": [
+    "Reanálise dos TXT",
+    "Reconstrução do histórico",
+    "Identificação completa do pipeline antigo",
+    "Confirmação da integração do pipeline 2810",
+    "Mapeamento dos arquivos realmente criados/modificados"
+  ],
+  "next_micro_step": "Executar novo teste completo do fluxo upload -> process -> process-run -> HTML.",
+  "progress_state_partial": {
+    "current_step": 1,
+    "total_steps": 5,
+    "steps_completed": [
+      "Mapeamento do pipeline",
+      "Leitura completa dos TXT",
+      "Reconstrução da lógica",
+      "Integração 2810 documentada"
+    ],
+    "steps_pending": [
+      "Testar novamente o fluxo completo",
+      "Validar abertura correta do HTML final",
+      "Verificar se nenhuma rota antiga é chamada",
+      "Confirmar que não há mais HTML antigo"
+    ],
+    "current_focus": "Consolidar estado da sessão para manter rastreabilidade.",
+    "next_required_step": "Rodar teste final após atualização dos arquivos."
+  },
+  "logic_applied": [
+    "Resumo produzido exclusivamente com base nos TXT anexados e na janela atual.",
+    "Nenhuma memória externa utilizada conforme protocolo.",
+    "Lógicas identificadas: OCR 2810, normalização robusta, assemble dinâmico, HTML interativo.",
+    "Fluxo web identificado e comparado com pipeline real.",
+    "Todos os arquivos criados/modificados extraídos estritamente dos TXT."
+  ],
+  "full_code_snapshots": {}
+}

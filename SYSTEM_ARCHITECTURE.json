@@ -1,0 +1,294 @@
+{
+  "system_name": "garimpo-ml",
+  "version": "1.0.0",
+  "root": {
+    "description": "Raiz do projeto Garimpo ML em produção",
+    "key_dirs": [
+      "core_pipeline",
+      "src",
+      "gpt_exchange",
+      "agent_pre_catalog",
+      "data",
+      "out",
+      "logs",
+      "docs",
+      "backups",
+      "checkpoints",
+      "venv"
+    ]
+  },
+  "modules": [
+    {
+      "name": "core_pipeline",
+      "path": "core_pipeline",
+      "type": "pipeline_core",
+      "description": "Núcleo de pipelines OCR, normalização, merge e geração de catálogo.",
+      "critical": true,
+      "safe_to_modify": false,
+      "submodules": [
+        {
+          "name": "core_pipeline/api",
+          "type": "http_api",
+          "description": "Endpoints HTTP internos para upload, OCR, merge, catálogo e status.",
+          "files": [
+            { "name": "upload_pdf.py", "role": "Endpoint de upload de PDF para o pipeline novo.", "critical": true, "safe_to_modify": true },
+            { "name": "convert_pdf.py", "role": "Conversão de PDF em imagens para o pipeline.", "critical": true, "safe_to_modify": true },
+            { "name": "extract_pipeline.py", "role": "Orquestra pipeline de OCR e extração de blocos/produtos.", "critical": true, "safe_to_modify": true },
+            { "name": "ocr_extract.py", "role": "Extração OCR de páginas com base nos arquivos convertidos.", "critical": true, "safe_to_modify": true },
+            { "name": "calibra_p10_engine.py", "role": "Engine de calibração de preços/regiões para produtos P10.", "critical": true, "safe_to_modify": true },
+            { "name": "merge_engine.py", "role": "Merge de resultados OCR/visuais em estrutura final de produtos.", "critical": true, "safe_to_modify": true },
+            { "name": "pipeline_merge_products.py", "role": "Pipeline de merge de produtos por página/catálogo.", "critical": true, "safe_to_modify": true },
+            { "name": "page_merge_pipeline.py", "role": "Orquestra merge por página antes de consolidar o catálogo.", "critical": true, "safe_to_modify": true },
+            { "name": "catalog_generate.py", "role": "Gera catálogo final a partir dos dados normalizados/mergeados.", "critical": true, "safe_to_modify": true },
+            { "name": "catalog_renderer.py (uso indireto)", "role": "Renderização de catálogos HTML/JSON (ver arquivos na raiz/out).", "critical": true, "safe_to_modify": true },
+            { "name": "catalog_api.py", "role": "API interna para revisão e visualização de catálogo.", "critical": true, "safe_to_modify": true },
+            { "name": "status.py", "role": "Endpoint de status/progresso de processamento.", "critical": true, "safe_to_modify": true },
+            { "name": "session_control.py", "role": "Controle de sessão de processamento / resets / estados.", "critical": true, "safe_to_modify": true },
+            { "name": "assemble_products.py", "role": "Funções para montar produtos a partir de blocos OCR.", "critical": true, "safe_to_modify": true }
+          ],
+          "templates_dir": "core_pipeline/api/templates",
+          "templates": [
+            { "name": "upload.html", "role": "Tela de upload interna do pipeline." },
+            { "name": "upload_success.html", "role": "Tela de sucesso de upload." }
+          ]
+        },
+        {
+          "name": "core_pipeline/server",
+          "type": "service_api",
+          "description": "Endpoints usados pelo servidor (Flask/Gunicorn/Passenger) para upload/convert.",
+          "files": [
+            { "name": "convert_pdf.py", "role": "Conversão de PDF via servidor HTTP." },
+            { "name": "upload_pdf.py", "role": "Upload de PDFs via servidor HTTP." }
+          ]
+        },
+        {
+          "name": "core_pipeline/alt_fastocr",
+          "type": "ocr_engine",
+          "description": "Implementações e scripts auxiliares de OCR rápido (visão + texto).",
+          "files": [
+            { "name": "fast_ocr_p10.py", "role": "OCR rápido principal aplicado às páginas P10." },
+            { "name": "fast_ocr_p10_paddle.py", "role": "Variação de OCR usando PaddleOCR." },
+            { "name": "ocr_tokens_page.py", "role": "Geração de tokens OCR por página." },
+            { "name": "segmentador_visual.py", "role": "Segmentação visual de blocos na página." },
+            { "name": "filter_segments.py", "role": "Filtro de segmentos OCR baseado em regras simples." },
+            { "name": "filter_segments_hybrid.py", "role": "Filtro híbrido de segmentos OCR (texto + visual)." },
+            { "name": "debug_clusters.py", "role": "Ferramentas de debug de agrupamentos de blocos." }
+          ]
+        },
+        {
+          "name": "core_pipeline/calibra_p10",
+          "type": "calibration_engine",
+          "description": "Rotinas de calibração e testes específicos do pipeline P10.",
+          "files": [
+            { "name": "calibra_p10_main.py", "role": "Entry point para calibração P10 sobre dados OCR." },
+            { "name": "utils_calibra.py", "role": "Funções auxiliares de calibração." },
+            { "name": "test_extract_from_text.py", "role": "Testes de extração de produtos a partir de texto." },
+            { "name": "test_ocr_regex.py", "role": "Testes de regex aplicado a OCR." }
+          ]
+        },
+        {
+          "name": "core_pipeline/calibra_full",
+          "type": "calibration_engine",
+          "description": "Pipeline completo de calibração full.",
+          "files": [
+            { "name": "calibra_main.py", "role": "Entry point de calibração full." }
+          ]
+        },
+        {
+          "name": "core_pipeline/utils",
+          "type": "internal_utils",
+          "description": "Utilitários internos, logging de sessão, checkpoints e monitoramento de arquivos.",
+          "files": [
+            { "name": "server_file_monitor.py", "role": "Monitoramento de arquivos do servidor (before/after snapshots)." },
+            { "name": "session_logger.py", "role": "Registro estruturado dos passos da sessão." },
+            { "name": "session_context_logger.py", "role": "Contexto estendido da sessão (para relatórios GPT)." },
+            { "name": "session_checkpoint.py", "role": "Gestão de checkpoints da sessão." },
+            { "name": "session_report.py", "role": "Geração de relatórios de sessão." },
+            { "name": "session_chat_report.py", "role": "Relatórios focados em interações com GPT." },
+            { "name": "checkpoint_manager.py", "role": "Gerência de checkpoints de arquivos." },
+            { "name": "checkpoint_registry.py", "role": "Registro dos checkpoints criados." },
+            { "name": "gpt_sync_helper.py", "role": "Funções auxiliares para sincronização GPT-servidor." },
+            { "name": "combine_context.py", "role": "Combina logs de sessão e diffs de arquivos em CONTEXT_BOOT.json." },
+            { "name": "session_manager.py", "role": "Camada de orquestração da sessão (estado alto nível)." },
+            { "name": "validate_normalized.py", "role": "Validação de dados OCR normalizados." },
+            { "name": "check_pages_consistency.py", "role": "Verificação de consistência de páginas processadas." }
+          ]
+        },
+        {
+          "name": "core_pipeline/gpt_exchange",
+          "type": "gpt_integration",
+          "description": "Scripts de integração entre GPT e servidor (snapshots, diffs, CONTEXT_BOOT).",
+          "files": [
+            { "name": "generate_context_boot.sh", "role": "Gera CONTEXT_BOOT.json a partir dos artefatos da sessão." },
+            { "name": "snapshot_start.sh", "role": "Snapshot inicial do estado do servidor antes da sessão GPT." },
+            { "name": "snapshot_end.sh", "role": "Snapshot final e diffs depois da sessão GPT." },
+            { "name": "continuar_garimpo_ml.sh", "role": "Script de conveniência para iniciar sessão GPT com contexto." },
+            { "name": "encerrar_garimpo_ml.sh", "role": "Script de conveniência para encerrar sessão GPT e gerar artefatos." },
+            { "name": "gpt_end_session.sh", "role": "Auxiliar para fechamento de sessão GPT." },
+            { "name": "session_step.sh", "role": "Registro granular de passos da sessão." }
+          ]
+        },
+        {
+          "name": "core_pipeline/data",
+          "type": "runtime_data",
+          "description": "Dados de execução do pipeline (uploads, html, json, logs, outputs).",
+          "safe_to_modify": true
+        },
+        {
+          "name": "core_pipeline/outputs",
+          "type": "runtime_outputs",
+          "description": "Saídas de recortes / crops intermediários.",
+          "safe_to_modify": true
+        },
+        {
+          "name": "core_pipeline/pipelines",
+          "type": "pipelines_orchestrator",
+          "description": "Scripts de orquestração de pipelines OCR, normalize, html, relatórios.",
+          "files": [
+            { "name": "pipeline_master.py", "role": "Orquestração central dos pipelines." },
+            { "name": "pipeline_convert_pdf.py", "role": "Pipeline de conversão de PDF." },
+            { "name": "pipeline_detectron_ocr.py", "role": "Pipeline que usa detectron2 para OCR visual." },
+            { "name": "pipeline_generate_html_paginado.py", "role": "Geração de HTML paginado a partir de dados OCR." },
+            { "name": "pipeline_normalize_by_page.py", "role": "Normalização de dados OCR página a página." },
+            { "name": "pipeline_relatorio_ocr.py", "role": "Geração de relatórios de OCR." },
+            { "name": "upload_manager.py", "role": "Gerência de uploads dentro do core_pipeline." },
+            { "name": "add_images_to_catalog.py", "role": "Adição de imagens ao catálogo final." },
+            { "name": "eval_accuracy_hybrid.py", "role": "Avaliação da acurácia do pipeline híbrido." }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "src",
+      "path": "src",
+      "type": "flask_app",
+      "description": "Aplicação Flask/Wsgi que expõe rotas web (upload, review, catálogo).",
+      "critical": true,
+      "safe_to_modify": true,
+      "files": [
+        { "name": "app.py", "role": "Aplicação Flask principal (rotas HTTP)." },
+        { "name": "wsgi.py", "role": "Ponto de entrada WSGI para servidores (gunicorn/passenger)." },
+        { "name": "converter_pdf.py", "role": "Camada web para conversão de PDF (frontend)." },
+        { "name": "extrator_html.py", "role": "Geração de HTML para visualização de catálogos." }
+      ],
+      "templates_dir": "src/templates",
+      "templates": [
+        { "name": "upload.html", "role": "Tela de upload da aplicação principal." },
+        { "name": "process.html", "role": "Tela de processamento em andamento." },
+        { "name": "review.html", "role": "Tela de revisão do catálogo." },
+        { "name": "catalog_template.html", "role": "Template base para catálogos." }
+      ]
+    },
+    {
+      "name": "agent_pre_catalog",
+      "path": "agent_pre_catalog",
+      "type": "pre_catalog_agent",
+      "description": "Ferramentas de pré-processamento para gerar HTML editável e normalização antes do catálogo.",
+      "files": [
+        { "name": "detect_blocks.py", "role": "Detecção de blocos no layout da página." },
+        { "name": "preprocess.py", "role": "Pré-processamento de imagens/pdf para OCR." },
+        { "name": "ocr_engine.py", "role": "Engine OCR auxiliar." },
+        { "name": "normalize_ocr.py", "role": "Normalização do resultado OCR." },
+        { "name": "generate_editable_html.py", "role": "Geração de HTML editável a partir dos dados OCR." }
+      ]
+    },
+    {
+      "name": "gpt_exchange_root",
+      "path": "gpt_exchange",
+      "type": "gpt_exchange",
+      "description": "Pasta de troca GPT-servidor na raiz do projeto, com contextos, logs e diffs.",
+      "files": [
+        { "name": "CONTEXT_BOOT.json", "role": "Estado consolidado da última sessão (lado servidor)." },
+        { "name": "SESSION_LOG.json", "role": "Histórico da sessão (intenção/tarefas executadas)." },
+        { "name": "SERVER_FILE_DIFF.json", "role": "Diferença de arquivos antes/depois da sessão." },
+        { "name": "MICRO_PASSOS_LOG.txt", "role": "Log textual de micro-passos do GPT." },
+        { "name": "GPT_ARQUIVOS_OPERACIONAIS.txt", "role": "Notas sobre arquivos operacionais do GPT." },
+        { "name": "GPT_CONTINUAR_TEMPLATE.txt", "role": "Modelo de prompt para continuar contexto." },
+        { "name": "GPT_INSTRUCTIONS_SIMPLIFICADAS.txt", "role": "Versão simplificada de instruções do GPT." }
+      ]
+    },
+    {
+      "name": "data_root",
+      "path": "data",
+      "type": "working_data",
+      "description": "Pasta de dados local para desenvolvimento/testes (linka com core_pipeline/data).",
+      "safe_to_modify": true
+    },
+    {
+      "name": "out",
+      "path": "out",
+      "type": "generated_outputs",
+      "description": "Saídas geradas localmente (HTML, JSON, imagens de layout, produtos extraídos).",
+      "safe_to_modify": true
+    },
+    {
+      "name": "logs_root",
+      "path": "logs",
+      "type": "logs",
+      "description": "Logs de execução, checkpoints e relatórios.",
+      "safe_to_modify": true
+    },
+    {
+      "name": "docs",
+      "path": "docs",
+      "type": "documentation",
+      "description": "Documentação técnica, protocolos, macros de chat e referências estáveis."
+    },
+    {
+      "name": "tools",
+      "path": "tools",
+      "type": "tools",
+      "description": "Ferramentas auxiliares de merge visual + OCR e renderização.",
+      "files": [
+        { "name": "merge_visual_and_ocr.py", "role": "Merge de dados visuais com OCR." },
+        { "name": "render_editable_from_visual.py", "role": "Geração de HTML editável a partir de visual + OCR." }
+      ]
+    },
+    {
+      "name": "passenger_wsgi",
+      "path": "passenger_wsgi.py",
+      "type": "wsgi_entrypoint",
+      "description": "Ponto de entrada WSGI para Passenger/produção."
+    },
+    {
+      "name": "base_garimpo",
+      "path": "base_garimpo.py",
+      "type": "shared_base",
+      "description": "Funções e base comum do Garimpo ML."
+    }
+  ],
+  "flows": {
+    "upload_to_catalog": {
+      "description": "Fluxo principal: upload de PDF → OCR → normalização → merge → catálogo → revisão.",
+      "entry_points": [
+        "src/app.py",
+        "core_pipeline/api/upload_pdf.py",
+        "core_pipeline/server/upload_pdf.py"
+      ],
+      "steps": [
+        "Upload de PDF (src/app.py ou core_pipeline/api/upload_pdf.py)",
+        "Conversão de PDF em imagens (core_pipeline/api/convert_pdf.py ou core_pipeline/server/convert_pdf.py)",
+        "Pipeline de OCR (pipeline_detectron_ocr.py, alt_fastocr, ocr_extract.py)",
+        "Normalização página a página (pipeline_normalize_by_page.py, normalize_ocr.py)",
+        "Merge de blocos e produtos (page_merge_pipeline.py, pipeline_merge_products.py, merge_engine.py)",
+        "Calibração (calibra_p10_main.py, calibra_p10_engine.py, calibra_main.py se usado)",
+        "Geração de catálogo (catalog_generate.py, add_images_to_catalog.py)",
+        "Renderização HTML/JSON (catalog_renderer.py, out/*.html, out/*.json)",
+        "Revisão via tela (src/templates/review.html, catalog_api.py)"
+      ]
+    }
+  },
+  "entry_points": [
+    { "name": "Flask main", "path": "src/app.py", "role": "Aplicação web principal." },
+    { "name": "WSGI (src)", "path": "src/wsgi.py", "role": "Entrada WSGI da aplicação em src." },
+    { "name": "WSGI (passenger)", "path": "passenger_wsgi.py", "role": "Entrada WSGI para Passenger." }
+  ],
+  "config_references": [
+    { "path": "requirements.txt", "role": "Dependências Python do projeto." },
+    { "path": "data/garimpo_base.json", "role": "Configuração/base de mapeamento de dados do Garimpo ML." },
+    { "path": "docs/SESSION_START_GARIMPOML.txt", "role": "Procedimento padrão de início de sessão." },
+    { "path": "docs/PROTOCOL_CHECK_SYNC.md", "role": "Protocolo de verificação de integridade e sincronização." }
+  ],
+  "last_update": "",
+  "updated_files": []
+}

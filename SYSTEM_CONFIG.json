@@ -1,0 +1,96 @@
+{
+  "version": "1.0.0",
+  "description": "Configuração consolidada do sistema GarimpoML para carregamento de contexto do GPT. Este arquivo contém apenas informações estáveis que o GPT deve usar para entender a estrutura do sistema antes de iniciar qualquer sessão de trabalho.",
+
+  "project": {
+    "name": "GarimpoML",
+    "purpose": "Processamento de PDFs, OCR, normalização, calibração, montagem de catálogo e geração de HTML editável.",
+    "root_path": "/home/ubuntu/garimpo-ml"
+  },
+
+  "architecture": {
+    "app_entrypoints": [
+      "src/app.py",
+      "passenger_wsgi.py",
+      "wsgi.py"
+    ],
+
+    "main_pipelines": {
+      "extract_pipeline": "core_pipeline/api/extract_pipeline.py",
+      "ocr_extract": "core_pipeline/api/ocr_extract.py",
+      "pipeline_master": "core_pipeline/pipeline_master.py",
+      "normalize_by_page": "core_pipeline/pipeline_normalize_by_page.py",
+      "merge_products": "core_pipeline/api/pipeline_merge_products.py",
+      "add_images_to_catalog": "core_pipeline/add_images_to_catalog.py",
+      "generate_html_paginado": "core_pipeline/pipeline_generate_html_paginado.py",
+      "pipeline_relatorio_ocr": "core_pipeline/pipeline_relatorio_ocr.py"
+    },
+
+    "modules": {
+      "pre_catalog_agent": "agent_pre_catalog/",
+      "ocr_engines": "core_pipeline/alt_fastocr/",
+      "utils": "core_pipeline/utils/",
+      "api_routes": "core_pipeline/api/",
+      "server_layer": "core_pipeline/server/",
+      "templates_root": "src/templates/"
+    }
+  },
+
+  "configuration_files": {
+    "requirements": "requirements.txt",
+    "gunicorn_config": "gunicorn.conf.py (se existir)",
+    "environment": [
+      "venv/",
+      "pyvenv.cfg"
+    ],
+    "data_sources": {
+      "uploads": "core_pipeline/data/**/uploads/",
+      "outputs": "core_pipeline/data/**/outputs/",
+      "tmp": "core_pipeline/data/**/tmp/",
+      "pages": "core_pipeline/data/**/pages/"
+    }
+  },
+
+  "systemd_services": {
+    "gunicorn": {
+      "file": "/etc/systemd/system/gunicorn.service",
+      "purpose": "Servidor WSGI principal da aplicação (app.py)."
+    },
+    "garimpo-ml": {
+      "file": "/etc/systemd/system/garimpo-ml.service",
+      "purpose": "Serviço principal de automação/supervisão do Garimpo ML."
+    },
+    "garimpo-progress": {
+      "file": "/etc/systemd/system/garimpo-progress.service",
+      "purpose": "Serviço responsável por atualizar o progresso de OCR e pipelines longos."
+    },
+    "garimpo-catalog": {
+      "file": "/etc/systemd/system/garimpo-catalog.service",
+      "purpose": "Serviço focado na montagem ou atualização de catálogos."
+    },
+    "garimpo-extract": {
+      "file": "/etc/systemd/system/garimpo-extract.service",
+      "purpose": "Serviço dedicado a extrações OCR, conversões PDF e pipelines pesados."
+    }
+  },
+
+  "important_scripts": {
+    "context_boot_generator": "gpt_exchange/generate_context_boot.sh",
+    "end_session": "gpt_exchange/gpt_end_session.sh",
+    "continuar_sessao": "gpt_exchange/continuar_garimpo_ml.sh",
+    "encerrar_sessao": "gpt_exchange/encerrar_garimpo_ml.sh",
+    "server_snapshot_start": "gpt_exchange/snapshot_start.sh",
+    "server_snapshot_end": "gpt_exchange/snapshot_end.sh",
+    "session_step": "gpt_exchange/session_step.sh"
+  },
+
+  "logs": {
+    "gpt_sync": "gpt_exchange/GPT_SYNC_AUDIT.log",
+    "micro_passos": "gpt_exchange/MICRO_PASSOS_LOG.txt",
+    "session_log": "gpt_exchange/SESSION_LOG.json",
+    "flask": "flask.log",
+    "extract_runs": "logs/extract_run_*.log",
+    "ocr_runs": "logs/ocr_*.log",
+    "catalog_renderer": "catalog_renderer.log"
+  }
+}

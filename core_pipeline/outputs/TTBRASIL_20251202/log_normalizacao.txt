@@ -1,0 +1,37 @@
+LOG NORMALIZAÇÃO – 2025-12-02 19:13:37.206842
+
+Página 01: 4 produtos
+Página 02: 25 produtos
+Página 03: 0 produtos
+Página 04: 35 produtos
+Página 05: 28 produtos
+Página 06: 18 produtos
+Página 07: 33 produtos
+Página 08: 34 produtos
+Página 09: 24 produtos
+Página 10: 1 produtos
+Página 11: 37 produtos
+Página 12: 31 produtos
+Página 13: 40 produtos
+Página 14: 25 produtos
+Página 15: 31 produtos
+Página 16: 38 produtos
+Página 17: 27 produtos
+Página 18: 32 produtos
+Página 19: 30 produtos
+Página 20: 2 produtos
+Página 21: 34 produtos
+Página 22: 19 produtos
+Página 23: 1 produtos
+Página 24: 41 produtos
+Página 25: 17 produtos
+Página 26: 17 produtos
+Página 27: 24 produtos
+Página 28: 38 produtos
+Página 29: 25 produtos
+Página 30: 34 produtos
+Página 31: 37 produtos
+Página 32: 8 produtos
+Página 33: 1 produtos
+
+Total: 791 produtos
